@@ -1,8 +1,9 @@
 <template>
-  <section class="container">
-    <div>
-      <TopBar/>
-      <NavBar/>
+  <section class="container-fuild">
+          <TopBar/>
+               <NavBar/>
+    <div class="container">
+ 
       <el-row >
         <el-col :span="4">
           <SideBar/>
@@ -19,15 +20,17 @@
       <Slider-Product/>
       <Brand/>
       <ProductWidgetArea/>
+      
   </div>
+  <Footer/>
   </section>
 </template>
 
 <script>
-import TopBar from "~/components/Menu/TopBar.vue"
-import NavBar from "~/components/Menu/NavBar.vue"
+import TopBar from "~/components/Main/TopBar.vue"
+import NavBar from "~/components/Main/NavBar.vue"
 
-import SideBar from "~/components/Menu/SideBar.vue"
+import SideBar from "~/components/Main/SideBar.vue"
 import SliderMain from "~/components/Slider/SliderMain.vue"
 import Ads from "~/components/Block/Ads.vue"
 
@@ -35,6 +38,8 @@ import Promo from "~/components/Block/Promo.vue"
 import SliderProduct from "~/components/Slider/SliderProduct.vue"
 import Brand from "~/components/Block/Brand.vue"
 import ProductWidgetArea from "~/components/Block/ProductWidgetArea.vue"
+
+import Footer from "~/components/Main/Footer.vue"
 
 export default {
 	components: {
@@ -46,7 +51,8 @@ export default {
 		Promo,
 		SliderProduct,
 		Brand,
-		ProductWidgetArea
+		ProductWidgetArea,
+		Footer
 	}
 }
 </script>

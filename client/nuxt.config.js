@@ -27,6 +27,9 @@ module.exports = {
     ],
     script: [{ src: "https://unpkg.com/element-ui/lib/index.js", body: true }]
   },
+
+  modules: ["@nuxtjs/font-awesome"],
+
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
@@ -49,7 +52,8 @@ module.exports = {
       "vue-notifications",
       "element-ui",
       "vee-validate",
-      "vue-carousel"    ],
+      "vue-carousel"
+    ],
     /*
     ** Run ESLint on save
     */
