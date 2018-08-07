@@ -29,7 +29,7 @@
 								<li>
 									<el-dropdown trigger="click">
 										<span class="el-dropdown-link">
-											<img style="width: 13%" src="https://farm8.staticflickr.com/7431/14079601101_187abd6808_h.jpg" alt="avatar">
+											<img style="width: 13%" src="https://kenh14cdn.com/2017/img-9151-1487175576278.jpg" alt="avatar">
 											<i class="el-icon-arrow-down el-icon--right"></i>
 									</span>
 									<el-dropdown-menu slot="dropdown">
@@ -54,14 +54,14 @@
                         <h1><a href="./"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAApVBMVEX///9BuIM1SV47gHDBx83F6dnD2NM2UWE1TF9MvIo3YGb3/Po7fm/U49/2/Pk2TmA5b2o3WGNfl4o6dm3t8/I4Zmg5ammAz6xxo5fk7evg8+s/pX02VGJ3zKbP7d89lXey4sw3W2Q8iHNlxpuuysOPtq1Ar4BKinuU17k5c2x/rKG81M5ZwZOh28Gcv7c+nnrCz9BqnpI9kXbM7N275dKYvbRUkIKzQZGJAAACKklEQVRoge2Xa1PaQBSGPWeLApHgnUoFtbQVFeoN+f8/rUlgy9nkZJu9pOM45/mYDzyTyTP7Lnt7giAIgiAIwgcjmf8HyRLeWneMezBrXTICgJuWHdPMAb20Xcksl0C7334FG8b04VlcR7rYSibUsY5rmYOms3v4oH7GdGT5ahaJfjhQSl1GlExgx1I/fMkkX+M53ojjb8aPKmc/mmRGJTAqniXrQnISy3EDJkXG72rDjziOtFeS5EfY5dah7uJkPIcyqzxfTZSMxxUHLNKB2jGIIJlUJbA8IZKXcEeHccDrIZGox1BHsmAcv676VLJO/v07VpbcixwinlLL7zDHWTnf4kWGiMdUEpjxiHuRI8w4opaHEMeUczzlDjwwvn1IxjNO0i8keE4lARmvOMf3jQO7cTJO+Xy3EjQyvvPNuC5fjZHxu59jzOX7rbuTXFGJ5xKz+V4gITxjNt9r6sCh8e19lpjN99aQmBl7LHF5c418NV3j2zsvcWVzi3wPShK8DTrCqpubcVp2IN5Ti+MSM5tr5hsjY25z4bzqQLygEqcLJbu515zDP2N2c+GYlaDvErOHluIdpSOsccZ8vsM6iV/GbL73dQ6/jNl8n+odXkvM5tu3SMyMGy0xu7mvNkcp4wZL7JSvxjVjt3w1bhdKdnPr89W4XSjrr4x2XJbYcmW045Kx7cpop/kSs5trz1djXihtR9i0w/D8pRHP+4QY/yMFQRAEQRA+FX8A4QwoVtGJW+wAAAAASUVORK5CYII="></a></h1>
                     </div>
                 </div>
-				<div class="col-md-10">
+				<div class="col-md-8">
 					<img src="http://phatlocmobile.vn/image/catalog/banner/banner-sua-chua.png">
 				</div>
-                <!-- <div class="col-sm-2">
+                <div class="col-sm-2">
                     <div class="shopping-item">
                         <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
