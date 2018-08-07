@@ -4,36 +4,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="user-menu">
+                    <div class="menu-hint">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Kênh người bán</a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> Tải ứng dụng</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
+								<li>
+									<el-dropdown trigger="click">
+								<span class="el-dropdown-link">
+									Language<i class="el-icon-arrow-down el-icon--right"></i>
+								</span>
+								
+								<el-dropdown-menu slot="dropdown">
+									<el-dropdown-item><img style="width: 2%" src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Great_Britain_%28English_version%29.png" alt="Flag English"> English</el-dropdown-item>
+									<el-dropdown-item><img style="width: 2%" src="http://www.printableflags.net/wp-content/uploads/2017/04/vietnam-flag-vietnam-flag-rqnAdR.jpg" alt="Flag Vietnamese"> Vietnamese</el-dropdown-item>
+								</el-dropdown-menu>
+								</el-dropdown>
+								</li>
+								<li>
+									<el-dropdown trigger="click">
+										<span class="el-dropdown-link">
+											<img style="width: 13%" src="https://farm8.staticflickr.com/7431/14079601101_187abd6808_h.jpg" alt="avatar">
+											<i class="el-icon-arrow-down el-icon--right"></i>
+									</span>
+									<el-dropdown-menu slot="dropdown">
+										<el-dropdown-item><a href="#"><i class="fa fa-user"></i> Profile</a></el-dropdown-item>
+										<el-dropdown-item><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></el-dropdown-item>
+										<el-dropdown-item><a href="checkout.html"><i class="fa fa-user"></i> Check out</a></el-dropdown-item>
+										<el-dropdown-item><a href="#"><i class="fa fa-user"></i> Sign uot</a></el-dropdown-item>
+									</el-dropdown-menu>
+									</el-dropdown>
+								</li>											
                         </ul>
                     </div>
                 </div>
@@ -43,17 +49,19 @@
      <div class="site-branding-area">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-2">
                     <div class="logo">
                         <h1><a href="./"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAApVBMVEX///9BuIM1SV47gHDBx83F6dnD2NM2UWE1TF9MvIo3YGb3/Po7fm/U49/2/Pk2TmA5b2o3WGNfl4o6dm3t8/I4Zmg5ammAz6xxo5fk7evg8+s/pX02VGJ3zKbP7d89lXey4sw3W2Q8iHNlxpuuysOPtq1Ar4BKinuU17k5c2x/rKG81M5ZwZOh28Gcv7c+nnrCz9BqnpI9kXbM7N275dKYvbRUkIKzQZGJAAACKklEQVRoge2Xa1PaQBSGPWeLApHgnUoFtbQVFeoN+f8/rUlgy9nkZJu9pOM45/mYDzyTyTP7Lnt7giAIgiAIwgcjmf8HyRLeWneMezBrXTICgJuWHdPMAb20Xcksl0C7334FG8b04VlcR7rYSibUsY5rmYOms3v4oH7GdGT5ahaJfjhQSl1GlExgx1I/fMkkX+M53ojjb8aPKmc/mmRGJTAqniXrQnISy3EDJkXG72rDjziOtFeS5EfY5dah7uJkPIcyqzxfTZSMxxUHLNKB2jGIIJlUJbA8IZKXcEeHccDrIZGox1BHsmAcv676VLJO/v07VpbcixwinlLL7zDHWTnf4kWGiMdUEpjxiHuRI8w4opaHEMeUczzlDjwwvn1IxjNO0i8keE4lARmvOMf3jQO7cTJO+Xy3EjQyvvPNuC5fjZHxu59jzOX7rbuTXFGJ5xKz+V4gITxjNt9r6sCh8e19lpjN99aQmBl7LHF5c418NV3j2zsvcWVzi3wPShK8DTrCqpubcVp2IN5Ti+MSM5tr5hsjY25z4bzqQLygEqcLJbu515zDP2N2c+GYlaDvErOHluIdpSOsccZ8vsM6iV/GbL73dQ6/jNl8n+odXkvM5tu3SMyMGy0xu7mvNkcp4wZL7JSvxjVjt3w1bhdKdnPr89W4XSjrr4x2XJbYcmW045Kx7cpop/kSs5trz1djXihtR9i0w/D8pRHP+4QY/yMFQRAEQRA+FX8A4QwoVtGJW+wAAAAASUVORK5CYII="></a></h1>
                     </div>
                 </div>
-                
-                <div class="col-sm-6">
+				<div class="col-md-10">
+					<img src="http://phatlocmobile.vn/image/catalog/banner/banner-sua-chua.png">
+				</div>
+                <!-- <div class="col-sm-2">
                     <div class="shopping-item">
                         <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -65,27 +73,41 @@
 export default {}
 </script>
 <style scoped>
+.el-dropdown-link {
+	cursor: pointer;
+	color: #409eff;
+}
+.el-icon-arrow-down {
+	font-size: 12px;
+}
+.demonstration {
+	display: block;
+	color: #8492a6;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
 .header-area {
 	background: none repeat scroll 0 0 #f4f4f4;
 }
 .header-area a {
 	color: #888;
 }
-.user-menu ul {
+.menu-hint ul {
 	list-style: outside none none;
 	margin: 0;
 	padding: 0;
 }
-.user-menu li {
+.menu-hint li {
 	display: inline-block;
 }
-.user-menu li a {
+.menu-hint li a {
 	display: block;
 	font-size: 13px;
 	margin-right: 5px;
 	padding: 10px;
 }
-.user-menu li a i.fa {
+.menu-hint li a i.fa {
 	margin-right: 5px;
 }
 .header-right ul.list-inline {
