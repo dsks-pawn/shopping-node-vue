@@ -13,6 +13,8 @@
                         <el-button type="text" class="button">Operating button</el-button>
                         </div>
                     </div>
+					  <div>{{ $store.state.ITEMS_HOT }}</div>
+					  <!-- <div @click="items()">alo</div> -->
                     </el-card>
                 </el-row>
             </slide>
@@ -21,7 +23,27 @@
      </no-ssr>
 </template>
 <script>
+import Items from "@/api/Items"
+
 export default {
+	async fetch() {
+		try {
+			let { data } = await Items.getItemsWithLimit()
+			await this.$store.dispatch("getItemsWithLimit", data)
+		} catch (error) {
+			throw error
+		}
+	},
+	// methods: {
+	// 	async items() {
+	// 		try {
+	// 			let { data } = await Items.getItemsWithLimit()
+	// 			this.$store.dispatch("getItemsWithLimit", data)
+	// 		} catch (error) {
+	// 			throw error
+	// 		}
+	// 	}
+	// },
 	data() {
 		return {
 			currentDate: 20,

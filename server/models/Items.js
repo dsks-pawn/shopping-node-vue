@@ -1,39 +1,47 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
-const ItemSchema = mongoose.Schema({
-    status: {
-        type: String,
-        required: true
-    },
+const ItemSchema = Schema({
+	status: {
+		type: String,
+		required: true
+	},
 	name: {
 		type: String,
+		required: true
+	},
+	img_represent: {
+		type: String,
+		required: true
+	},
+	img_description: {
+		type: Array,
 		required: true
 	},
 	brand: {
 		type: String,
 		required: true
 	},
-	category: { 
-		type: String,
-		required: true
-	},
-	password: {
+	category: {
 		type: String,
 		required: true
 	},
 	seri: {
 		type: String,
 		required: true
-    },
-    description: {
-        type: Object,
-        required: true
-    },
-    price: {
-        type: Number,
-        required: true
-    },
+	},
+	description: {
+		type: Object,
+		required: true
+	},
+	quantity: {
+		type: Number,
+		required: true
+	},
+	price: {
+		type: Number,
+		required: true
+	},
 	created_date: {
 		type: Date,
 		default: Date.now
@@ -44,4 +52,4 @@ const ItemSchema = mongoose.Schema({
 	}
 })
 
-module.exports = mongoose.model('Items', ItemSchema)
+module.exports = mongoose.model("Items", ItemSchema)

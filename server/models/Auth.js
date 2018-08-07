@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-const AuthSchema = mongoose.Schema({
+const AuthSchema = Schema({
 	first_name: {
 		type: String,
 		required: true

@@ -2,35 +2,47 @@
     <div>
         <div class="header-area">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="menu-hint">
+			<div class="row">
+				<div class="col-md-10">
+                    <div class="menu-hint" >
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> Kênh người bán</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Tải ứng dụng</a></li>
+							<li style="width: 50%">
+									<el-autocomplete style="width: 100%; padding-top: 5px"
+									popper-class="my-autocomplete"
+									v-model="state3"
+									:fetch-suggestions="querySearch"
+									placeholder="Please input"
+									@select="handleSelect">
+									<el-button slot="append" icon="el-icon-search"></el-button>
+									<template slot-scope="{ item }">
+										<div class="value">{{ item.value }}</div>
+										<span class="link">{{ item.link }}</span>
+									</template>
+									</el-autocomplete>
+							</li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-md-4">
+					</div>
+					<div class="col-md-2">
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
 								<li>
-									<el-dropdown trigger="click">
-								<span class="el-dropdown-link">
-									Language<i class="el-icon-arrow-down el-icon--right"></i>
+								<el-dropdown trigger="click">
+								<span class="el-dropdown-link"><i class="fa fa-flag"></i>
+									 Language<i class="el-icon-arrow-down el-icon--right"></i>
 								</span>
-								
 								<el-dropdown-menu slot="dropdown">
 									<el-dropdown-item><img style="width: 2%" src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Great_Britain_%28English_version%29.png" alt="Flag English"> English</el-dropdown-item>
 									<el-dropdown-item><img style="width: 2%" src="http://www.printableflags.net/wp-content/uploads/2017/04/vietnam-flag-vietnam-flag-rqnAdR.jpg" alt="Flag Vietnamese"> Vietnamese</el-dropdown-item>
 								</el-dropdown-menu>
 								</el-dropdown>
 								</li>
-								<li>
-									<el-dropdown trigger="click">
+								<li class="login-avatar">
+									<el-dropdown trigger="click" style="width: 28%">
 										<span class="el-dropdown-link">
-											<img style="width: 13%" src="https://kenh14cdn.com/2017/img-9151-1487175576278.jpg" alt="avatar">
-											<i class="el-icon-arrow-down el-icon--right"></i>
+											<img  src="https://kenh14cdn.com/2017/img-9151-1487175576278.jpg" alt="avatar">
 									</span>
 									<el-dropdown-menu slot="dropdown">
 										<el-dropdown-item><a href="#"><i class="fa fa-user"></i> Profile</a></el-dropdown-item>
@@ -39,12 +51,12 @@
 										<el-dropdown-item><a href="#"><i class="fa fa-user"></i> Sign uot</a></el-dropdown-item>
 									</el-dropdown-menu>
 									</el-dropdown>
-								</li>											
+								</li>										
                         </ul>
                     </div>
-                </div>
-            </div>
-        </div>
+					</div>
+					</div>
+		</div>
     </div>
      <div class="site-branding-area">
         <div class="container">
@@ -57,21 +69,12 @@
 				<div class="col-md-8">
 					<img src="http://phatlocmobile.vn/image/catalog/banner/banner-sua-chua.png">
 				</div>
-                <div class="col-sm-2">
-                    <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     </div>
 </template>
 
-
-<script>
-export default {}
-</script>
 <style scoped>
 .el-dropdown-link {
 	cursor: pointer;
@@ -129,7 +132,9 @@ export default {}
 	min-width: 100px;
 	text-align: center;
 }
-
+.login-avatar {
+	display: inline;
+}
 .logo h1 {
 	font-size: 40px;
 	margin: 30px 0;
@@ -192,3 +197,63 @@ export default {}
 	background: none repeat scroll 0 0 #000;
 }
 </style>
+<script>
+export default {
+	data() {
+		return {
+			links: [],
+			state1: "",
+			state2: "",
+			state3: ""
+		}
+	},
+	methods: {
+		querySearch(queryString, cb) {
+			var links = this.links
+			var results = queryString
+				? links.filter(this.createFilter(queryString))
+				: links
+			// call callback function to return suggestions
+			cb(results)
+		},
+		createFilter(queryString) {
+			return link => {
+				return (
+					link.value
+						.toLowerCase()
+						.indexOf(queryString.toLowerCase()) === 0
+				)
+			}
+		},
+		loadAll() {
+			return [
+				{ value: "vue", link: "https://github.com/vuejs/vue" },
+				{
+					value: "element",
+					link: "https://github.com/ElemeFE/element"
+				},
+				{
+					value: "cooking",
+					link: "https://github.com/ElemeFE/cooking"
+				},
+				{
+					value: "mint-ui",
+					link: "https://github.com/ElemeFE/mint-ui"
+				},
+				{ value: "vuex", link: "https://github.com/vuejs/vuex" },
+				{
+					value: "vue-router",
+					link: "https://github.com/vuejs/vue-router"
+				},
+				{ value: "babel", link: "https://github.com/babel/babel" }
+			]
+		},
+		handleSelect(item) {
+			console.log(item)
+		}
+	},
+	mounted() {
+		this.links = this.loadAll()
+	}
+}
+</script>

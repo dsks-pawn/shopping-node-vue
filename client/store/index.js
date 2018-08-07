@@ -1,16 +1,17 @@
-// import Auth from "../api/Auth"
+import Vuex from "vuex"
 
-// export const state = () => ({
-//   user: {}
-// })
+import state from "./state"
+import getters from "./getters"
+import mutations from "./mutations"
+import actions from "./actions"
 
-// export const actions = {
-//   addUser({ commit }) {
-//     commit("addUser")
-//   }
-// }
-// export const mutations = {
-//   addUser(state) {
-//         console.log('Auth.register() :', Auth.register());
-//   }
-// }
+const createStore = () => {
+  return new Vuex.Store({
+    state,
+    actions,
+    mutations,
+    getters
+  })
+}
+
+export default createStore
