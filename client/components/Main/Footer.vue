@@ -6,8 +6,10 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
-                        <h2>u<span>Stora</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                        <h2>best<span>Smartphone</span></h2>
+                        <p> - Hàng hóa, dịch vụ kinh doanh tại cửa hàng phù hợp với các mặt hàng đã đăng ký trong giấy chứng nhận đăng ký kinh doanh và không thuộc danh mục pháp luật cấm kinh doanh.</p>
+                        <p> - Không kinh doanh hàng nhái, hàng lậu, hàng giả, hàng không rõ nguồn gốc.</p>
+                        <p> - Hàng hóa có bảo hành giấy bảo hành ghi rõ thời gian bảo hành và địa điểm bảo hành. Tất cả hàng hóa dịch vụ kinh doanh tại cửa hàng phải có thương mại, giá bán niêm yết tại địa điểm kinh doanh bằng VNĐ.</p>
                         <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -19,26 +21,26 @@
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
-                        <h2 class="footer-wid-title">User Navigation </h2>
+                        <h2 class="footer-wid-title">Hỗ trợ </h2>
                         <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Order history</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Vendor contact</a></li>
-                            <li><a href="#">Front page</a></li>
+                            <li><a href="#">Tìm hiểu về mua trả góp</a></li>
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Chăm sóc khách hàng</a></li>
+                            <li><a href="#">Giao hàng & Thanh toán</a></li>
                         </ul>                        
                     </div>
                 </div>
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
-                        <h2 class="footer-wid-title">Categories</h2>
+                        <h2 class="footer-wid-title">Về chúng tôi</h2>
                         <ul>
-                            <li><a href="#">Mobile Phone</a></li>
-                            <li><a href="#">Home accesseries</a></li>
-                            <li><a href="#">LED TV</a></li>
-                            <li><a href="#">Computer</a></li>
-                            <li><a href="#">Gadets</a></li>
+                            <li><a href="#">Giới thiệu cửa hàng</a></li>
+                            <li><a href="#">Tuyển dụng</a></li>
+                            <li><a href="#">Điều khoản</a></li>
+                            <li><a href="#">Chính hãng</a></li>
+                            <li><a href="#">Flash Sales</a></li>
                         </ul>                        
                     </div>
                 </div>
@@ -46,7 +48,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
                         <h2 class="footer-wid-title">Newsletter</h2>
-                        <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                        <p>Đăng ký để nhận tin tức mới nhất của chúng tôi về các ưu đãi độc quyền ngay trong hộp thư đến của mình mà bạn sẽ không tìm thấy ở bất kỳ nơi nào khác!</p>
                         <div class="newsletter-form">
                             <form action="#">
                                 <input type="email" placeholder="Type your email">
@@ -64,16 +66,16 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
+                        <p>&copy; 2018 Best Smartphone. All Rights Reserved. <a href="#" target="_blank">bestsmartphone.com</a></p>
                     </div>
                 </div>
                 
                 <div class="col-md-4">
                     <div class="footer-card-icon">
-                        <i class="fa fa-cc-discover"></i>
-                        <i class="fa fa-cc-mastercard"></i>
-                        <i class="fa fa-cc-paypal"></i>
-                        <i class="fa fa-cc-visa"></i>
+                        <i class="fa fa-cc-discover icon-pay"></i>
+                        <i class="fa fa-cc-mastercard icon-pay"></i>
+                        <i class="fa fa-cc-paypal icon-pay"></i>
+                        <i class="fa fa-cc-visa icon-pay"></i>
                     </div>
                 </div>
             </div>
@@ -180,14 +182,17 @@ a:focus {
 .footer-bottom-area {
 	background: none repeat scroll 0 0 #000;
 	color: #fff;
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 }
 .footer-card-icon {
-  font-size: 30px;
-  text-align: right;
+	font-size: 35px;
+	text-align: right;
 }
 
 .copyright > p {
-  margin: 10px 0 0;
+	margin: 10px 0 0;
+}
+.icon-pay {
+    padding-left: 5px;
 }
 </style>

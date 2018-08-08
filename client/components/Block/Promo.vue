@@ -1,7 +1,6 @@
 <template>
     <div class="promo-area">
         <div class="zigzag-bottom"></div>
-        <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo promo1">
@@ -12,7 +11,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo promo2">
                         <i class="fa fa-truck"></i>
-                        <p>Free shipping</p>
+                        <p>Fast shipping</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -28,11 +27,15 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </template>
 
 <style scoped>
+
+.promo-area {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 
 .promo-area .zigzag-bottom, .brands-area .zigzag-bottom{background: #f4f4f4}
 .single-promo {

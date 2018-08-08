@@ -1,60 +1,60 @@
 <template>
-  <div class="mainmenu-area">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div> 
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-    </div>
+<div class="container-fuild">
+  <el-menu style="display: flex; justify-content: space-around;" :collapse-transition="true" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu-item index="1">
+    <el-tooltip class="item" :hide-after="1000" effect="dark" content="PHỤ KIỆN" placement="bottom">
+      <i class="fa fa-headphones fa-2x"></i>
+    </el-tooltip>
+  </el-menu-item>
+  <el-menu-item index="2">
+    <el-tooltip class="item" :hide-after="1000" effect="dark" content="ĐIỆN THOẠI" placement="bottom">
+     <i class="fa fa-mobile fa-2x"></i>
+    </el-tooltip>
+    </el-menu-item>
+  <el-menu-item index="4">
+    <el-tooltip class="item" :hide-after="1000" effect="dark" content="TABLET" placement="bottom">
+    <i class="fa fa-tablet fa-2x"></i>
+    </el-tooltip>
+    </el-menu-item>
+  <el-menu-item index="5">
+         <el-tooltip class="item" :hide-after="1000" effect="dark" content="LAPTOP" placement="bottom">
+    <i class="fa fa-laptop fa-2x"></i>
+    </el-tooltip>
+    </el-menu-item>
+  <el-menu-item index="6">
+     <el-tooltip class="item" :hide-after="1000" effect="dark" content="KHUYẾN MÃI" placement="bottom">
+    <i class="fa fa-gift fa-2x"></i>
+    </el-tooltip>
+    </el-menu-item>
+   <el-menu-item index="7">
+     <el-tooltip class="item" :hide-after="1000" effect="dark" content="TIN TỨC" placement="bottom">
+     <i class="fa fa-file fa-2x"></i>
+   </el-tooltip>
+   </el-menu-item>
+   <el-menu-item index="8">
+     <el-tooltip class="item" :hide-after="1000" effect="dark" content="HỎI ĐÁP" placement="bottom">
+     <i class="fa fa-comments fa-2x"></i>
+   </el-tooltip>
+   </el-menu-item>
+
+</el-menu>
+ 
+<div class="line"></div>
+</div>
 </template>
 
-<style scoped>
-.mainmenu-area {
-	background: none repeat scroll 0 0 #fbfbfb;
-	font-family: "Roboto Condensed", sans-serif;
-	text-transform: uppercase;
-	width: 100%;
-	z-index: 999;
-}
-
-.mainmenu-area ul.navbar-nav li a {
-	color: #6e6a6a;
-	font-size: 14px;
-	padding: 20px;
-}
-
-.mainmenu-area ul.navbar-nav li:hover a,
-.mainmenu-area ul.navbar-nav li.active a {
-	background: #5a88ca;
-	color: #fff;
-}
-.mainmenu-area .nav > li > a:focus {
-	color: #fff;
-}
-
-.slider-area {
-	width: 80%;
-	position: relative;
-	margin: 0 auto;
-	padding: 5px;
-}
-</style>
+<script>
+  export default {
+    data() {
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+  }
+</script>

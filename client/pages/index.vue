@@ -4,13 +4,10 @@
                <NavBar/>
     <div class="container">
       <el-row>
-        <el-col :span="4">
-          <SideBar/>
-        </el-col>
-        <el-col :span="14">
+        <el-col  :sm="24" :md="16">
           <SliderMain/>
         </el-col>
-        <el-col :span="6">
+        <el-col  :sm="24" :md="8">
           <Ads/>
         </el-col>
       </el-row>
@@ -29,7 +26,6 @@
 import TopBar from "~/components/Main/TopBar.vue"
 import NavBar from "~/components/Main/NavBar.vue"
 
-import SideBar from "~/components/Main/SideBar.vue"
 import SliderMain from "~/components/Slider/SliderMain.vue"
 import Ads from "~/components/Block/Ads.vue"
 
@@ -47,7 +43,6 @@ export default {
 	components: {
 		TopBar,
 		NavBar,
-		SideBar,
 		SliderMain,
 		Ads,
 		Promo,

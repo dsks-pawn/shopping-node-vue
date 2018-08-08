@@ -3,13 +3,14 @@
         <div class="header-area">
         <div class="container">
 			<div class="row">
-				<div class="col-md-10">
+				<div class="col-xs-7 col-md-10">
                     <div class="menu-hint" >
                         <ul>
+							<li ><div style="width: 37px"><img  src="https://vignette.wikia.nocookie.net/halofanon/images/f/fc/Wolves-logo-heat-colors.png/revision/latest?cb=20151012083100"></div></li>
                             <li><a href="#"><i class="fa fa-user"></i> Kênh người bán</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Tải ứng dụng</a></li>
-							<li style="width: 50%">
-									<el-autocomplete style="width: 100%; padding-top: 5px"
+							<li class="input-search">
+									<el-autocomplete style="max-width: 100%; padding-top: 5px"
 									popper-class="my-autocomplete"
 									v-model="state3"
 									:fetch-suggestions="querySearch"
@@ -25,7 +26,7 @@
                         </ul>
                     </div>
 					</div>
-					<div class="col-md-2">
+					<div class="col-xs-5 col-md-2">
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
 								<li>
@@ -34,13 +35,13 @@
 									 Language<i class="el-icon-arrow-down el-icon--right"></i>
 								</span>
 								<el-dropdown-menu slot="dropdown">
-									<el-dropdown-item><img style="width: 2%" src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Great_Britain_%28English_version%29.png" alt="Flag English"> English</el-dropdown-item>
-									<el-dropdown-item><img style="width: 2%" src="http://www.printableflags.net/wp-content/uploads/2017/04/vietnam-flag-vietnam-flag-rqnAdR.jpg" alt="Flag Vietnamese"> Vietnamese</el-dropdown-item>
+									<el-dropdown-item> English</el-dropdown-item>
+									<el-dropdown-item> Vietnamese</el-dropdown-item>
 								</el-dropdown-menu>
 								</el-dropdown>
 								</li>
 								<li class="login-avatar">
-									<el-dropdown trigger="click" style="width: 28%">
+									<el-dropdown trigger="click" class="avatar-user">
 										<span class="el-dropdown-link">
 											<img  src="https://kenh14cdn.com/2017/img-9151-1487175576278.jpg" alt="avatar">
 									</span>
@@ -59,17 +60,8 @@
 		</div>
     </div>
      <div class="site-branding-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="logo">
-                        <h1><a href="./"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAApVBMVEX///9BuIM1SV47gHDBx83F6dnD2NM2UWE1TF9MvIo3YGb3/Po7fm/U49/2/Pk2TmA5b2o3WGNfl4o6dm3t8/I4Zmg5ammAz6xxo5fk7evg8+s/pX02VGJ3zKbP7d89lXey4sw3W2Q8iHNlxpuuysOPtq1Ar4BKinuU17k5c2x/rKG81M5ZwZOh28Gcv7c+nnrCz9BqnpI9kXbM7N275dKYvbRUkIKzQZGJAAACKklEQVRoge2Xa1PaQBSGPWeLApHgnUoFtbQVFeoN+f8/rUlgy9nkZJu9pOM45/mYDzyTyTP7Lnt7giAIgiAIwgcjmf8HyRLeWneMezBrXTICgJuWHdPMAb20Xcksl0C7334FG8b04VlcR7rYSibUsY5rmYOms3v4oH7GdGT5ahaJfjhQSl1GlExgx1I/fMkkX+M53ojjb8aPKmc/mmRGJTAqniXrQnISy3EDJkXG72rDjziOtFeS5EfY5dah7uJkPIcyqzxfTZSMxxUHLNKB2jGIIJlUJbA8IZKXcEeHccDrIZGox1BHsmAcv676VLJO/v07VpbcixwinlLL7zDHWTnf4kWGiMdUEpjxiHuRI8w4opaHEMeUczzlDjwwvn1IxjNO0i8keE4lARmvOMf3jQO7cTJO+Xy3EjQyvvPNuC5fjZHxu59jzOX7rbuTXFGJ5xKz+V4gITxjNt9r6sCh8e19lpjN99aQmBl7LHF5c418NV3j2zsvcWVzi3wPShK8DTrCqpubcVp2IN5Ti+MSM5tr5hsjY25z4bzqQLygEqcLJbu515zDP2N2c+GYlaDvErOHluIdpSOsccZ8vsM6iV/GbL73dQ6/jNl8n+odXkvM5tu3SMyMGy0xu7mvNkcp4wZL7JSvxjVjt3w1bhdKdnPr89W4XSjrr4x2XJbYcmW045Kx7cpop/kSs5trz1djXihtR9i0w/D8pRHP+4QY/yMFQRAEQRA+FX8A4QwoVtGJW+wAAAAASUVORK5CYII="></a></h1>
-                    </div>
-                </div>
-				<div class="col-md-8">
-					<img src="http://phatlocmobile.vn/image/catalog/banner/banner-sua-chua.png">
-				</div>
-            </div>
+        <div class="container-fuild text-center">
+			<img src="https://ir.ebaystatic.com/cr/v/c1/Phone_Banner.JPG">
         </div>
     </div>
     </div>
@@ -195,6 +187,15 @@
 }
 .shopping-item:hover .product-count {
 	background: none repeat scroll 0 0 #000;
+}
+.avatar-user {
+	max-width: 28%;
+}
+.input-search {
+	max-width: 100%;
+}
+.site-branding-area {
+	padding-top: 0px;
 }
 </style>
 <script>

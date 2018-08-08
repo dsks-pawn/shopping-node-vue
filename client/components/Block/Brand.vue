@@ -1,6 +1,6 @@
 <template>
  <no-ssr>
-    <div>
+    <div style="padding: 20px 0 20px;">
         <carousel paginationColor="#fed700" paginationActiveColor="red" :paginationPadding="10" :paginationEnabled="false" :perPageCustom="[[411, 2], [768, 2], [1024, 4]]" :autoplay="true"   :minSwipeDistance="10">
             <slide>
                <el-row>

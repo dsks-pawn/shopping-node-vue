@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Top Sellers</h2>
+                        <h2 class="product-wid-title">Khuyến mãi hot</h2>
                         <a href="" class="wid-view-more">View All</a>
                         <div class="single-wid-product">
                             <a href="single-product.html"><img src="~static/product-thumb-1.jpg" alt="" class="product-thumb"></a>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Recently Viewed</h2>
+                        <h2 class="product-wid-title">Nổi bật nhất</h2>
                         <a href="#" class="wid-view-more">View All</a>
                         <div class="single-wid-product">
                             <a href="single-product.html"><img src="~static/product-thumb-4.jpg" alt="" class="product-thumb"></a>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Top New</h2>
+                        <h2 class="product-wid-title">Giá rẻ nhất</h2>
                         <a href="#" class="wid-view-more">View All</a>
                         <div class="single-wid-product">
                             <a href="single-product.html"><img src="~static/product-thumb-3.jpg" alt="" class="product-thumb"></a>
