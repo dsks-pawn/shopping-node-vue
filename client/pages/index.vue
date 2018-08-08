@@ -3,8 +3,7 @@
           <TopBar/>
                <NavBar/>
     <div class="container">
- 
-      <el-row >
+      <el-row>
         <el-col :span="4">
           <SideBar/>
         </el-col>
@@ -41,6 +40,9 @@ import ProductWidgetArea from "~/components/Block/ProductWidgetArea.vue"
 
 import Footer from "~/components/Main/Footer.vue"
 
+
+import { throws } from "assert"
+
 export default {
 	components: {
 		TopBar,
@@ -54,6 +56,20 @@ export default {
 		ProductWidgetArea,
 		Footer
 	}
+	// async fetch({ store }) {
+	// 	try {
+	// 		let dataItems = await Items.getItemsWithLimit()
+	// 		let dataBrands = await Brands.getBrandsWithLimit()
+
+	// 		if (dataItems)
+	// 			await store.dispatch("getItemsWithLimit", dataItems.data)
+
+	// 		if (dataBrands)
+	// 			await store.dispatch("getBrandsWithLimit", dataBrands.data)
+	// 	} catch (error) {
+	// 		throw error
+	// 	}
+	// }
 }
 </script>
 

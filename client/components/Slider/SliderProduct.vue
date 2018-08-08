@@ -14,7 +14,6 @@
                         </div>
                     </div>
 					  <div>{{ $store.state.ITEMS_HOT }}</div>
-					  <!-- <div @click="items()">alo</div> -->
                     </el-card>
                 </el-row>
             </slide>
@@ -25,25 +24,18 @@
 <script>
 import Items from "@/api/Items"
 
+import { throws } from "assert"
+
 export default {
-	async fetch() {
+	async mounted() {
 		try {
-			let { data } = await Items.getItemsWithLimit()
-			await this.$store.dispatch("getItemsWithLimit", data)
+			let dataItems = await Items.getItemsWithLimit()
+			if (dataItems)
+				await this.$store.dispatch("getItemsWithLimit", dataItems.data)
 		} catch (error) {
 			throw error
 		}
 	},
-	// methods: {
-	// 	async items() {
-	// 		try {
-	// 			let { data } = await Items.getItemsWithLimit()
-	// 			this.$store.dispatch("getItemsWithLimit", data)
-	// 		} catch (error) {
-	// 			throw error
-	// 		}
-	// 	}
-	// },
 	data() {
 		return {
 			currentDate: 20,

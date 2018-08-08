@@ -1,3 +1,4 @@
 export default {
-  ITEMS_HOT: {}
+  ITEMS_HOT: {},
+  BRANDS: {}
 }

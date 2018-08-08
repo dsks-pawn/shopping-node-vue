@@ -46,13 +46,11 @@ mongoose.connect(`mongodb://localhost:27017/${config.get("mongodb.database")}`, 
 // mongo --port 27017
 // use project_node_vue
 // db.createUser({user:"admin", pwd:"admin", roles: ["readWrite", "dbAdmin", "dbOwner"]})
-// mongod --auth --port 27017 --dbpath /Users/thanh/Desktop/database
+//  
 // mongo --port 27017 -u "admin" -p "admin" --authenticationDatabase "project_node_vue"
 
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())

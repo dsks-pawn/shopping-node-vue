@@ -11,7 +11,7 @@ const CompanySchema = Schema({
 		required: true
 	},
 	description: {
-		type: Object,
+		type: String,
 		required: true
 	},
 	created_date: {

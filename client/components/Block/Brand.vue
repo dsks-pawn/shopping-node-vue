@@ -31,6 +31,27 @@
                 </el-row>
             </slide>
         </carousel>
+         <div>{{$store.state.BRANDS}}</div>
     </div>
      </no-ssr>
 </template>
+
+
+<script>
+import Brands from "@/api/Brands"
+
+export default {
+	async mounted() {
+		try {
+			let dataBrands = await Brands.getBrandsWithLimit()
+			if (dataBrands)
+				await this.$store.dispatch(
+					"getBrandsWithLimit",
+					dataBrands.data
+				)
+		} catch (error) {
+			throw error
+		}
+	}
+}
+</script>
