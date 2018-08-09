@@ -1,25 +1,27 @@
 <template>
  <no-ssr>
-    <div>
-        <carousel paginationColor="#fed700" paginationActiveColor="red" :paginationPadding="10" :paginationEnabled="false" :perPageCustom="[[411, 2], [768, 4], [1024, 6]]" :autoplay="true"  :minSwipeDistance="10" :perPage="6" >
+    <!-- <div>
+        
+        <carousel paginationColor="#fed700" paginationActiveColor="red" :paginationPadding="10" :paginationEnabled="false" :perPageCustom="[[411, 2], [768, 3], [1024, 5]]" :autoplay="true"  :minSwipeDistance="10" :perPage="6" >
                 <slide v-for="co in count" :key="co">
-                <el-row>
-                    <el-card :body-style="{ padding: '0px' }">
-                    <img src="~static/product-1.jpg" class="image">
-                    <div style="padding: 14px;">
-                        <span>Yummy hamburger</span>
-                        <div class="bottom clearfix">
-                        <time class="time">{{ currentDate }}</time>
-                        <el-button type="text" class="button">Operating button</el-button>
-                        </div>
+               
+                <div class="card card-cascade narrower">
+                    <div class="view view-cascade overlay">
+                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                        <a>
+                        <div class="mask rgba-white-slight"></div>
+                        </a>
                     </div>
-                    
-					  <div>{{ $store.state.ITEMS_HOT }}</div>
-                    </el-card>
-                </el-row>
+                    <div class="card-body card-body-cascade">
+                        <h5 class="pink-text pb-2 pt-1"><i class="fa fa-cutlery"></i> Culinary</h5>
+                        <h4 class="card-title">Cheat day inspirations</h4>
+                        <p class="card-text">Điện thoại giá rẻ</p>
+                        <a class="btn blue-gradient btn-rounded">Mua sản phẩm</a>
+                    </div>
+            </div>
             </slide>
         </carousel>
-    </div>
+    </div> -->
      </no-ssr>
 </template>
 <script>

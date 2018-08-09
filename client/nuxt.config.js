@@ -9,13 +9,11 @@ module.exports = {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "Nuxt.js project" }
     ],
-    css: ['bulma', "@/assets/main.css"],
+    css: ['bulma',
+    '@/assets/css/main.css',
+    '@/assets/css/main.scss'],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      {
-        rel: "stylesheet",
-        href: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
-      },
       {
         rel: "stylesheet",
         href: "https://unpkg.com/element-ui/lib/theme-chalk/index.css"

@@ -1,259 +1,98 @@
 <template>
     <div>
-        <div class="header-area">
-        <div class="container">
-			<div class="row">
-				<div class="col-xs-7 col-md-10">
-                    <div class="menu-hint" >
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> Kênh người bán</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Tải ứng dụng</a></li>
-							<li class="input-search">
-									<el-autocomplete style="max-width: 100%; padding-top: 5px"
-									popper-class="my-autocomplete"
-									v-model="state3"
-									:fetch-suggestions="querySearch"
-									placeholder="Please input"
-									@select="handleSelect">
-									<template slot-scope="{ item }">
-										<div class="value">{{ item.value }}</div>
-										<span class="link">{{ item.link }}</span>
-									</template>
-									</el-autocomplete>
-    						<i class="fa fa-search" aria-hidden="true"></i>	
-						</li>
-                        </ul>
-                    </div>
-					</div>
-					<div class="col-xs-5 col-md-2">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-								<li>
-								<el-dropdown trigger="click">
-								<span class="el-dropdown-link"><i class="fa fa-flag"></i>
-									 Language<i class="el-icon-arrow-down el-icon--right"></i>
-								</span>
-								<el-dropdown-menu slot="dropdown">
-									<el-dropdown-item> English</el-dropdown-item>
-									<el-dropdown-item> Vietnamese</el-dropdown-item>
-								</el-dropdown-menu>
-								</el-dropdown>
-								</li>
-								<li class="login-avatar">
-									<el-dropdown trigger="click" class="avatar-user">
-										<span class="el-dropdown-link">
-											<img  src="https://kenh14cdn.com/2017/img-9151-1487175576278.jpg" alt="avatar">
-									</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item><a href="#"><i class="fa fa-user"></i> Profile</a></el-dropdown-item>
-										<el-dropdown-item><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></el-dropdown-item>
-										<el-dropdown-item><a href="checkout.html"><i class="fa fa-user"></i> Check out</a></el-dropdown-item>
-										<el-dropdown-item><a href="#"><i class="fa fa-user"></i> Sign uot</a></el-dropdown-item>
-									</el-dropdown-menu>
-									</el-dropdown>
-								</li>										
-                        </ul>
-                    </div>
-					</div>
-					</div>
-		</div>
-    </div>
-     <div class="site-branding-area">
-        <div class="container-fuild text-center">
-			<img src="/Banner.jpg">
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark navbar_top">
+        <a class="navbar-brand logo" href="javascript:;;"><img src="https://cdn.fptshop.com.vn/Uploads/Originals//fpt-shop-tuyen-nhieu-vi-tri-lam-viec-tai-cac-shop-ha-noi-id27942.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <div>
+                <el-input  style="background-color: white;" placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm" v-model="input5" class=" input-with-select">
+                  <el-button style="left: 2px;" class="button_search waves-effect" slot="append" icon="el-icon-search fa-lg"></el-button>
+                </el-input>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item text-center">
+              <a class="nav-link waves-effect waves-light">
+                <img style="width: 23px;" src="/icons/phone.gif" alt="">
+                <div ><small>Điện thoại trợ giá</small></div>
+              </a>
+            </li>
+            <li class="nav-item text-center">
+              <el-dropdown>
+              <a class="nav-link waves-effect waves-light">
+              <i class="fa fa-file fa-lg"></i>
+              <div  style="font-size: 1.2em; padding-top: 2px;"><small>Thông tin hay</small></div>
+              </a>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>Action 1</el-dropdown-item>
+                <el-dropdown-item>Action 2</el-dropdown-item>
+                <el-dropdown-item>Action 3</el-dropdown-item>
+                <el-dropdown-item>Action 4</el-dropdown-item>
+                <el-dropdown-item>Action 5</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link waves-effect waves-light">
+            <i class="fa fa-american-sign-language-interpreting fa-lg"></i>
+             <div ><small>Mua trước trả sau</small></div>
+              </a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link waves-effect waves-light">
+            <i class="fa fa-shopping-cart fa-lg"></i>
+             <div ><small>Giỏ hàng</small></div>
+              </a>
+            </li>
+          </ul>
         </div>
+      </nav>
     </div>
-    </div>
+    
 </template>
 
 <style scoped>
-.el-dropdown-link {
-	cursor: pointer;
-	color: #409eff;
+.navbar {
+  padding: 0px;
 }
-.el-icon-arrow-down {
-	font-size: 12px;
+.navbar_top {
+    background-color: #cd1818;
 }
-.demonstration {
-	display: block;
-	color: #8492a6;
-	font-size: 14px;
-	margin-bottom: 20px;
+.logo {
+  max-width: 15%;
+}
+.input-with-select {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 620px;
+    border-radius: 2px;
+}
+.input-with-select input {
+  border: none !important;
 }
 
-.header-area {
-	background: none repeat scroll 0 0 #f4f4f4;
+.button_search {
+  background: #333 !important;
+  border-right: 2px;
+  color: white !important;
+  height: 100%;
 }
-.header-area a {
-	color: #888;
-}
-.menu-hint ul {
-	list-style: outside none none;
-	margin: 0;
-	padding: 0;
-}
-.menu-hint li {
-	display: inline-block;
-}
-.menu-hint li a {
-	display: block;
-	font-size: 13px;
-	margin-right: 5px;
-	padding: 10px;
-}
-.menu-hint li a i.fa {
-	margin-right: 5px;
-}
-.header-right ul.list-inline {
-	margin: 0;
-	text-align: right;
-}
-.header-right ul.list-inline li a {
-	display: block;
-	padding: 9px;
-}
-.header-right ul.list-inline li ul a {
-	padding: 5px 15px;
-}
-.header-right ul.list-inline li ul {
-	border: medium none;
-	border-radius: 0;
-	left: 50%;
-	margin-left: -50px;
-	min-width: 100px;
-	text-align: center;
-}
-.login-avatar {
-	display: inline;
-}
-.logo h1 {
-	font-size: 40px;
-	margin: 30px 0;
-	font-weight: 400;
-}
-.logo h1 a {
-	color: #999;
-}
-.logo h1 a:hover {
-	text-decoration: none;
-	opacity: 0.7;
-}
-.logo h1 a span {
-	color: #5a88ca;
-}
-.shopping-item {
-	border: 1px solid #ddd;
-	float: right;
-	font-size: 18px;
-	margin-top: 40px;
-	padding: 10px;
-	position: relative;
-}
-.shopping-item a {
-	color: #666;
-}
-.cart-amunt {
-	color: #5a88ca;
-	font-weight: 700;
-}
-.product-count {
-	background: none repeat scroll 0 0 #5a88ca;
-	border-radius: 50%;
-	color: #fff;
-	display: inline-block;
-	font-size: 10px;
-	height: 20px;
-	padding-top: 2px;
-	position: absolute;
-	right: -10px;
-	text-align: center;
-	top: -10px;
-	width: 20px;
-}
-.shopping-item i.fa {
-	margin-left: 15px;
-}
-.shopping-item:hover {
-	background: none repeat scroll 0 0 #5a88ca;
-	border-color: #5a88ca;
-}
-.shopping-item:hover a {
-	color: #fff;
-	text-decoration: none;
-}
-.shopping-item:hover .cart-amunt {
-	color: #fff;
-}
-.shopping-item:hover .product-count {
-	background: none repeat scroll 0 0 #000;
-}
-.avatar-user {
-	max-width: 25%;
-}
-.input-search {
-	max-width: 100%;
-}
-.site-branding-area {
-	padding-top: 0px;
-}
+
 </style>
 <script>
 export default {
-	data() {
-		return {
-			links: [],
-			state1: "",
-			state2: "",
-			state3: ""
-		}
-	},
-	methods: {
-		querySearch(queryString, cb) {
-			var links = this.links
-			var results = queryString
-				? links.filter(this.createFilter(queryString))
-				: links
-			// call callback function to return suggestions
-			cb(results)
-		},
-		createFilter(queryString) {
-			return link => {
-				return (
-					link.value
-						.toLowerCase()
-						.indexOf(queryString.toLowerCase()) === 0
-				)
-			}
-		},
-		loadAll() {
-			return [
-				{ value: "vue", link: "https://github.com/vuejs/vue" },
-				{
-					value: "element",
-					link: "https://github.com/ElemeFE/element"
-				},
-				{
-					value: "cooking",
-					link: "https://github.com/ElemeFE/cooking"
-				},
-				{
-					value: "mint-ui",
-					link: "https://github.com/ElemeFE/mint-ui"
-				},
-				{ value: "vuex", link: "https://github.com/vuejs/vuex" },
-				{
-					value: "vue-router",
-					link: "https://github.com/vuejs/vue-router"
-				},
-				{ value: "babel", link: "https://github.com/babel/babel" }
-			]
-		},
-		handleSelect(item) {
-			console.log(item)
-		}
-	},
-	mounted() {
-		this.links = this.loadAll()
-	}
+	 data() {
+    return {
+      input3: '',
+      input4: '',
+      input5: '',
+      select: ''
+    }
+  }
 }
 </script>

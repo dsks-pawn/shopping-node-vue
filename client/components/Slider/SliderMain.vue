@@ -2,7 +2,7 @@
      <div>
 
             <el-carousel :interval="4000"  height="270px">
-                <el-carousel-item  style="height: 100%" v-for="img of images" :key="img">
+                <el-carousel-item   v-for="img of images" :key="img">
                 <img :src="img">
                 </el-carousel-item>
             </el-carousel>
@@ -42,5 +42,10 @@ export default {
 
 .el-carousel__item:nth-child(2n + 1) {
 	background-color: #d3dce6;
+}
+
+img {
+	width: 100%;
+	height: 100%;
 }
 </style>
