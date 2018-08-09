@@ -13,6 +13,7 @@
                         <el-button type="text" class="button">Operating button</el-button>
                         </div>
                     </div>
+                    
 					  <div>{{ $store.state.ITEMS_HOT }}</div>
                     </el-card>
                 </el-row>

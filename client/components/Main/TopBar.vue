@@ -6,7 +6,6 @@
 				<div class="col-xs-7 col-md-10">
                     <div class="menu-hint" >
                         <ul>
-							<li ><div style="width: 37px"><img  src="https://vignette.wikia.nocookie.net/halofanon/images/f/fc/Wolves-logo-heat-colors.png/revision/latest?cb=20151012083100"></div></li>
                             <li><a href="#"><i class="fa fa-user"></i> Kênh người bán</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Tải ứng dụng</a></li>
 							<li class="input-search">
@@ -16,13 +15,13 @@
 									:fetch-suggestions="querySearch"
 									placeholder="Please input"
 									@select="handleSelect">
-									<el-button slot="append" icon="el-icon-search"></el-button>
 									<template slot-scope="{ item }">
 										<div class="value">{{ item.value }}</div>
 										<span class="link">{{ item.link }}</span>
 									</template>
 									</el-autocomplete>
-							</li>
+    						<i class="fa fa-search" aria-hidden="true"></i>	
+						</li>
                         </ul>
                     </div>
 					</div>
@@ -61,7 +60,7 @@
     </div>
      <div class="site-branding-area">
         <div class="container-fuild text-center">
-			<img src="https://ir.ebaystatic.com/cr/v/c1/Phone_Banner.JPG">
+			<img src="/Banner.jpg">
         </div>
     </div>
     </div>
@@ -189,7 +188,7 @@
 	background: none repeat scroll 0 0 #000;
 }
 .avatar-user {
-	max-width: 28%;
+	max-width: 25%;
 }
 .input-search {
 	max-width: 100%;

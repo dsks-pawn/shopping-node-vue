@@ -9,7 +9,7 @@ module.exports = {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "Nuxt.js project" }
     ],
-    css: ["~assets/main.css", "element-ui/lib/theme-chalk/index.css"],
+    css: ['bulma', "@/assets/main.css"],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
@@ -19,9 +19,29 @@ module.exports = {
       {
         rel: "stylesheet",
         href: "https://unpkg.com/element-ui/lib/theme-chalk/index.css"
-      }
+      },
+      {
+        rel: "stylesheet",
+        href: "https://namboss.blob.core.windows.net/huong/bootstrap.min.css"
+      },
+      {
+        rel: "stylesheet",
+        href: "https://namboss.blob.core.windows.net/huong/mdb.min.css"
+      },
+      { rel: "stylesheet", href: "https://mdbootstrap.com/live/_MDB/css/customizer.min.css" }
     ],
     script: [
+      { src: "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js", body: true },
+      {
+        src: "https://namboss.blob.core.windows.net/huong/popper.min.js", body: true
+      },
+      {
+        src: "https://namboss.blob.core.windows.net/huong/bootstrap.min.js", body: true
+      },
+      {
+        src: "https://namboss.blob.core.windows.net/huong/mdb.min.js", body: true
+      },
+      { src: "https://mdbootstrap.com/live/_MDB/js/customizer.min.js", body: true },
       { src: "https://unpkg.com/element-ui/lib/index.js", body: true }
     ]
   },
@@ -36,10 +56,10 @@ module.exports = {
     }
   },
   plugins: [
-    { src: "~plugins/vue-notifications" },
-    { src: "~plugins/element-ui", ssr: true },
-    { src: "~plugins/vee-validate.js", ssr: true },
-    { src: "~plugins/vue-carousel.js", ssr: false },
+    { src: "~/plugins/vue-notifications" },
+    { src: "~/plugins/element-ui", ssr: true },
+    { src: "~/plugins/vee-validate.js", ssr: true },
+    { src: "~/plugins/vue-carousel.js", ssr: false },
   ],
   loading: { color: "#3B8070" },
   build: {

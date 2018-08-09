@@ -2,13 +2,29 @@
      <div>
 
             <el-carousel :interval="4000"  height="270px">
-                <el-carousel-item v-for="item in 6" :key="item">
-                <h3>{{ item }}</h3>
+                <el-carousel-item  style="height: 100%" v-for="img of images" :key="img">
+                <img :src="img">
                 </el-carousel-item>
             </el-carousel>
 
     </div>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			images: [
+				"/img/slider-main.jpg",
+				"/img/slider-main2.png",
+				"/img/slider-main3.jpg",
+				"/img/slider-main4.jpg",
+				"/img/slider-main5.png"
+			]
+		}
+	}
+}
+</script>
 
 
  <style scoped>

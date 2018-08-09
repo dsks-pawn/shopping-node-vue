@@ -47,7 +47,7 @@
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
-                        <h2 class="footer-wid-title">Newsletter</h2>
+                        <h2 class="footer-wid-title">Ưu đãi</h2>
                         <p>Đăng ký để nhận tin tức mới nhất của chúng tôi về các ưu đãi độc quyền ngay trong hộp thư đến của mình mà bạn sẽ không tìm thấy ở bất kỳ nơi nào khác!</p>
                         <div class="newsletter-form">
                             <form action="#">
@@ -60,7 +60,7 @@
             </div>
         </div>
     </div> 
-    
+
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row">
@@ -193,6 +193,6 @@ a:focus {
 	margin: 10px 0 0;
 }
 .icon-pay {
-    padding-left: 5px;
+	padding-left: 5px;
 }
 </style>

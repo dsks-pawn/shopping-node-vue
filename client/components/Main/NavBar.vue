@@ -1,6 +1,6 @@
 <template>
 <div class="container-fuild">
-  <el-menu style="display: flex; justify-content: space-around;" :collapse-transition="true" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu active-text-color="#ba68c8" :collapse-transition="true" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
   <el-menu-item index="1">
     <el-tooltip class="item" :hide-after="1000" effect="dark" content="PHỤ KIỆN" placement="bottom">
       <i class="fa fa-headphones fa-2x"></i>
@@ -36,25 +36,35 @@
      <i class="fa fa-comments fa-2x"></i>
    </el-tooltip>
    </el-menu-item>
-
 </el-menu>
- 
-<div class="line"></div>
 </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1'
-      };
-    },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
-    }
-  }
+export default {
+	data() {
+		return {
+			activeIndex: "1",
+			activeIndex2: "1"
+		}
+	},
+	methods: {
+		handleSelect(key, keyPath) {
+			console.log(key, keyPath)
+		}
+	}
+}
 </script>
+<style scoped>
+.el-menu-demo {
+	display: flex;
+	justify-content: space-around;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.el-submenu__title:hover {
+	background-color: none;
+}
+i {
+	color: #80cbc4;
+}
+</style>
