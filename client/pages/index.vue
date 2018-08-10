@@ -1,29 +1,30 @@
 <template>
   <section class="container-fuild">
           <TopBar/>
-               <NavBar/>
-    <div class="container-fuild">
-      <el-row>
-        <el-col  :sm="24" :md="16">
-          <SliderMain/>
-        </el-col>
-        <el-col  :sm="24" :md="8">
-          <Ads/>
-        </el-col>
-      </el-row>
+          <Menu/>
+            <div class="container">
+              <el-row>
+                <el-col  :sm="24" :md="16">
+                  <SliderMain/>
+                </el-col>
+                <el-col  :sm="24" :md="8">
+                  <Ads/>
+                </el-col>
+              </el-row>
 
-      <Promo/>
-      <Slider-Product/>
-      <Brand/>
-      <ProductWidgetArea/>
-      
-  </div>
+              <Promo/>
+              <Slider-Product/>
+              <Brand/>
+              <ProductWidgetArea/>
+              
+          </div>
   <Footer/>
   </section>
 </template>
 
 <script>
 import TopBar from "~/components/Main/TopBar.vue"
+import Menu from "~/components/Main/Menu.vue"
 
 import SliderMain from "~/components/Slider/SliderMain.vue"
 import Ads from "~/components/Block/Ads.vue"
@@ -31,17 +32,16 @@ import Ads from "~/components/Block/Ads.vue"
 import SliderProduct from "~/components/Slider/SliderProduct.vue"
 import Brand from "~/components/Block/Brand.vue"
 
-
-
 import { throws } from "assert"
 
 export default {
 	components: {
 		TopBar,
-		SliderMain,
+		Menu,
+		// SliderMain,
 		Ads,
 		SliderProduct,
-		Brand,
+		Brand
 	}
 	// async fetch({ store }) {
 	// 	try {

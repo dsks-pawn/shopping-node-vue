@@ -7,7 +7,7 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <el-submenu index="1">
+      <!-- <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span>Navigator One</span>
@@ -35,7 +35,7 @@
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
         <span>Navigator Four</span>
-      </el-menu-item>
+      </el-menu-item> -->
     </el-menu>
 </template>
 <script>
