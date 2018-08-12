@@ -6,331 +6,468 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
         <ul class="navbar-nav mr-auto" style="display:flex">
             <li class="nav-item dropdown mega-dropdown button-hover1">
-                <a class="nav-link" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-mobile fa-2x"></i> ĐIỆN THOẠI</a>
-                 <div class="dropdown-menu mega-menu v-2 row z-depth-1 block1" aria-labelledby="navbarDropdownMenuLink1">
-                        <el-row>
-                            <el-col :xs="8" :sm="6" :md="8" class=" padding_left" >
+                <nuxt-link to="/products/phones" class="nav-link" id="navbarDropdownMenuLink1" ><i class="fa fa-mobile fa-2x"></i> ĐIỆN THOẠI</nuxt-link>
+                 <div  class="dropdown-menu mega-menu v-2 row z-depth-1 block1" aria-labelledby="navbarDropdownMenuLink1">
+
+                     <el-row>
+                            <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
                                 <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
-                                    <el-row >
-                                        <el-col class="link-black" :xs="8" :sm="8" :md="8">
-                                            <nuxt-link to="">Apple(Iphone)</nuxt-link><br>
-                                            <nuxt-link to="">Huawei</nuxt-link><br>
-                                            <nuxt-link to="">Asus</nuxt-link><br>
-                                            <nuxt-link to="">Wiko</nuxt-link><br>
-                                            <nuxt-link to="">MEIZU</nuxt-link><br>
-                                            <nuxt-link to="">Xiaomi</nuxt-link><br>
-                                        </el-col>
-                                    <el-col :xs="8" :sm="8" :md="8">
-                                             <nuxt-link to="">Samsung</nuxt-link><br>
-                                            <nuxt-link to="">Nokia</nuxt-link><br>
-                                            <nuxt-link to="">Sony</nuxt-link><br>
-                                            <nuxt-link to="">Mobiistart</nuxt-link><br>
-                                            <nuxt-link to="">Intel</nuxt-link><br>
-                                            <nuxt-link to="">HONOR</nuxt-link><br>
-                                    </el-col>
-                                    <el-col :xs="8" :sm="8" :md="8">
-                                             <nuxt-link to="">OPPO</nuxt-link><br>
-                                            <nuxt-link to="">Vivo</nuxt-link><br>
-                                            <nuxt-link to="">Masstel</nuxt-link><br>
-                                            <nuxt-link to="">Philips</nuxt-link><br>
-                                            <nuxt-link to="">Tecnos</nuxt-link><br>
-                                    </el-col>
-                                    </el-row>
+                                    <div class="product_list">
+                                        <nuxt-link v-for="proCom of phoneProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                    </div>
                             </el-col>
-                            <el-col :xs="4" :sm="6" :md="4" class="vertical padding_left">
+                            <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
                                 <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
-                                 <el-row >
-                                <el-col :span="24">
-                                             <nuxt-link to="">Dưới 1 triệu</nuxt-link><br>
-                                            <nuxt-link to="">Từ 1 đến 3 triệu</nuxt-link><br>
-                                            <nuxt-link to="">Từ 3 đến 6 triệu</nuxt-link><br>
-                                            <nuxt-link to="">Từ 6 đến 10 triệu</nuxt-link><br>
-                                            <nuxt-link to="">Từ 10 đến 15 triệu</nuxt-link><br>
-                                            <nuxt-link to="">Trên 15 triệu</nuxt-link><br>
-                                    </el-col>
-                                 </el-row>
+                                    <div class="price_list" v-for="stanPri of phoneProduct.standardPrice" :key="stanPri.id">
+                                    <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
+                                    </div>
                             </el-col>
-                            <el-col :xs="4" :sm="6" :md="7" class="padding_left">
+                            <el-col :xs="24" :sm="12" :md="7" class="padding_left">
                                 <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
                                  <el-row >
                                     <el-col :span="24">
-                                        <div class="product_menu">
+                                         <div class="product_menu" v-for="proHot of phoneProduct.productHot" :key="proHot.id">
                                                 <div class="product_images">
-                                                    <img src="//cdn.fptshop.com.vn/Uploads/Originals/2018/7/19/636676205014398728_huawei-nova-3i-mo-ta-1.jpg" alt="">
-                                                </div>
-                                                <div >
-                                                    <h6 class="title_product">Xiaomi Redmi Note 5 32GB</h6>
-                                                    <p class="price">4.799.000 ₫</p>
-                                                </div>
-                                         </div>
-                                         <div class="product_menu">
-                                                <div class="product_images">
-                                                    <img src="//cdn.fptshop.com.vn/Uploads/Originals/2018/7/19/636676205014398728_huawei-nova-3i-mo-ta-1.jpg" alt="">
+                                                    <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
                                                 </div>
                                                 <div>
-                                                    <h6 class="title_product">OPPO F7</h6>
-                                                    <p class="price">7.990.000 ₫</p>
+                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}₫</p>
                                                 </div>
                                          </div>
                                          <div><nuxt-link style="color: #337ab7 !important;" to=""><b>Xem bảng xếp hạng điện thoại</b></nuxt-link></div>
                                     </el-col>
                                 </el-row>
                             </el-col>
-                            <el-col :xs="8" :sm="6" :md="5">
-                                <img src="//cdn.fptshop.com.vn/Uploads/Originals/2018/8/4/636689822673516144_H4.png" alt="">
+                            <el-col :xs="24" :sm="12" :md="5">
+                                <nuxt-link :to="phoneProduct.ads.link"><img :src="phoneProduct.ads.img" alt="Quảng cáo"></nuxt-link>
                             </el-col>
                         </el-row>
-
-
 
                 </div>
             </li>
             <li class="nav-item dropdown mega-dropdown button-hover2">
-                <a class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-laptop fa-2x"></i> LAPTOP</a>
-                <div class="dropdown-menu mega-menu block2 v-2 row z-depth-1 special-color block1" aria-labelledby="navbarDropdownMenuLink2">
-                    <div class="row mx-md-4 mx-1">
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-5 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text"></h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item mb-0" href="">Lorem ipsum dolor sit amet</a></li>
-                                <li class=""><a class="menu-item" href="">Consectetur adipiscing elit</a></li>
-                                <li class=""><a class="menu-item" href="">Sed do eiusmod tempor incididunt</a></li>
-                                <li class=""><a class="menu-item" href="">Ut labore et dolore magna</a></li>
-                                <li class=""><a class="menu-item" href="">Ut enim ad minim veniam</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-md-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Related</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(43).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
+                <nuxt-link to="/products/laptops" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink2" ><i class="fa fa-laptop fa-2x"></i> LAPTOP</nuxt-link>
+                <div class="dropdown-menu mega-menu block2 v-2 row z-depth-1 block1" aria-labelledby="navbarDropdownMenuLink2">
+                  
+
+                          <el-row>
+                            <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
+                                <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
+                                    <div class="product_list">
+                                        <nuxt-link v-for="proCom of laptopProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                    </div>
+                                <h6 class="text-uppercase font-weight-bold pd">phần mềm</h6>
+                                <div class="product_list">
+                                     <nuxt-link v-for="soft of laptopProduct.software" :key="soft.id" :to="soft.link">{{soft.name}}</nuxt-link>
                                 </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Lorem ipsum dolor sit</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 17, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 20</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Design</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(44).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Ut labore et dolore magna</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 16, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 25</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-5">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Programming</h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item" href="">Totam rem aperiam eaque</a></li>
-                                <li class=""><a class="menu-item" href="">Beatae vitae dicta sun</a></li>
-                                <li class=""><a class="menu-item" href="">Quae ab illo inventore veritatis et quasi architecto</a></li>
-                                <li class=""><a class="menu-item" href="">Nemo enim ipsam voluptatem</a></li>
-                                <li class=""><a class="menu-item" href="">Neque porro quisquam est</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
+                                <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
+                                    <div class="price_list" v-for="stanPri of laptopProduct.standardPrice" :key="stanPri.id">
+                                        <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
+                                    </div>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="7" class="padding_left">
+                                <h6 class="text-uppercase font-weight-bold pd">mục đích sử dụng</h6>
+                                    <div class="price_list" v-for="usage of laptopProduct.usageTarget" :key="usage.id">
+                                        <nuxt-link  :to="usage.link">{{usage.title}}</nuxt-link><br>
+                                    </div>
+
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="5">
+                                <nuxt-link :to="laptopProduct.ads.link"><img :src="laptopProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                            </el-col>
+                        </el-row>
+
+                           
                 </div>
             </li>
              <li class="nav-item dropdown mega-dropdown button-hover3">
-                <a class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-apple fa-2x"></i> APPLE</a>
-                 <div class="dropdown-menu mega-menu v-2 row z-depth-1 special-color block3" aria-labelledby="navbarDropdownMenuLink3">
-                    <div class="row mx-md-4 mx-1">
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-5 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Featured</h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item mb-0" href="">Lorem ipsum dolor sit amet</a></li>
-                                <li class=""><a class="menu-item" href="">Consectetur adipiscing elit</a></li>
-                                <li class=""><a class="menu-item" href="">Sed do eiusmod tempor incididunt</a></li>
-                                <li class=""><a class="menu-item" href="">Ut labore et dolore magna</a></li>
-                                <li class=""><a class="menu-item" href="">Ut enim ad minim veniam</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-md-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Related</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(43).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Lorem ipsum dolor sit</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 17, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 20</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Design</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(44).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Ut labore et dolore magna</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 16, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 25</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-5">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Programming</h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item" href="">Totam rem aperiam eaque</a></li>
-                                <li class=""><a class="menu-item" href="">Beatae vitae dicta sun</a></li>
-                                <li class=""><a class="menu-item" href="">Quae ab illo inventore veritatis et quasi architecto</a></li>
-                                <li class=""><a class="menu-item" href="">Nemo enim ipsam voluptatem</a></li>
-                                <li class=""><a class="menu-item" href="">Neque porro quisquam est</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <nuxt-link to="" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink3" ><i class="fa fa-apple fa-2x"></i> APPLE</nuxt-link>
+                 <div class="dropdown-menu mega-menu v-2 row z-depth-1 block3" aria-labelledby="navbarDropdownMenuLink3">
+
+
+                     <el-row>
+                            <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
+                                <h6 class="text-uppercase font-weight-bold pd">các sản phẩm của apple</h6>
+                                    <div class="product_list">
+                                        <nuxt-link v-for="proCom of appleProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                    </div>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
+                                <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
+                                    <div class="price_list" v-for="stanPri of appleProduct.standardPrice" :key="stanPri.id">
+                                        <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
+                                    </div>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="7" class="padding_left">
+                               <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
+                                 <el-row >
+                                    <el-col :span="24">
+                                         <div class="product_menu" v-for="proHot of appleProduct.productHot" :key="proHot.id">
+                                                <div class="product_images">
+													 <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
+                                                </div>
+                                                <div>
+                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}₫</p>
+                                                </div>
+                                         </div>
+                                    </el-col>
+                                </el-row>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="5">
+                                <nuxt-link :to="appleProduct.ads.link"><img :src="appleProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                            </el-col>
+                        </el-row>
+
+
                 </div>
             </li>
-             <li class="nav-item dropdown mega-dropdown button-hover4">
-                <a class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-tablet fa-2x"></i> TABLET</a>
-                 <div class="dropdown-menu mega-menu v-2 row z-depth-1 special-color block4" aria-labelledby="navbarDropdownMenuLink4">
-                    <div class="row mx-md-4 mx-1">
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-5 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Featured</h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item mb-0" href="">Lorem ipsum dolor sit amet</a></li>
-                                <li class=""><a class="menu-item" href="">Consectetur adipiscing elit</a></li>
-                                <li class=""><a class="menu-item" href="">Sed do eiusmod tempor incididunt</a></li>
-                                <li class=""><a class="menu-item" href="">Ut labore et dolore magna</a></li>
-                                <li class=""><a class="menu-item" href="">Ut enim ad minim veniam</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-md-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Related</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(43).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Lorem ipsum dolor sit</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 17, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 20</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Design</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(44).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Ut labore et dolore magna</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 16, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 25</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-5">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Programming</h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item" href="">Totam rem aperiam eaque</a></li>
-                                <li class=""><a class="menu-item" href="">Beatae vitae dicta sun</a></li>
-                                <li class=""><a class="menu-item" href="">Quae ab illo inventore veritatis et quasi architecto</a></li>
-                                <li class=""><a class="menu-item" href="">Nemo enim ipsam voluptatem</a></li>
-                                <li class=""><a class="menu-item" href="">Neque porro quisquam est</a></li>
-                            </ul>
-                        </div>
-                    </div>
+
+            <li class="nav-item dropdown mega-dropdown button-hover4">
+                <nuxt-link to="" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink4" ><i class="fa fa-tablet fa-2x"></i> TABLET</nuxt-link>
+                 <div class="dropdown-menu mega-menu v-2 row z-depth-1 block4" aria-labelledby="navbarDropdownMenuLink4">
+
+
+                         <el-row>
+                            <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
+                                <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
+                                    <div class="product_list">
+                                        <nuxt-link v-for="proCom of tabletProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                    </div>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
+                                <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
+                                    <div class="price_list" v-for="stanPri of tabletProduct.standardPrice" :key="stanPri.id">
+                                    <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
+                                    </div>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="7" class="padding_left">
+                                <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
+                                 <el-row >
+                                    <el-col :span="24">
+                                         <div class="product_menu" v-for="proHot of tabletProduct.productHot" :key="proHot.id">
+                                                <div class="product_images">
+													 <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
+                                                </div>
+                                                <div>
+                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}₫</p>
+                                                </div>
+                                         </div>
+                                         <div><nuxt-link style="color: #337ab7 !important;" to=""><b>Xem bảng xếp hạng máy tính bảng</b></nuxt-link></div>
+                                    </el-col>
+                                </el-row>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="5">
+                                <nuxt-link :to="tabletProduct.ads.link"><img :src="tabletProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                            </el-col>
+                        </el-row>
+
                 </div>
             </li>
+
              <li class="nav-item dropdown mega-dropdown button-hover5">
-                <a class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-headphones fa-2x"></i> PHỤ KIỆN</a>
-                <div class="dropdown-menu mega-menu v-2 row z-depth-1 special-color block5" aria-labelledby="navbarDropdownMenuLink5">
-                    <div class="row mx-md-4 mx-1">
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-5 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Featured</h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item mb-0" href="">Lorem ipsum dolor sit amet</a></li>
-                                <li class=""><a class="menu-item" href="">Consectetur adipiscing elit</a></li>
-                                <li class=""><a class="menu-item" href="">Sed do eiusmod tempor incididunt</a></li>
-                                <li class=""><a class="menu-item" href="">Ut labore et dolore magna</a></li>
-                                <li class=""><a class="menu-item" href="">Ut enim ad minim veniam</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-md-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Related</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(43).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Lorem ipsum dolor sit</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 17, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 20</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-4">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Design</h6>
-                            <!--Featured image-->
-                            <div class="view overlay mb-3 z-depth-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(44).jpg" class="img-fluid" alt="First sample image">
-                                <div class="mask rgba-white-slight flex-center">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <h4 class="mb-2"><a class="news-title-2 pl-0" href="">Ut labore et dolore magna</a></h4>
-                            <p class="font-small text-uppercase white-text"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>July 16, 2017 / <i class="fa fa-comments-o px-1" aria-hidden="true"></i> 25</p>
-                        </div>
-                        <div class="col-md-6 col-xl-3 sub-menu my-xl-5 mt-4 mb-5">
-                            <h6 class="sub-title text-uppercase font-weight-bold white-text">Programming</h6>
-                            <ul class="caret-style pl-0">
-                                <li class=""><a class="menu-item" href="">Totam rem aperiam eaque</a></li>
-                                <li class=""><a class="menu-item" href="">Beatae vitae dicta sun</a></li>
-                                <li class=""><a class="menu-item" href="">Quae ab illo inventore veritatis et quasi architecto</a></li>
-                                <li class=""><a class="menu-item" href="">Nemo enim ipsam voluptatem</a></li>
-                                <li class=""><a class="menu-item" href="">Neque porro quisquam est</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <nuxt-link to="" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink5" ><i class="fa fa-headphones fa-2x"></i> PHỤ KIỆN</nuxt-link>
+                <div class="dropdown-menu mega-menu v-2 row z-depth-1 block5" aria-labelledby="navbarDropdownMenuLink5">
+                   
+
+                        <el-row>
+                            <el-col :xs="24" :sm="12" :md="9"  class=" padding_left" >
+                                <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
+                                    <div class="product_list">
+                                        <nuxt-link v-for="proCom of accessoriesProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                    </div>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="9" class="padding_left vertical">
+                                <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
+                                 <el-row >
+                                    <el-col :span="24">
+                                         <div class="product_menu" v-for="proHot of accessoriesProduct.productHot" :key="proHot.id">
+                                                <div class="product_images">
+                                                    <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
+                                                </div>
+                                                <div>
+                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}₫</p>
+                                                </div>
+                                         </div>
+                                         <div><nuxt-link style="color: #337ab7 !important;" to=""><b>Xem bảng xếp hạng máy tính bảng</b></nuxt-link></div>
+                                    </el-col>
+                                </el-row>
+                            </el-col>
+                            <el-col :xs="24" :sm="12" :md="6">
+                                <nuxt-link :to="accessoriesProduct.ads.link"><img :src="accessoriesProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                            </el-col>
+                        </el-row>
+
+
                 </div>
             </li>
              <li class="nav-item dropdown mega-dropdown">
-                <a class="nav-link text-uppercase no-caret"><i class="fa fa-undo fa-2x"></i> MÁY ĐỔI TRẢ</a>
+                <nuxt-link to="" class="nav-link text-uppercase no-caret"><i class="fa fa-undo fa-2x"></i> MÁY ĐỔI TRẢ</nuxt-link>
             </li>
              <li class="nav-item dropdown mega-dropdown">
                 <el-dropdown>
-                     <a class="nav-link text-uppercase no-caret el-icon-arrow-down el-icon--right" ><i class="fa fa-credit-card fa-2x"></i> SIM & THẺ</a>
+                     <nuxt-link to="" class="nav-link text-uppercase no-caret el-icon-arrow-down el-icon--right" ><i class="fa fa-credit-card fa-2x"></i> SIM & THẺ</nuxt-link>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>Sim</el-dropdown-item>
-                    <el-dropdown-item>Thẻ cào</el-dropdown-item>
+                    <el-dropdown-item><nuxt-link class="link_dropdown" to="" >Sim</nuxt-link></el-dropdown-item>
+                    <el-dropdown-item><nuxt-link class="link_dropdown" to="" >Thẻ cào</nuxt-link></el-dropdown-item>
                 </el-dropdown-menu>
                 </el-dropdown>
             </li>
              <li class="nav-item dropdown mega-dropdown">
                  <el-dropdown>
-                      <a class="nav-link text-uppercase no-caret"><i class="fa fa-bullhorn fa-2x"></i> KHUYẾN MÃI</a>
+                      <nuxt-link  to="" class="nav-link text-uppercase no-caret"><i class="fa fa-bullhorn fa-2x"></i> KHUYẾN MÃI</nuxt-link>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>Thông tin trao thưởng</el-dropdown-item>
-                    <el-dropdown-item>Tất cả khyến mại</el-dropdown-item>
+                    <el-dropdown-item><nuxt-link class="link_dropdown" to="" >Thông tin trao thưởng</nuxt-link></el-dropdown-item>
+                    <el-dropdown-item><nuxt-link class="link_dropdown" to="" >Tất cả khyến mại</nuxt-link></el-dropdown-item>
                 </el-dropdown-menu>
                 </el-dropdown>
             </li>
             <li class="nav-item dropdown mega-dropdown">
-                <a class="nav-link text-uppercase no-caret" ><i class="fa fa-child fa-2x"></i> TRẢ GÓP 0%</a>
+                <nuxt-link to="" class="nav-link text-uppercase no-caret" ><i class="fa fa-child fa-2x"></i> TRẢ GÓP 0%</nuxt-link>
             </li>
         </ul>
     </div>
 </nav>
 </div>
 </template>
+<script>
+export default {
+	data() {
+		return {
+			phoneProduct: {
+				productionCompany: [
+					{ name: "Apple(Iphone)", link: "" },
+					{ name: "Huawei", link: "" },
+					{ name: "Intel", link: "" },
+					{ name: "Asus", link: "" },
+					{ name: "Wiko", link: "" },
+					{ name: "MEIZU", link: "" },
+					{ name: "Xiaomi", link: "" },
+					{ name: "Samsung", link: "" },
+					{ name: "Nokia", link: "" },
+					{ name: "Sony", link: "" },
+					{ name: "Mobiistart", link: "" },
+					{ name: "HONOR", link: "" },
+					{ name: "OPPO", link: "" },
+					{ name: "Vivo", link: "" },
+					{ name: "Masstel", link: "" },
+					{ name: "Philips", link: "" },
+					{ name: "Tecnos", link: "" }
+				],
+				standardPrice: [
+					{ title: "Dưới 1 triệu", link: "" },
+					{ title: "Từ 1 đến 3 triệu", link: "" },
+					{ title: "Từ 3 đến 6 triệu", link: "" },
+					{ title: "Từ 6 đến 10 triệu", link: "" },
+					{ title: "Từ 10 đến 15 triệu", link: "" },
+					{ title: "Trên 15 triệu", link: "" }
+				],
+				productHot: [
+					{
+						name: "Xiaomi Redmi Note 5 32GB",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/7/636612801354913649_636574162702861277_1o.png.jpeg",
+						price: "4.799.000"
+					},
+					{
+						name: "OPPO F7",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/4/12/636591268193868757_1o.png",
+						price: "7.999.000"
+					}
+				],
+				ads: {
+					img:
+						"//cdn.fptshop.com.vn/Uploads/Originals/2018/8/1/636687067369243072_636660033217957991_Samsung-H4.jpg",
+					link: ""
+				}
+			},
+			laptopProduct: {
+				productionCompany: [
+					{ name: "Apple(Macbook)", link: "" },
+					{ name: "Asus", link: "" },
+					{ name: "Ancer", link: "" },
+					{ name: "Dell", link: "" },
+					{ name: "HP", link: "" },
+					{ name: "Lenovo", link: "" },
+					{ name: "MSI", link: "" },
+					{ name: "Masstel", link: "" }
+				],
+				software: [
+					{ name: "Diệt virus", link: "" },
+					{ name: "Microsoft Office", link: "" },
+					{ name: "Windows", link: "" },
+					{ name: "Phần mềm khác", link: "" }
+				],
+				standardPrice: [
+					{ title: "Dưới 5 triệu", link: "" },
+					{ title: "Từ 5 đến 10 triệu", link: "" },
+					{ title: "Từ 10 đến 15 triệu", link: "" },
+					{ title: "Từ 15 đến 20 triệu", link: "" },
+					{ title: "Từ 20 đến 25 triệu", link: "" },
+					{ title: "Từ 25 đến 30 triệu", link: "" },
+					{ title: "Trên 30 triệu", link: "" }
+				],
+				usageTarget: [
+					{ title: "Sản phẩm 2 trong 1", link: "" },
+					{ title: "Gaming - Đồ họa", link: "" },
+					{ title: "Doanh nhân", link: "" },
+					{ title: "Ram khủng", link: "" },
+					{ title: "Chọn bởi FPT shop", link: "" },
+					{ title: "Sinh viên - Văn phòng", link: "" },
+					{ title: "Windows", link: "" },
+					{ title: "Giá rẻ", link: "" },
+					{ title: "Hiện đại", link: "" }
+				],
+				ads: {
+					img:
+						"//cdn.fptshop.com.vn/Uploads/Originals/2018/6/30/636659578548694071_H4-Section 1.png",
+					link: ""
+				}
+			},
+			appleProduct: {
+				productionCompany: [
+					{ name: "iPhone", link: "" },
+					{ name: "iPad", link: "" },
+					{ name: "Mac", link: "" },
+					{ name: "iMac", link: "" },
+					{ name: "Macmini", link: "" },
+					{ name: "Macpro", link: "" },
+					{ name: "Watch", link: "" },
+					{ name: "TV", link: "" },
+					{ name: "Phụ kiện", link: "" },
+					{ name: "Beats", link: "" }
+				],
+				standardPrice: [
+					{ title: "Dưới 10 triệu", link: "" },
+					{ title: "Từ 10 đến 15 triệu", link: "" },
+					{ title: "Từ 15 đến 20 triệu", link: "" },
+					{ title: "Từ 20 đến 25 triệu", link: "" },
+					{ title: "Từ 25 đến 30 triệu", link: "" },
+					{ title: "Trên 30 triệu", link: "" }
+				],
+				productHot: [
+					{
+						name: "iPhone 6 32GB (2017)",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/18/636622605489276625_6-32.png",
+						price: "7.499.000"
+					},
+					{
+						name: "iPad 2018 WiFi 32GB",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/8/636613881392399068_ipad-wifi.png",
+						price: "9.999.000"
+					}
+				],
+				ads: {
+					img:
+						"//cdn.fptshop.com.vn/Uploads/Originals/2018/1/1/636504001230136182_636482946260323426_636459941853997270_Banner-Apple-T12.png",
+					link: ""
+				}
+			},
+			tabletProduct: {
+				productionCompany: [
+					{ name: "Apple(iPad)", link: "" },
+					{ name: "Samsung", link: "" },
+					{ name: "Lenovo", link: "" },
+					{ name: "Masstel", link: "" },
+					{ name: "Huawei", link: "" },
+					{ name: "Itel", link: "" }
+				],
+				standardPrice: [
+					{ title: "Dưới 2 triệu", link: "" },
+					{ title: "Từ 2 đến 5 triệu", link: "" },
+					{ title: "Từ 5 đến 8 triệu", link: "" },
+					{ title: "Trên 8 triệu", link: "" }
+				],
+				productHot: [
+					{
+						name: "Samsung Galaxy Tab A 2017",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/1/636451312432993323_1o.png",
+						price: "5.490.000"
+					},
+					{
+						name: "Huawei MediaPad T3 7.0 Prestige",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/10/24/636444518526948294_Huawei-MediaPad-T3-7.0-Prestige.png",
+						price: "2.090.000"
+					}
+				],
+				ads: {
+					img:
+						"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/12/636669934945963395_H4.png",
+					link: ""
+				}
+			},
+			accessoriesProduct: {
+				productionCompany: [
+					{ name: "Bao da ốp lưng", link: "" },
+					{ name: "Ốp lưng tự thiết kế", link: "" },
+					{ name: "Sạc dự phòng", link: "" },
+					{ name: "Thẻ nhớ", link: "" },
+					{ name: "Phụ kiện Apple", link: "" },
+					{ name: "Miếng dáng màn hình", link: "" },
+					{ name: "Tai nghe", link: "" },
+					{ name: "Loa", link: "" },
+					{ name: "USB - Ổ cứng", link: "" },
+					{ name: "Sạc cáp", link: "" },
+					{ name: "Chuột", link: "" },
+					{ name: "Balo - Túi xách", link: "" },
+					{ name: "TV BOX", link: "" },
+					{ name: "Phụ kiện khác", link: "" },
+					{ name: "Máy chơi game", link: "" }
+				],
+				productHot: [
+					{
+						name: "MDMH iPhone X Kính cường lực Clear",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
+						price: "250.000"
+					},
+					{
+						name: "Mic Karaoke kèm loa Bluetooth và SDP iCore M9",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/3/1/636239586738677906_HAPK-MICRO-KARAOKE-KEM-LOA-BLUETOOTH-VA-SDP-ARIRANG-ICORE-M9-00328363.png",
+						price: "675.000"
+					}
+				],
+				ads: {
+					img:
+						"//cdn.fptshop.com.vn/Uploads/Originals/2018/6/6/636638812628409464_phukiengiam-248x248.jpg",
+					link: ""
+				}
+			}
+		}
+	}
+}
+</script>
 
 <style scoped>
-.title_product {
-	font-weight: bold;
+h6 {
+	font-size: 14px;
+	padding-top: 10px;
 }
 .price {
 	color: #d0021b;
 	font-weight: bold;
 }
 .pd {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	color: black;
+	color: #3d3d3d;
 }
 .vertical {
 	border-left: 1px solid #dedede;
@@ -341,16 +478,32 @@
 }
 .product_menu {
 	display: flex;
+	margin-bottom: 13px;
 }
 .product_images {
-	max-width: 50%;
+	max-width: 80px;
+	margin-right: 10px;
 }
-
+.title_product {
+	font-weight: bold;
+}
+.price_list {
+	line-height: 2em;
+}
+.navbar .dropdown-menu.mega-menu.v-2 a {
+	padding: 8px !important;
+	font-size: 13px;
+}
 .navbar .dropdown-menu a {
-	line-height: 2.5em;
+	line-height: 1em;
+	color: #3d3d3d !important;
+}
+.product_list {
+	display: grid;
+	grid-template-columns: auto auto auto;
 }
 .navbar .dropdown-menu a:hover {
-	color: black !important;
+	color: grey !important;
 }
 
 .navbar .dropdown-menu.mega-menu.v-2 a {
@@ -448,5 +601,11 @@ i {
 }
 .button-hover5:hover > .block5 {
 	display: block;
+}
+.link_dropdown {
+	color: #606266;
+}
+.link_dropdown:hover {
+	color: #66b1ff !important;
 }
 </style>

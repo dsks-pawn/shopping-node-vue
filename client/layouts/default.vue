@@ -32,5 +32,36 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+.fa-chevron-circle-right {
+	position: absolute;
+	top: 15%;
+	transform: translateY(-50%);
+	right: 0px;
+	cursor: pointer;
+	font-size: 35px;
+	opacity: 0;
+	transition: 0.5s;
+	color: #bbbbbb;
+}
+.fa-chevron-circle-left {
+	position: absolute;
+	top: 15%;
+	transform: translateY(-50%);
+	left: 0px;
+	cursor: pointer;
+	font-size: 35px;
+	opacity: 0;
+	transition: 0.5s;
+	color: #bbbbbb;
+}
+.icon_block:hover .fa-chevron-circle-left {
+	left: 20px;
+	opacity: 1;
+}
+.icon_block:hover .fa-chevron-circle-right {
+	right: 20px;
+	opacity: 1;
+}
 </style>
 
