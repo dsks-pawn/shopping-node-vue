@@ -10,17 +10,7 @@
 
 <script>
 export default {
-	data() {
-		return {
-			productSale: [
-				{ name: "", img: "/img/slider-main.jpg", link: "" },
-				{ name: "", img: "/img/slider-main2.png", link: "" },
-				{ name: "", img: "/img/slider-main3.jpg", link: "" },
-				{ name: "", img: "/img/slider-main4.jpg", link: "" },
-				{ name: "", img: "/img/slider-main5.png", link: "" }
-			]
-		}
-	}
+	props: ["productSale"]
 }
 </script>
 

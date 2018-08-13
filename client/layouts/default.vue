@@ -1,11 +1,27 @@
 <template>
   <div>
-    <nuxt/>
+	  <TopBar/>
+	  <Menu/>
+    	<nuxt/>
+		<Footer/>
   </div>
 </template>
 
 <script>
+import TopBar from "~/components/Main/TopBar.vue"
+import Menu from "~/components/Main/Menu.vue"
+
+import Footer from "~/components/Main/Footer.vue"
+
+export default {
+	components: {
+		TopBar,
+		Menu,
+		Footer
+	}
+}
 </script>
+
 <style>
 html {
 	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
@@ -62,6 +78,14 @@ img {
 .icon_block:hover .fa-chevron-circle-right {
 	right: 20px;
 	opacity: 1;
+}
+.el-rate__icon {
+	font-size: 13px;
+	margin-right: 2px;
+}
+.el-rate__text {
+	font-size: 12px;
+	padding-left: 6px;
 }
 </style>
 

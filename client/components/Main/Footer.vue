@@ -37,13 +37,17 @@
                     </el-col>
                 </el-row>
             </el-col>
-        </el-row>
-    </div>
+       	 </el-row>
+    	</div>
+		<div class="font_mini text-center">
+			<small >© 2007 - 2018 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số FPT / Địa chỉ: 261 Khánh Hội, P5, Q4, TP. Hồ Chí Minh / GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018. Điện thoại: (028)73023456. Email: fptshop@fpt.com.vn. Chịu trách nhiệm nội dung: Trần Quốc Nhật.</small>
+		</div>
    </div>
 </template>
 <style scoped>
 .container-fuild {
 	background-color: #fff;
+	margin-top: 20px;
 }
 .block_information {
 	margin: 0 -15px;
@@ -77,6 +81,11 @@
 .support_card {
 	display: grid;
 	grid-template-columns: auto auto auto;
+}
+.font_mini {
+	font-size: 13px;
+	padding: 10px;
+	background: #f3f3f3;
 }
 </style>
 

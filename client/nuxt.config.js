@@ -9,7 +9,7 @@ module.exports = {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "Nuxt.js project" }
     ],
-    css: ['@/assets/css/main.css'],
+    css: ['@/assets/main.css'],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
@@ -35,7 +35,7 @@ module.exports = {
         src: "https://namboss.blob.core.windows.net/huong/bootstrap.min.js", body: true
       },
       {
-        src: "https://namboss.blob.core.windows.net/huong/mdb.min.js", body: true
+        src: "https://namboss.blob.core.windows.net/huong/mdb.js", body: true
       },
       { src: "https://mdbootstrap.com/live/_MDB/js/customizer.min.js", body: true },
       { src: "https://unpkg.com/element-ui/lib/index.js", body: true }

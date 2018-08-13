@@ -1,13 +1,13 @@
 <template>
     <div class="product">
          <div class="product_title">
-             <nuxt-link to=""><h5>tablet nổi bật</h5></nuxt-link>
-            <nuxt-link to=""><small>Xem tất cả</small></nuxt-link>
+             <nuxt-link to=""><h5>{{productsHot.typeProduct}}</h5></nuxt-link>
+            <nuxt-link :to="productsHot.viewAll"><small>Xem tất cả</small></nuxt-link>
         </div>
         <div>
             <el-row :gutter="10">
-                <el-col :xs="24" :sm="12" :md="8" v-for="item of item_product" :key="item.id">
-                    <nuxt-link :to="item.link" :title="item.name">
+                <el-col  :xs="24" :sm="12" :md="8" v-for="item of productsHot.item_product" :key="item.id">
+                    <nuxt-link  :to="item.link" :title="item.name">
                         <div class="product_item">
                             <div class="item">
                                 <h6 class="item_title">{{item.name}}</h6>
@@ -24,6 +24,14 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+	props: ["productsHot"]
+}
+</script>
+
+
 <style scoped>
 .product {
 	padding-top: 30px;
@@ -62,38 +70,4 @@
 	color: #fff;
 }
 </style>
-<script>
-export default {
-	data() {
-		return {
-			item_product: [
-				{
-					name: "iPad 2018 WiFi 32GB",
-					price: "9.999.000",
-					answer: "0",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/8/1/636686824428755381_Banner-iPad.jpg",
-					link: ""
-                },
-                {
-					name: "iPad 2018 WiFi 32GB",
-					price: "9.999.000",
-					answer: "0",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/8/1/636686824428755381_Banner-iPad.jpg",
-					link: ""
-                },
-                {
-					name: "iPad 2018 WiFi 32GB",
-					price: "9.999.000",
-					answer: "0",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/8/1/636686824428755381_Banner-iPad.jpg",
-					link: ""
-				}
-			]
-		}
-	}
-}
-</script>
 

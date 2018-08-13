@@ -587,6 +587,9 @@ i {
 .nav-link::before {
 	content: "";
 }
+.dropdown-menu {
+	transition: 1s;
+}
 .button-hover1:hover > .block1 {
 	display: block;
 }
