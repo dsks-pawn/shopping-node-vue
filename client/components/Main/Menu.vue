@@ -127,7 +127,7 @@
             </li>
 
             <li class="nav-item dropdown mega-dropdown button-hover4">
-                <nuxt-link to="" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink4" ><i class="fa fa-tablet fa-2x"></i> TABLET</nuxt-link>
+                <nuxt-link to="/productsall/tablets" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink4" ><i class="fa fa-tablet fa-2x"></i> TABLET</nuxt-link>
                  <div class="dropdown-menu mega-menu v-2 row z-depth-1 block4" aria-labelledby="navbarDropdownMenuLink4">
 
 

@@ -45,6 +45,7 @@
 	justify-content: flex-end;
 	padding: 12px 8px 6px 8px;
 	background: #e5e5e5;
+	word-spacing: 0px;
 }
 
 .topic_title {
@@ -66,7 +67,6 @@
 }
 .product_items {
 	padding-top: 5px;
-	padding-left: 5px;
 }
 .product_item {
 	background-color: #fff;

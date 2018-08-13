@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
           <ul class="navbar-nav mr-auto search_ul">
             <li class="nav-item active">
-                <el-input  style="background-color: white;" placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm" v-model="input5" id="search"  class="input-with-select">
+                <el-input  style="background-color: white;" placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm" v-model="inputSearch" id="search"  class="input-with-select">
                   <el-button style="left: 2px;" class="button_search waves-effect" slot="append" icon="el-icon-search fa-lg"></el-button>
                 </el-input>
             </li>
@@ -105,10 +105,7 @@ small {
 export default {
 	data() {
 		return {
-			input3: "",
-			input4: "",
-			input5: "",
-			select: ""
+			inputSearch: ""
 		}
 	}
 }

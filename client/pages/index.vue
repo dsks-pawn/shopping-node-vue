@@ -1,26 +1,26 @@
 <template>
   <section class="container-fuild body_content">
-          <TopBar/>
-          <Menu/>
-            <div class="container carousel_ads">
-              <el-row :gutter="10">
-                <el-col  :sm="24" :md="16">
-                  <CarouselMain/>
-                </el-col>
-                <el-col  :sm="24" :md="8">
-                  <Ads/>
-                </el-col>
-              </el-row>
-							<AdsLong/>
-          </div>
+	<TopBar/>
+		<Menu/>
+			<div class="container carousel_ads">
+				<el-row :gutter="10">
+					<el-col  :sm="24" :md="16">
+						<CarouselMain/>
+					</el-col>
+					<el-col  :sm="24" :md="8">
+						<Ads/>
+					</el-col>
+				</el-row>
+				<AdsLong/>
+			</div>
 
-					<div class="container product_hot">
-						<CarouselProductHot :productsHot="phonesHot"/> 
-						<CarouselProductHot :productsHot="laptopsHot"/> 
-						<CarouselProductHot :productsHot="tabletHot"/> 
-						<AccessoriesHot/>
-					</div>
-  <Footer/>
+			<div class="container product_hot">
+				<CarouselProductHot :productsHot="phonesHot"/> 
+				<CarouselProductHot :productsHot="laptopsHot"/> 
+				<CarouselProductHot :productsHot="tabletHot"/> 
+				<AccessoriesHot/>
+			</div>
+  		<Footer/>
   </section>
 </template>
 

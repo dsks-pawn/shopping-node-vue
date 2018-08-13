@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import ProductByPrice from "~/components/BlockProductByProducts/ProductByPrice.vue"
-import CarouselAds from "~/components/BlockProductByProducts/CarouselAds.vue"
-import CarouselBrand from "~/components/BlockProductByProducts/CarouselBrand.vue"
+import ProductByPrice from "~/components/BlockManyProduct/ProductByPrice.vue"
+import CarouselAds from "~/components/BlockManyProduct/CarouselAds.vue"
+import CarouselBrand from "~/components/BlockManyProduct/CarouselBrand.vue"
 
-import PhonesCarouselItem from "~/components/BlockProductByProducts/PhonesCarouselItem.vue"
-import ProductsJustWatched from "~/components/BlockProductByProducts/ProductsJustWatched.vue"
+import PhonesCarouselItem from "~/components/BlockManyProduct/PhonesCarouselItem.vue"
+import ProductsJustWatched from "~/components/BlockManyProduct/ProductsJustWatched.vue"
 
 export default {
 	components: {

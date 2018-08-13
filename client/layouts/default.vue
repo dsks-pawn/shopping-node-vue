@@ -48,7 +48,13 @@ img {
 	max-width: 100%;
 	height: auto;
 }
-
+body {
+	background-color: #f3f3f3;
+}
+.breadcrumb {
+	background-color: #f3f3f3;
+	margin-bottom: 0px;
+}
 .fa-chevron-circle-right {
 	position: absolute;
 	top: 15%;

@@ -1,5 +1,6 @@
 <template>
    <div class="container-fuild">
+	   <div class="padding"></div>
         <div class="container">
         <el-row class="block_information" :gutter="1">
             <el-col :sm="24" :md="14" >
@@ -45,9 +46,13 @@
    </div>
 </template>
 <style scoped>
+.padding {
+	height: 30px;
+	width: 100%;
+	background-color: #f3f3f3;
+}
 .container-fuild {
 	background-color: #fff;
-	margin-top: 20px;
 }
 .block_information {
 	margin: 0 -15px;
