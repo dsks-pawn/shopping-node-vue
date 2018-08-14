@@ -7,7 +7,7 @@
         <div>
             <el-row :gutter="10">
                 <el-col  :xs="24" :sm="12" :md="8" v-for="item of productsHot.item_product" :key="item.id">
-                    <nuxt-link  :to="item.link" :title="item.name">
+                    <nuxt-link :to="item.link" :title="item.name">
                         <div class="product_item">
                             <div class="item">
                                 <h6 class="item_title">{{item.name}}</h6>
@@ -16,7 +16,7 @@
                             <p class="item_price">
                                 {{item.price}}₫
                             </p>
-                            <img :src="item.img" alt="Sản phẩm hot">
+                            <img v-lazy="item.img" :src="item.img" :alt="item.name" :title="item.name">
                         </div>
                     </nuxt-link>
                 </el-col>

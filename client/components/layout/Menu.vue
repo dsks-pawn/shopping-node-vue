@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
         <ul class="navbar-nav mr-auto" style="display:flex">
             <li class="nav-item dropdown mega-dropdown button-hover1">
-                <nuxt-link to="/products/phones" class="nav-link" id="navbarDropdownMenuLink1" ><i class="fa fa-mobile fa-2x"></i> ĐIỆN THOẠI</nuxt-link>
+                <nuxt-link to="/products/phone" class="nav-link" id="navbarDropdownMenuLink1" ><i class="fa fa-mobile fa-2x"></i> ĐIỆN THOẠI</nuxt-link>
                  <div  class="dropdown-menu mega-menu v-2 row z-depth-1 block1" aria-labelledby="navbarDropdownMenuLink1">
 
                      <el-row>
@@ -47,7 +47,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown mega-dropdown button-hover2">
-                <nuxt-link to="/products/laptops" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink2" ><i class="fa fa-laptop fa-2x"></i> LAPTOP</nuxt-link>
+                <nuxt-link to="/products/laptop" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink2" ><i class="fa fa-laptop fa-2x"></i> LAPTOP</nuxt-link>
                 <div class="dropdown-menu mega-menu block2 v-2 row z-depth-1 block1" aria-labelledby="navbarDropdownMenuLink2">
                   
 

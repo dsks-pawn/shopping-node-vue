@@ -20,6 +20,9 @@
 				<ProductHot :productsHot="tabletHot"/> 
 				<AccessoriesHot/>
 			</div>
+			<div class="container">
+
+ 		 </div>
   		<Footer/>
   </section>
 </template>

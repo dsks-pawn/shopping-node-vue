@@ -7,8 +7,16 @@
 				 <el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">Tên sản phẩm</nuxt-link></el-breadcrumb-item>
  			</el-breadcrumb>
  		</div>
+		 <div>
+			 <Detail/>
+		 </div>
  	</section>
  </template>
 <script>
-export default {}
+import Detail from "~/components/block/product/detail/detail.vue"
+export default {
+	components: {
+		Detail
+	}
+}
 </script>
