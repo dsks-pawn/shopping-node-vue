@@ -25,7 +25,7 @@
                   <span class="items_title">{{proSide.title}}</span>
               </template>
             <el-menu-item style="padding-left: 20p; margin: 0 auto"  index="1-1"  v-for="pro of proSide.value" :key="pro.id">
-              <el-checkbox>{{pro}}</el-checkbox>
+              <el-checkbox >{{pro}}</el-checkbox>
              </el-menu-item>
 						 <hr>
           </el-submenu>
@@ -128,10 +128,12 @@ export default {
 	padding-left: 20px;
 	text-transform: initial;
 	padding-top: 20px;
+	color: #4a4a4a;
 }
 
 .items_title {
 	font-weight: bold;
+	color: #4a4a4a;
 }
 .input-with-select {
 	padding-top: 1px;

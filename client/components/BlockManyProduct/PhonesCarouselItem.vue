@@ -7,6 +7,7 @@
             </div>
             <carousel  class="phones_carousel icon_block" :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="<i class='fa fa-chevron-circle-right'></i>" navigationPrevLabel="<i class='fa fa-chevron-circle-left'></i>" :perPageCustom="[[411, 2], [768, 3], [1024, 5]]" :autoplay="true" :minSwipeDistance="10">
                 <slide class="hover_block" v-for="phone of phones.itemPhones" :key="phone.id">
+					 <div class="sale"><small>{{phone.sale}}</small></div>
                     <nuxt-link  :to="phone.link" class="product_items">
                         <div class="text-center"><img class="product_img" :src="phone.img" :alt="phone.name" :title="phone.name"></div>
                         <div class="product_item">
@@ -89,8 +90,20 @@ export default {
 }
 .hover_block {
 	transition: 1s;
+	background-color: #fff;
+	position: relative;
 }
 .hover_block:hover {
 	box-shadow: 0px 0px 17px #888888;
+}
+.sale {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	color: #fff;
+	background: #ff2842;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 2px;
 }
 </style>

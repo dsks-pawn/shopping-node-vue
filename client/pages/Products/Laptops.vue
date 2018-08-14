@@ -209,6 +209,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -226,6 +227,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -243,6 +245,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -260,6 +263,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -283,6 +287,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -300,6 +305,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -317,6 +323,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -334,6 +341,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -357,6 +365,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -374,6 +383,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -391,6 +401,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -408,6 +419,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -431,6 +443,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -448,6 +461,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -465,6 +479,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -482,6 +497,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -505,6 +521,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -522,6 +539,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -539,6 +557,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -556,6 +575,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -579,6 +599,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -596,6 +617,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -613,6 +635,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -630,6 +653,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -653,6 +677,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -670,6 +695,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -687,6 +713,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -704,6 +731,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -727,6 +755,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -744,6 +773,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -761,6 +791,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",
@@ -778,6 +809,7 @@ export default {
 						price: "6.990.000",
 						priceOld: "7.000.000",
 						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%",
 						specifications: {
 							screen: "11.6 inchHD TN AG TOUCH",
 							cpu: "Itel, Pentium, 1.10 GHz",

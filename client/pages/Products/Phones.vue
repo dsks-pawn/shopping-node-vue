@@ -201,7 +201,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/19/636675937265112606_huawei3i-1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -210,7 +211,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/19/636675937265112606_huawei3i-1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -219,7 +221,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/19/636675937265112606_huawei3i-1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -261,7 +264,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -279,7 +283,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -312,7 +317,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/9/636614825973103497_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -357,7 +363,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/9/636614825973103497_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					}
 				]
 			},
@@ -372,7 +379,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/2/26/636552329323936581_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -390,7 +398,18 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/2/26/636552329323936581_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
+					},
+					{
+						name: "Huwei Nova 3i",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/2/26/636552329323936581_1o.png",
+						price: "6.990.000",
+						priceOld: "2.222.222đ",
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -408,16 +427,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/2/26/636552329323936581_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/2/26/636552329323936581_1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					}
 				]
 			},
@@ -441,7 +452,38 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
+					},
+					{
+						name: "Huwei Nova 3i",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
+						price: "6.990.000",
+						priceOld: "2.222.222đ",
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
+					},
+					{
+						name: "Huwei Nova 3i",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
+						price: "6.990.000",
+						priceOld: "2.222.222đ",
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
+					},
+					{
+						name: "Huwei Nova 3i",
+						link: "",
+						img:
+							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
+						price: "6.990.000",
+						priceOld: "2.222.222đ",
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -459,7 +501,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					},
 					{
 						name: "Huwei Nova 3i",
@@ -468,34 +511,8 @@ export default {
 							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
 						price: "6.990.000",
 						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/24/636471207542719059_1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" }
+						rate: { value: 5, countComment: "30 đánh giá" },
+						sale: "Trả góp 0%"
 					}
 				]
 			}

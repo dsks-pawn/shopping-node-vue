@@ -93,5 +93,12 @@ body {
 	font-size: 12px;
 	padding-left: 6px;
 }
+.el-checkbox__label {
+	white-space: pre-line;
+	font-size: 13px;
+}
+.el-input__inner {
+	padding: 0px !important;
+}
 </style>
 

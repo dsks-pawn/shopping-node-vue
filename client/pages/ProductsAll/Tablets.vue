@@ -7,25 +7,25 @@
  			</el-breadcrumb>
  		</div>
 		 <el-row :gutter="10">
-			<el-col :xs="8" :sm="6" :md="5" >
+			<el-col  :sm="24" :md="5" >
 				<SideBar/>
 			</el-col>
-			<el-col :xs="4" :sm="6" :md="19" >
-
+			<el-col  :sm="24" :md="19" >
+				<ProductGeneral/>
 			</el-col>
 		</el-row>
  	</section>
  </template>
 
  <script>
- 	import SideBar from "~/components/BlockAllProduct/SideBar.vue"
- 	export default {
-
- 		components: {
- 			SideBar
- 		}
- 	}
- </script>
+import SideBar from "~/components/BlockAllProduct/SideBar.vue"
+import ProductGeneral from "~/components/BlockAllProduct/ProductGeneral.vue"
+export default {
+	components: {
+		SideBar,
+		ProductGeneral
+	}
+}
+</script>
  <style scoped>
-
 </style>
