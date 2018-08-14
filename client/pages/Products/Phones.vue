@@ -13,10 +13,10 @@
 			  <Phone :phones="phoneBestBattery"/>
 			  <Phone :phones="phonePhotography"/>
 			  <Phone :phones="phoneGame"/>
-			
+
 			<ProductsJustWatched/>
            </div>
-       
+
   <Footer/>
   </section>
 </template>
@@ -28,7 +28,7 @@ import Brand from "~/components/block/product/slide/Brand.vue"
 
 import Phone from "~/components/block/product/slide/Phone.vue"
 
-import ProductsJustWatched from "~/components/common/ProductsJustWatched.vue"
+import ProductsJustWatched from "~/components/common/ProductsWatched.vue"
 
 export default {
 	components: {
