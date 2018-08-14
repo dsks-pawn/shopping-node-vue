@@ -14,19 +14,19 @@
 				<Result/>
 			</el-col>
 		</el-row>
-	<ProductsJustWatched/>
+	<ProductsWatched/>
  	</section>
  </template>
 
  <script>
 import SideBar from "~/components/block/product/filter/SideBar.vue"
 import Result from "~/components/block/product/filter/Result.vue"
-import ProductsJustWatched from "~/components/common/ProductsJustWatched.vue"
+import ProductsWatched from "~/components/common/ProductsWatched.vue"
 export default {
 	components: {
 		SideBar,
 		Result,
-		ProductsJustWatched
+		ProductsWatched
 	}
 }
 </script>

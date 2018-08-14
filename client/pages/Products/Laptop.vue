@@ -17,12 +17,12 @@
 			  <Laptop :laptops="laptopLight"/>
 			  <Laptop :laptops="laptopBusinessMan"/>
 			  <Laptop :laptops="laptopRamTerrible"/>
-			  
-          
-			
-			<ProductsJustWatched/>
+
+
+
+			<ProductsWatched/>
            </div>
-       
+
   <Footer/>
   </section>
 </template>
@@ -31,10 +31,8 @@
 import Price from "~/components/block/product/slide/Price.vue"
 import Ads from "~/components/block/product/slide/Ads.vue"
 import Brand from "~/components/block/product/slide/Brand.vue"
-
 import Laptop from "~/components/block/product/slide/Laptop.vue"
-
-import ProductsJustWatched from "~/components/common/ProductsJustWatched.vue"
+import ProductsWatched from "~/components/common/ProductsWatched.vue"
 
 export default {
 	components: {
@@ -43,7 +41,7 @@ export default {
 		Brand,
 
 		Laptop,
-		ProductsJustWatched
+		ProductsWatched
 	},
 	data() {
 		return {
