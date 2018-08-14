@@ -3,16 +3,16 @@
           <TopBar/>
           <Menu/>
             <div class="container">
-             <ProductByPrice :priceInRange="typePhoneAndPrice"/>
-              <CarouselAds :productSale="phoneSaleAds"/>
+             <Price :priceInRange="typePhoneAndPrice"/>
+              <Ads :productSale="phoneSaleAds"/>
 
-              <CarouselBrand :brands="brandPhone"/>
+              <Brand :brands="brandPhone"/>
 
-              <PhonesCarouselItem :phones="phoneHot"/>
-              <PhonesCarouselItem :phones="phoneNew"/>
-			  <PhonesCarouselItem :phones="phoneBestBattery"/>
-			  <PhonesCarouselItem :phones="phonePhotography"/>
-			  <PhonesCarouselItem :phones="phoneGame"/>
+              <Phone :phones="phoneHot"/>
+              <Phone :phones="phoneNew"/>
+			  <Phone :phones="phoneBestBattery"/>
+			  <Phone :phones="phonePhotography"/>
+			  <Phone :phones="phoneGame"/>
 			
 			<ProductsJustWatched/>
            </div>
@@ -22,20 +22,21 @@
 </template>
 
 <script>
-import ProductByPrice from "~/components/BlockManyProduct/ProductByPrice.vue"
-import CarouselAds from "~/components/BlockManyProduct/CarouselAds.vue"
-import CarouselBrand from "~/components/BlockManyProduct/CarouselBrand.vue"
+import Price from "~/components/block/product/slide/Price.vue"
+import Ads from "~/components/block/product/slide/Ads.vue"
+import Brand from "~/components/block/product/slide/Brand.vue"
 
-import PhonesCarouselItem from "~/components/BlockManyProduct/PhonesCarouselItem.vue"
-import ProductsJustWatched from "~/components/BlockManyProduct/ProductsJustWatched.vue"
+import Phone from "~/components/block/product/slide/Phone.vue"
+
+import ProductsJustWatched from "~/components/common/ProductsJustWatched.vue"
 
 export default {
 	components: {
-		ProductByPrice,
-		CarouselAds,
-		CarouselBrand,
+		Price,
+		Ads,
+		Brand,
 
-		PhonesCarouselItem,
+		Phone,
 		ProductsJustWatched
 	},
 	data() {

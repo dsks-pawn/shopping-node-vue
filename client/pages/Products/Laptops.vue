@@ -3,20 +3,20 @@
           <TopBar/>
           <Menu/>
             <div class="container">
-             <ProductByPrice :priceInRange="typeLaptopAndPrice"/>
+             <Price :priceInRange="typeLaptopAndPrice"/>
 
-              <CarouselAds :productSale="laptopSaleAds"/>
+              <Ads :productSale="laptopSaleAds"/>
 
-              <CarouselBrand :brands="brandLaptop"/>
+              <Brand :brands="brandLaptop"/>
 
-              <LaptopsCarouselItem :laptops="laptopFptShop"/>
-			  <LaptopsCarouselItem :laptops="laptopTwoOfOne"/>
-			  <LaptopsCarouselItem :laptops="laptopGaming"/>
-			  <LaptopsCarouselItem :laptops="laptopWindows"/>
-			  <LaptopsCarouselItem :laptops="laptopStudent"/>
-			  <LaptopsCarouselItem :laptops="laptopLight"/>
-			  <LaptopsCarouselItem :laptops="laptopBusinessMan"/>
-			  <LaptopsCarouselItem :laptops="laptopRamTerrible"/>
+              <Laptop :laptops="laptopFptShop"/>
+			  <Laptop :laptops="laptopTwoOfOne"/>
+			  <Laptop :laptops="laptopGaming"/>
+			  <Laptop :laptops="laptopWindows"/>
+			  <Laptop :laptops="laptopStudent"/>
+			  <Laptop :laptops="laptopLight"/>
+			  <Laptop :laptops="laptopBusinessMan"/>
+			  <Laptop :laptops="laptopRamTerrible"/>
 			  
           
 			
@@ -28,21 +28,21 @@
 </template>
 
 <script>
-import ProductByPrice from "~/components/BlockManyProduct/ProductByPrice.vue"
-import CarouselAds from "~/components/BlockManyProduct/CarouselAds.vue"
-import CarouselBrand from "~/components/BlockManyProduct/CarouselBrand.vue"
+import Price from "~/components/block/product/slide/Price.vue"
+import Ads from "~/components/block/product/slide/Ads.vue"
+import Brand from "~/components/block/product/slide/Brand.vue"
 
-import LaptopsCarouselItem from "~/components/BlockManyProduct/LaptopsCarouselItem.vue"
+import Laptop from "~/components/block/product/slide/Laptop.vue"
 
-import ProductsJustWatched from "~/components/BlockManyProduct/ProductsJustWatched.vue"
+import ProductsJustWatched from "~/components/common/ProductsJustWatched.vue"
 
 export default {
 	components: {
-		ProductByPrice,
-		CarouselAds,
-		CarouselBrand,
+		Price,
+		Ads,
+		Brand,
 
-		LaptopsCarouselItem,
+		Laptop,
 		ProductsJustWatched
 	},
 	data() {

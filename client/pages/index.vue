@@ -5,19 +5,19 @@
 			<div class="container carousel_ads">
 				<el-row :gutter="10">
 					<el-col  :sm="24" :md="16">
-						<CarouselMain/>
+						<AdsCarousel/>
 					</el-col>
 					<el-col  :sm="24" :md="8">
-						<Ads/>
+						<AdsShort/>
 					</el-col>
 				</el-row>
 				<AdsLong/>
 			</div>
 
 			<div class="container product_hot">
-				<CarouselProductHot :productsHot="phonesHot"/> 
-				<CarouselProductHot :productsHot="laptopsHot"/> 
-				<CarouselProductHot :productsHot="tabletHot"/> 
+				<ProductHot :productsHot="phoneHot"/> 
+				<ProductHot :productsHot="laptopHot"/> 
+				<ProductHot :productsHot="tabletHot"/> 
 				<AccessoriesHot/>
 			</div>
   		<Footer/>
@@ -28,23 +28,21 @@
 /* Navbar menu top*/
 
 /* Carousel ads*/
-import CarouselMain from "~/components/BlockHome/CarouselMain.vue"
-import Ads from "~/components/BlockHome/Ads.vue"
-import AdsLong from "~/components/BlockHome/AdsLong.vue"
+import AdsCarousel from "~/components/block/home/AdsCarousel.vue"
+import AdsShort from "~/components/block/home/AdsShort.vue"
+import AdsLong from "~/components/block/home/AdsLong.vue"
 
 /*Product items all*/
-// import PhoneHot from "~/components/BlockHome/ProductsImages/PhoneHot.vue"
-// import LaptopHot from "~/components/BlockHome/ProductsImages/LaptopHot.vue"
-import CarouselProductHot from "~/components/BlockHome/CarouselProductHot.vue"
-import AccessoriesHot from "~/components/BlockHome/AccessoriesHot.vue"
+import ProductHot from "~/components/block/home/ProductHot.vue"
+import AccessoriesHot from "~/components/block/home/AccessoriesHot.vue"
 
 export default {
 	components: {
-		CarouselMain,
-		Ads,
+		AdsCarousel,
+		AdsShort,
 		AdsLong,
 
-		CarouselProductHot,
+		ProductHot,
 		AccessoriesHot
 	},
 	// async fetch({ store }) {
@@ -63,7 +61,7 @@ export default {
 	// }
 	data() {
 		return {
-			phonesHot: {
+			phoneHot: {
 				typeProduct: "điện thoại khuyến mại hot",
 				viewAll: "",
 				item_product: [
@@ -117,7 +115,7 @@ export default {
 					}
 				]
 			},
-			laptopsHot: {
+			laptopHot: {
 				typeProduct: "laptop bán chạy",
 				viewAll: "",
 				item_product: [

@@ -11,19 +11,22 @@
 				<SideBar/>
 			</el-col>
 			<el-col  :sm="24" :md="19" >
-				<ProductGeneral/>
+				<Result/>
 			</el-col>
 		</el-row>
+	<ProductsJustWatched/>
  	</section>
  </template>
 
  <script>
-import SideBar from "~/components/BlockAllProduct/SideBar.vue"
-import ProductGeneral from "~/components/BlockAllProduct/ProductGeneral.vue"
+import SideBar from "~/components/block/product/filter/SideBar.vue"
+import Result from "~/components/block/product/filter/Result.vue"
+import ProductsJustWatched from "~/components/common/ProductsJustWatched.vue"
 export default {
 	components: {
 		SideBar,
-		ProductGeneral
+		Result,
+		ProductsJustWatched
 	}
 }
 </script>

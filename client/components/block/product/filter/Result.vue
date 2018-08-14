@@ -73,10 +73,21 @@
 					</div>
 				</el-col>
 			</el-row>
+			<div class="text-center">
+				<el-pagination
+					background
+					layout="prev, pager, next"
+					:total="100">
+				</el-pagination>
+			</div>
 
     </div>
 </template>
 <style scoped>
+.general {
+	background: #fff;
+	padding-bottom: 20px;
+}
 .general_title {
 	display: flex;
 	justify-content: space-between;
