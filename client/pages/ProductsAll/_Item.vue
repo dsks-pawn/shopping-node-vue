@@ -7,17 +7,38 @@
 				 <el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">Tên sản phẩm</nuxt-link></el-breadcrumb-item>
  			</el-breadcrumb>
  		</div>
-		 <div>
-			 <Detail/>
+		 <div class="item_pay">
+			 <el-row :gutter="10">
+				<el-col :xs="8" :sm="6" :md="10">
+					<Detail/>
+				</el-col>
+				<el-col :xs="4" :sm="6" :md="9">
+					<Pay/>
+				</el-col>
+				<el-col :xs="4" :sm="6" :md="5">
+					<Insure/>
+				</el-col>
+			</el-row>
+			 
 		 </div>
  	</section>
  </template>
 <script>
-import Detail from "~/components/block/product/detail/detail.vue"
+import Detail from "~/components/block/product/detail/Detail.vue"
+import Pay from "~/components/block/product/detail/Pay.vue"
+import Insure from "~/components/block/product/detail/Insure.vue"
 export default {
 	transition: "bounce",
 	components: {
-		Detail
+		Detail,
+		Pay,
+		Insure
 	}
 }
 </script>
+<style scoped>
+.item_pay {
+	background-color: #fff;
+	padding-top: 20px;
+}
+</style>

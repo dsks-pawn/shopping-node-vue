@@ -5865,6 +5865,10 @@ vue-eslint-parser@^2.0.3:
     esquery "^1.0.0"
     lodash "^4.17.4"
 
+vue-h-zoom@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/vue-h-zoom/-/vue-h-zoom-0.0.15.tgz#6b5fa178c795f6f24e7c9f7b67d4dd735840bae9"
+
 vue-hot-reload-api@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"

@@ -19,6 +19,7 @@
     "nuxt": "^1.4.1",
     "vee-validate": "^2.0.9",
     "vue-carousel": "^0.10.0",
+    "vue-h-zoom": "^0.0.15",
     "vue-notifications": "^0.9.0"
   },
   "devDependencies": {

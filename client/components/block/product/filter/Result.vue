@@ -64,16 +64,16 @@
 						</div>
 						<div class="information_sale">
 							<p class="information_sale_tit">khách hàng được chọn 1 trong 2 khuyến mãi sau</p>
-							<p >km1</p>
-							<li >trả góp 0%</li>
+							<p><i class="fa fa-circle"></i> km1</p>
+							<small>trả góp 0%</small>
 							<p >km2</p>
-							<li>Tặng Office 365 Personal</li>
-							<li>Giảm thêm 500,000đ khi thanh toán Online bằng thẻ Mastercard</li>
+							<small><i class="fa fa-circle"></i> Tặng Office 365 Personal</small><br>
+							<small><i class="fa fa-circle"></i> Giảm thêm 500,000đ khi thanh toán Online bằng thẻ Mastercard</small>
 						</div>
 					</div>
 				</el-col>
 			</el-row>
-			<div class="text-center">
+			<div class="text-center pd">
 				<el-pagination
 					background
 					layout="prev, pager, next"
@@ -207,6 +207,13 @@
 .information_sale li {
 	line-height: 1.5em;
 	font-size: 13px;
+}
+.fa-circle {
+	font-size: 7px;
+	color: #34a105;
+}
+.pd {
+	padding-top: 30px;
 }
 </style>
 <script>
