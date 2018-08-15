@@ -15,6 +15,7 @@
 <script>
 import Detail from "~/components/block/product/detail/detail.vue"
 export default {
+	transition: "bounce",
 	components: {
 		Detail
 	}

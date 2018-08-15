@@ -43,6 +43,7 @@ export default {
 		Laptop,
 		ProductsWatched
 	},
+
 	data() {
 		return {
 			typeLaptopAndPrice: {

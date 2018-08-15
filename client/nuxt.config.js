@@ -51,11 +51,17 @@ module.exports = {
       })
     }
   },
+  loading: {
+    color: '#1f74ff',
+    failedColor: 'white',
+    height: '4px',
+    rtl: false
+  },
   plugins: [
     { src: "~/plugins/vue-notifications" },
     { src: "~/plugins/element-ui", ssr: true },
     { src: "~/plugins/vee-validate.js", ssr: true },
-    { src: "~/plugins/vue-carousel.js", ssr: false },
+    { src: "~/plugins/vue-carousel.js", ssr: false }
   ],
   build: {
     vendor: [

@@ -1,3 +1,4 @@
+
  <template>
  	<section class="container">
  		<div class="breadcrumb">
@@ -10,6 +11,7 @@
 			<el-col  :sm="24" :md="5" >
 				<SideBar/>
 			</el-col>
+			category
 			<el-col  :sm="24" :md="19" >
 				<Result/>
 			</el-col>
