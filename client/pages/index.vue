@@ -1,7 +1,5 @@
 <template>
   <section class="container-fuild body_content">
-	<TopBar/>
-		<Menu/>
 			<div class="container carousel_ads">
 				<el-row :gutter="10">
 					<el-col  :sm="24" :md="16">
@@ -23,7 +21,6 @@
 			<div class="container">
 
  		 </div>
-  		<Footer/>
   </section>
 </template>
 
@@ -67,7 +64,7 @@ export default {
 			phoneHot: {
 				typeProduct: "điện thoại khuyến mại hot",
 				viewAll: "",
-				item_product: [
+				itemProduct: [
 					{
 						name: "Macbook Air 128G MQD32SA/A (2017)",
 						price: "23.999.000",
@@ -121,7 +118,7 @@ export default {
 			laptopHot: {
 				typeProduct: "laptop bán chạy",
 				viewAll: "",
-				item_product: [
+				itemProduct: [
 					{
 						name: "Macbook Air 128G MQD32SA/A (2017)",
 						price: "23.999.000",
@@ -175,7 +172,7 @@ export default {
 			tabletHot: {
 				typeProduct: "tablet nổi bật",
 				viewAll: "",
-				item_product: [
+				itemProduct: [
 					{
 						name: "Macbook Air 128G MQD32SA/A (2017)",
 						price: "23.999.000",

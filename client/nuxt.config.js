@@ -49,8 +49,7 @@ module.exports = {
       {
         src: "https://mdbootstrap.com/live/_MDB/js/customizer.min.js",
         body: true
-      },
-      { src: "https://unpkg.com/element-ui/lib/index.js", body: true }
+      }
     ]
   },
   modules: ["@nuxtjs/font-awesome"],
@@ -61,6 +60,13 @@ module.exports = {
         path: "*",
         component: resolve(__dirname, "pages/Errors/404.vue")
       })
+    },
+    scrollBehavior(to, from, savedPosition) {
+      if (to.hash) {
+        return { selector: to.hash }
+      } else {
+        return { x: 0, y: 0 }
+      }
     }
   },
   loading: {
@@ -73,8 +79,11 @@ module.exports = {
     { src: "~/plugins/vue-notifications" },
     { src: "~/plugins/element-ui", ssr: true },
     { src: "~/plugins/vee-validate.js", ssr: true },
-    { src: "~/plugins/vue-carousel.js", ssr: false }
+    { src: "~/plugins/vue-carousel.js", ssr: false },
+    { src: "~plugins/vue-scrollto.js" }
+
   ],
+
   build: {
     vendor: [
       "axios",
@@ -82,7 +91,7 @@ module.exports = {
       "element-ui",
       "vee-validate",
       "vue-carousel"
-],
+    ],
     /*
     ** Run ESLint on save
     */

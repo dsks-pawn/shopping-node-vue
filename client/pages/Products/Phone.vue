@@ -1,7 +1,6 @@
 <template>
   <section class="container-fuild body_content">
-          <TopBar/>
-          <Menu/>
+  
             <div class="container">
              <Price :priceInRange="typePhoneAndPrice"/>
               <Ads :productSale="phoneSaleAds"/>
@@ -17,7 +16,6 @@
 			<ProductsWatched/>
            </div>
 
-  <Footer/>
   </section>
 </template>
 

@@ -1,7 +1,6 @@
 <template>
   <section class="container-fuild body_content">
-          <TopBar/>
-          <Menu/>
+
             <div class="container">
              <Price :priceInRange="typeLaptopAndPrice"/>
 
@@ -18,12 +17,9 @@
 			  <Laptop :laptops="laptopBusinessMan"/>
 			  <Laptop :laptops="laptopRamTerrible"/>
 
-
-
 			<ProductsWatched/>
            </div>
 
-  <Footer/>
   </section>
 </template>
 

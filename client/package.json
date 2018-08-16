@@ -20,7 +20,8 @@
     "vee-validate": "^2.0.9",
     "vue-carousel": "^0.10.0",
     "vue-h-zoom": "^0.0.15",
-    "vue-notifications": "^0.9.0"
+    "vue-notifications": "^0.9.0",
+    "vue-scrollto": "^2.11.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

@@ -1,11 +1,10 @@
 <template>
      <div>
-				<el-carousel :interval="4000" trigger="click" height="300px">
-					<el-carousel-item v-for="product of productSale" :key="product.id">
-						<nuxt-link :to="product.link"><img :src="product.img" :alt="product.name" :title="product.name"></nuxt-link>
-					</el-carousel-item>
-           		 </el-carousel>
-
+		<el-carousel :interval="4000" trigger="click" height="300px">
+			<el-carousel-item v-for="product of productSale" :key="product.id">
+				<nuxt-link :to="product.link"><img :src="product.img" :alt="product.name" :title="product.name"></nuxt-link>
+			</el-carousel-item>
+		</el-carousel>
     </div>
 </template>
 

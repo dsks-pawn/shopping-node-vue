@@ -8,6 +8,7 @@
  			</el-breadcrumb>
  		</div>
 		 <div class="item_pay">
+			 <Title/>
 			 <el-row :gutter="10">
 				<el-col :xs="24" :sm="12" :md="10">
 					<Detail/>
@@ -19,20 +20,25 @@
 					<Insure/>
 				</el-col>
 			</el-row>
-			 
-		 </div>
+			</div>
+		<div>
+			<Evaluate/>
+		</div>
  	</section>
  </template>
 <script>
 import Detail from "~/components/block/product/detail/Detail.vue"
 import Pay from "~/components/block/product/detail/Pay.vue"
 import Insure from "~/components/block/product/detail/Insure.vue"
+import Title from "~/components/block/product/detail/Title.vue"
+import Evaluate from "~/components/block/product/detail/Evaluate.vue"
 export default {
-	transition: "bounce",
 	components: {
 		Detail,
 		Pay,
-		Insure
+		Insure,
+		Title,
+		Evaluate
 	}
 }
 </script>
