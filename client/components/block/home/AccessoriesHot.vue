@@ -41,8 +41,6 @@
 	text-transform: uppercase;
 }
 .product_topic {
-	display: flex;
-	justify-content: flex-end;
 	padding: 12px 8px 6px 8px;
 	background: #e5e5e5;
 	word-spacing: 0px;

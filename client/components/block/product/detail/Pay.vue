@@ -34,6 +34,9 @@
     </div>
 </template>
 <style scoped>
+.pay {
+	padding-top: 20px;
+}
 .price {
 	font-weight: bold;
 }
@@ -41,6 +44,7 @@
 	background-color: #fff9fa;
 	border: solid 1px #ffdddd;
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 .pay_assure {
 	text-transform: uppercase;
@@ -140,6 +144,7 @@ small {
 	font-size: 7px;
 	color: #34a105;
 }
+
 </style>
 
 <script>

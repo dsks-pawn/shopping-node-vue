@@ -9,13 +9,13 @@
  		</div>
 		 <div class="item_pay">
 			 <el-row :gutter="10">
-				<el-col :xs="8" :sm="6" :md="10">
+				<el-col :xs="24" :sm="12" :md="10">
 					<Detail/>
 				</el-col>
-				<el-col :xs="4" :sm="6" :md="9">
+				<el-col :xs="24" :sm="12" :md="9">
 					<Pay/>
 				</el-col>
-				<el-col :xs="4" :sm="6" :md="5">
+				<el-col :xs="24" :sm="24" :md="5">
 					<Insure/>
 				</el-col>
 			</el-row>
@@ -39,6 +39,6 @@ export default {
 <style scoped>
 .item_pay {
 	background-color: #fff;
-	padding-top: 20px;
+	border-top: 1px solid #e2e2e2;
 }
 </style>

@@ -51,6 +51,8 @@ export default {
 }
 .product_title {
 	text-transform: uppercase;
+	padding-top: 25px;
+	padding-bottom: 15px;
 }
 
 .product_item span {

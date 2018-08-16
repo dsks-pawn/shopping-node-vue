@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="detail">
    
 <div class="tab-content" id="myTabContent">
 	<div class="tab-pane fade show active" :id="imgProduct.imgActive.id" role="tabpanel" aria-labelledby="home-tab">
@@ -64,6 +64,9 @@ export default {
 }
 </script>
 <style scoped>
+.detail {
+	padding-top: 20px;
+}
 .nav-tabs {
 	padding: 0;
 	margin-left: 0;
