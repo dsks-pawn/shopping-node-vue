@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div v-if="attached">
+             <h6>Trong hộp có</h6>
+              <small><i class="fa fa-balance-scale"></i> Hàng chính hãng</small>
+        </div>
         <div class="assure">
             <h6>FPTShop cam kết</h6>
             <small><i class="fa fa-balance-scale"></i> Hàng chính hãng</small>
@@ -7,9 +11,9 @@
             <small><i class="fa fa-truck"></i> Giao hàng miễn phí toàn quốc trong 60 phút</small>
             <small><i class="fa fa-map-marker"></i> Bảo hành nhanh tại FPT Shop trên toàn quốc</small>
         </div>
-        <div class="search_shop">
+        <div class="location_shop text-center">
             <h6>Tìm shop còn hàng gần bạn</h6>
-            <el-select v-model="selectedState"  filterable clearable placeholder="Chọn tỉnh/thành">
+            <el-select style="margin-bottom: 20px;" v-model="selectedState" default-first-option filterable placeholder="Chọn tỉnh/thành">
                 <el-option
                 v-for="item in states"
                 :key="item.name"
@@ -17,7 +21,7 @@
                 :value="item.name">
                 </el-option>
             </el-select>
-            <el-select disabled  v-model="selectedDistrict" filterable clearable placeholder="Chọn quận/huyện">
+            <el-select  v-model="selectedDistrict" filterable placeholder="Chọn quận/huyện">
                 <el-option
                 v-for="item of district"
                 :key="item.code"
@@ -26,7 +30,9 @@
                 </el-option>
             </el-select>
         </div>
-        <div>
+        <div class="">
+            <h6>Danh sách shop</h6>
+
         </div>
     </div>
 </template>
@@ -47,13 +53,16 @@ export default {
 			let stated = states.states.filter(
 				state => state.name == this.selectedState
 			)
-			let codeStated = stated[0].code
-			let result = districts.districts.filter(
-				res => res.parent_code == codeStated
-			)
-			this.selectedDistrict = result[2].name
-			return (this.district = result)
+			if (this.selectedState) {
+				let codeStated = stated[0].code
+				let result = districts.districts.filter(
+					res => res.parent_code == codeStated
+				)
+				this.selectedDistrict = result[1].name
+				return (this.district = result)
+			}
 		}
 	}
 }
 </script>
+
