@@ -109,6 +109,7 @@ h5 {
 .installment_item p {
 	font-size: 13px;
 	margin-top: 10px;
+	line-height: 1.6em;
 }
 .buy_now,
 .installment_item {

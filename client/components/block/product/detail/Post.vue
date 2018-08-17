@@ -1,16 +1,13 @@
 <template>
      <div class="bag">
-         <template>
-			<el-tabs>
-				<el-tab-pane label="Đặc điểm nổi bật" href="#characteristics" name="'#characteristics'" v-scroll-to="'#characteristics'"></el-tab-pane>
-				<el-tab-pane label="Đánh giá & Nhận xét" v-scoll-to="'#evaluate'"></el-tab-pane>
-				<el-tab-pane label="Hỏi & Đáp"></el-tab-pane>
-				<el-tab-pane label="Hình Ảnh" ></el-tab-pane>
-			</el-tabs>
-			</template>
-
- 
-
+        <div class="menu">
+            <el-menu :default-active="1"  text-color="black" active-text-color="#d0021b"  class="el-menu-demo" mode="horizontal" >
+                <el-menu-item index="1" v-scroll-to="{ element: '#characteristics',  easing: 'linear', }">Đặc điểm nổi bật</el-menu-item>
+                <el-menu-item index="2" v-scroll-to="{ element: '#evaluate',  easing: 'linear', }">Đánh giá & Nhận xét</el-menu-item>
+                <el-menu-item index="3">Hỏi & Đáp</el-menu-item>
+                <el-menu-item index="4">Hình Ảnh</el-menu-item>
+            </el-menu>
+        </div>
         <div id="characteristics">
             <el-carousel indicator-position="outside" :interval="4000" trigger="click" height="530px">
         <el-carousel-item v-for="img of imgProduct" :key="img.id">
@@ -19,8 +16,33 @@
         </el-carousel>
         </div>
         
-        <div v-if="post" >
-                <div class="fs-dtctbox fsdtcts clearfix">
+        <div class="post_detail" v-if="showPost" >
+                <div v-html="post">
+                </div>       
+        </div>
+         <div class="post_detail" v-else>
+            <h3 class="dgctpro">Đánh giá chi tiết iPhone X 64GB</h3>
+            <p style="text-align: justify;">Đã lâu lắm rồi Apple mới ra mắt một sản phẩm với thiết kế đột phá và liều lĩnh. Dù vấp phải khá nhiều ý kiến trái chiều nhưng cũng không thể phủ nhận độ hấp dẫn của chiếc iPhone thế hệ thứ 10 này. Công nghệ bảo mật mới, loại bỏ nút home truyền thống, camera với những tính năng độc quyền, tất cả đã khiến người dùng đứng ngồi không yên cho đến khi được trên tay.</p>
+        </div>
+        <div class="text-center">
+             <el-button v-if="showPost" @click="showPost = false">Rút gọn <i class="el-icon-caret-top"></i></el-button>
+             <el-button v-else @click="showPost = true">Xem thêm <i class="el-icon-caret-bottom"></i></el-button>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+	data() {
+		return {
+			showPost: false,
+			imgProduct: [
+				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224608885111_samsung-galaxy-j8-slide-2.jpg",
+				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224609353078_samsung-galaxy-j8-slide-4.jpg",
+				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224609509067_samsung-galaxy-j8-slide-1.jpg",
+				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224610610990_samsung-galaxy-j8-slide-3.jpg"
+			],
+			post: `
+            <div class="fs-dtctbox fsdtcts clearfix">
                     <h3 class="dgctpro">Đánh giá chi tiết iPhone X 64GB</h3>
                     <p style="text-align: justify;">Đã lâu lắm rồi Apple mới ra mắt một sản phẩm với thiết kế đột phá và liều lĩnh. Dù vấp phải khá nhiều ý kiến trái chiều nhưng cũng không thể phủ nhận độ hấp dẫn của chiếc iPhone thế hệ thứ 10 này. Công nghệ bảo mật mới, loại bỏ nút home truyền thống, camera với những tính năng độc quyền, tất cả đã khiến người dùng đứng ngồi không yên cho đến khi được trên tay.</p>
 
@@ -101,69 +123,18 @@
 
                     <p style="text-align: right;"><em><span style="font-size: 12px;"><span style="font-family: arial, helvetica, sans-serif;">Via Phúc</span></span></em></p>
 
-                </div> 
-               
-         </div>
-         <div v-else>
-            <h3 class="dgctpro">Đánh giá chi tiết iPhone X 64GB</h3>
-            <p style="text-align: justify;">Đã lâu lắm rồi Apple mới ra mắt một sản phẩm với thiết kế đột phá và liều lĩnh. Dù vấp phải khá nhiều ý kiến trái chiều nhưng cũng không thể phủ nhận độ hấp dẫn của chiếc iPhone thế hệ thứ 10 này. Công nghệ bảo mật mới, loại bỏ nút home truyền thống, camera với những tính năng độc quyền, tất cả đã khiến người dùng đứng ngồi không yên cho đến khi được trên tay.</p>
-        </div>
-        <div class="text-center">
-             <el-button v-if="post" @click="showPost()">Rút gọn <i class="el-icon-caret-top"></i></el-button>
-             <el-button v-else @click="showPost()">Xem thêm <i class="el-icon-caret-bottom"></i></el-button>
-        </div>
-    </div>
-</template>
-<script>
-export default {
-	data() {
-		return {
-			post: false,
-			imgProduct: [
-				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224608885111_samsung-galaxy-j8-slide-2.jpg",
-				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224609353078_samsung-galaxy-j8-slide-4.jpg",
-				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224609509067_samsung-galaxy-j8-slide-1.jpg",
-				"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/11/636669224610610990_samsung-galaxy-j8-slide-3.jpg"
-			]
+                </div> `
 		}
 	},
-	methods: {
-		showPost() {
-			this.post = !this.post
-		}
-	}
+	methods: {}
 }
 </script>
 <style scoped>
 .bag {
 	background: #fff;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 15px 15px;
 }
-.dgctpro {
-	padding-top: 30px;
-	padding-bottom: 30px;
-	text-align: center;
-	font-weight: bold;
-}
-h3 {
-	font-size: 23px;
-	/* d */
-}
-strong {
-	font-weight: bold;
-	font-size: 20px;
-}
-p {
-	font-size: 14px;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-	margin-bottom: 0rem;
+.menu {
+	padding-bottom: 10px;
 }
 </style>

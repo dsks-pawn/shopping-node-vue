@@ -124,5 +124,29 @@ body {
 .el-progress-bar {
 	display: inline-block;
 }
+.post_detail .dgctpro {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+.post_detail h3 {
+	font-size: 23px;
+	margin-bottom: 0rem;
+}
+.post_detail strong {
+	font-weight: bold;
+	font-size: 20px;
+}
+.post_detail p {
+	font-size: 14px;
+	margin-bottom: 0rem;
+}
+.post_detail h4 {
+	margin-bottom: 0rem;
+}
+.post_detail h5 {
+	margin-bottom: 0rem;
+}
 </style>
 

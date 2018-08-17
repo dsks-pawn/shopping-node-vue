@@ -8,11 +8,7 @@
                 <el-col class="rate" :xs="24" :sm="12" :md="7">
                     <div class="rate_main">
                         <h6>{{product.rate.value}}/5</h6>
-                        <el-rate
-                        v-model="product.rate.value"
-                        disabled
-                        show-score>
-                        </el-rate>
+                        <el-rate v-model="product.rate.value" disabled show-score></el-rate>
                         <span>{{product.rate.countComment}} đánh giá & nhận xét</span>
                     </div>
                 </el-col>
@@ -63,20 +59,49 @@
                     </div>
                     <div class="form_evalute_main">
                         <h6>Bạn chấm sản phẩm này bao nhiêu sao?</h6>
-                        <el-rate
-                            v-model="value3"
-                            :texts="['Không thích', 'Tạm được', 'Bình thường', 'Hài Lòng', 'Tuyệt vời']"
-                            show-text>
+                        <el-rate v-model="newEvaluate.rate" :texts="['Không thích', 'Tạm được', 'Bình thường', 'Hài Lòng', 'Tuyệt vời']" show-text>
                         </el-rate>
-                        <textarea name="" id="" rows="8" placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"></textarea>
+                        <textarea v-model="newEvaluate.text" id="" rows="8" placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"></textarea>
                         <small>Một đánh giá có ích thường dài từ 100 ký tự trở lên</small>
                         <div class="button_form text-right">
-                            <button class="btn btn-muted" @click="showForm = false">Hủy</button>
+                            <button class="btn btn-info" @click="showForm = false">Hủy</button>
                             <button class="btn btn-danger">Gửi</button>
+                            
                         </div>
                     </div>
                 </div>
             </transition>
+         </div>
+         <div>
+             <div class="form_evalute_title" >
+                <h5>Khách hàng nhận xét ({{evaluated.lengh}})</h5>
+             </div>
+            <div>
+                 <el-tabs lazy="true" tab-position="right" v-model="activeTabsComment">
+                    <el-tab-pane label="Mới nhất" name="new">
+                        <div class="evaluate_new"  v-for="evaluate of evaluated" :key="evaluate.id">
+                            <el-rate v-model="evaluate.rate" disabled></el-rate>
+                            <p>Bởi: <span class="user_valuate">{{evaluate.name}} </span><span> {{evaluate.time}}</span></p>
+                            <p>{{evaluate.comment}}</p>
+                            <el-button ><i class="fa fa-thumbs-up">{{evaluate.like}}</i></el-button>
+                        </div>
+                        <div class="text-center">
+                             <el-button class="viewall">Xem tất cả <b>{{evaluated.length}}</b> nhận xét</el-button>
+                        </div>
+                    </el-tab-pane>
+                    <el-tab-pane label="Hữu ích nhất" name="useful">
+                         <div class="evaluate_new"  v-for="evaluate of evaluated" :key="evaluate.id">
+                            <el-rate v-model="evaluate.rate" disabled></el-rate>
+                            <p>Bởi: <span class="user_valuate">{{evaluate.name}} </span><span> {{evaluate.time}}</span></p>
+                            <p>{{evaluate.comment}}</p>
+                            <el-button plain><i class="fa fa-thumbs-up">{{evaluate.like}}</i></el-button>
+                        </div>
+                        <div class="text-center">
+                             <el-button class="viewall">Xem tất cả <b>{{evaluated.length}}</b> nhận xét</el-button>
+                        </div>
+                    </el-tab-pane>
+             </el-tabs>
+            </div>
          </div>
     </div>
 </template>
@@ -85,6 +110,7 @@ export default {
 	data() {
 		return {
 			showForm: false,
+			activeTabsComment: "new",
 			product: {
 				name: "Macbook Air 13 128GB MQD32SA/A (2017)",
 				rate: { value: 3.4, countComment: "12" },
@@ -95,7 +121,29 @@ export default {
 					four: "12",
 					five: "23"
 				}
-			}
+			},
+			newEvaluate: {
+				rate: 3,
+				text: ""
+			},
+			evaluated: [
+				{
+					name: "Quốc khánh",
+					time: "1 giờ trước",
+					rate: 5,
+					like: 13,
+					comment:
+						"Bạn Quốc Minh nói vậy ko đúng vì S625 bây giờ mình vẫn chiến tất cả các game nặng"
+				},
+				{
+					name: "Sáu lượng",
+					time: "1 giờ trước",
+					rate: 3.5,
+					like: 12,
+					comment:
+						"Tuyêt vơi quá a sơn tùng mtv ơi e mua cái mạng của a đó nhớ gơi qua cho e nha sáu lượng gởi"
+				}
+			]
 		}
 	}
 }
@@ -173,6 +221,7 @@ textarea {
 }
 
 .form_evalute_title {
+	padding-top: 15px;
 	border-bottom: 1px solid #d8d8d8;
 }
 .form_evalute_main {
@@ -180,5 +229,22 @@ textarea {
 	margin-top: 10px;
 	border: 1px solid #d8d8d8;
 	padding: 15px 15px;
+}
+.evaluate_new {
+	padding: 15px 15px;
+	border-bottom: 1px solid #d8d8d8;
+}
+.evaluate_new p {
+	color: black;
+}
+.evaluate_new span {
+	color: black;
+}
+.user_valuate {
+	font-weight: bold;
+}
+.viewall {
+	margin-top: 10px;
+	padding: 7px 10px;
 }
 </style>
