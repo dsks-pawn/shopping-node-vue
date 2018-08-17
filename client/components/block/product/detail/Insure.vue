@@ -24,7 +24,7 @@
             </el-select>
             <el-select  class="select" v-model="selectedDistrict" filterable placeholder="Chọn quận/huyện">
                 <el-option
-                v-for="item of district"
+                v-for="item of districtByState"
                 :key="item.code"
                 :label="item.name_with_type"
                 :value="item.name">
@@ -32,16 +32,44 @@
             </el-select>
             </div>
         </div>
-        <div class="location_store">
+        <div class="location">
             <h6>Danh sách shop:</h6>
-            <ul>
+            <ul class="location_store">
                <li>
                     <p>261-263 Khánh Hội, P. 5, Quận 4, Hồ Chí Minh</p>
-                    <nuxt-link to=""> <p>-Tạm hết hàng- Đặt hàng lấy sau 2-7 ngày</p></nuxt-link>
+                    <nuxt-link v-if="statusItem" to=""> <p>
+                       <span class="still_item">-Còn hàng</span>
+                     - Đặt giữ tại đây</p></nuxt-link>
+                    <nuxt-link v-else to=""> <p>
+                        <span class="over_item">-Tạm hết hàng</span>
+                     - Đặt hàng lấy sau 2-7 ngày</p></nuxt-link>
                </li>
                 <li>
                     <p>261-263 Khánh Hội, P. 5, Quận 4, Hồ Chí Minh</p>
-                    <nuxt-link to=""> <p>-Tạm hết hàng- Đặt hàng lấy sau 2-7 ngày</p></nuxt-link>
+                    <nuxt-link v-if="statusItem" to=""> <p>
+                       <span class="still_item">-Còn hàng</span>
+                     - Đặt giữ tại đây</p></nuxt-link>
+                    <nuxt-link v-else to=""> <p>
+                        <span class="over_item">-Tạm hết hàng</span>
+                     - Đặt hàng lấy sau 2-7 ngày</p></nuxt-link>
+               </li>
+                <li>
+                    <p>261-263 Khánh Hội, P. 5, Quận 4, Hồ Chí Minh</p>
+                    <nuxt-link v-if="statusItem" to=""> <p>
+                       <span class="still_item">-Còn hàng</span>
+                     - Đặt giữ tại đây</p></nuxt-link>
+                    <nuxt-link v-else to=""> <p>
+                        <span class="over_item">-Tạm hết hàng</span>
+                     - Đặt hàng lấy sau 2-7 ngày</p></nuxt-link>
+               </li>
+                <li>
+                    <p>261-263 Khánh Hội, P. 5, Quận 4, Hồ Chí Minh</p>
+                    <nuxt-link v-if="statusItem" to=""> <p>
+                       <span class="still_item">-Còn hàng</span>
+                     - Đặt giữ tại đây</p></nuxt-link>
+                    <nuxt-link v-else to=""> <p>
+                        <span class="over_item">-Tạm hết hàng</span>
+                     - Đặt hàng lấy sau 2-7 ngày</p></nuxt-link>
                </li>
             </ul>
            
@@ -54,10 +82,12 @@ import districts from "~/static/json/districts.json"
 export default {
 	data() {
 		return {
+			states: states.states,
+			districts: districts.districts,
+			districtByState: [],
 			selectedState: "",
 			selectedDistrict: "",
-			states: states.states,
-			district: []
+			statusItem: true
 		}
 	},
 	watch: {
@@ -67,11 +97,11 @@ export default {
 			)
 			if (this.selectedState) {
 				let codeStated = stated[0].code
-				let result = districts.districts.filter(
+				let result = this.districts.filter(
 					res => res.parent_code == codeStated
 				)
 				this.selectedDistrict = result[1].name
-				return (this.district = result)
+				return (this.districtByState = result)
 			}
 		}
 	}
@@ -101,7 +131,7 @@ i {
 }
 
 .location_store {
-	height: 220px;
+	height: 150px;
 	overflow: auto;
 }
 .select {
@@ -112,20 +142,29 @@ i {
 ::-webkit-scrollbar {
 	width: 2px;
 }
-.location_store ul {
+.location_store {
 	padding-left: 0px;
 }
 .location_store li {
 	display: inline-block;
+	color: black;
+}
+.location_store a {
+	color: #1b4376;
 }
 /* Track */
 ::-webkit-scrollbar-track {
-	background: grey;
+	background: #636363;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
 	background: #f3f3f3;
 }
+.still_item {
+	color: #34a105;
+}
+.over_item {
+	color: #eb0000;
+}
 </style>
-

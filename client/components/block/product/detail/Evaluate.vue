@@ -3,7 +3,7 @@
         <div class="evalute_title">
             <h5>Đánh giá & Nhận xét {{product.name}}</h5>
         </div>
-        <div class="evalute_main">
+        <div id="evaluate" class="evalute_main">
             <el-row :gutter="10">
                 <el-col class="rate" :xs="24" :sm="12" :md="7">
                     <div class="rate_main">
@@ -49,28 +49,42 @@
                     <div class="block_evalute_main">
                         <h6>Bạn đã dùng sản phẩm này?</h6>
                         <div class="button_evalute">
-                            <a @click="show = !show">Gửi đánh giá của bạn</a>
+                            <a @click="showForm = true">Gửi đánh giá của bạn</a>
                         </div>
                     </div>
                 </el-col>
             </el-row>
-            <div style="display: flex; margin-top: 20px; height: 100px;">
-            <transition name="el-fade-in-linear">
-                <div v-show="show" class="transition-box">dsa</div>
-            </transition>
-            <transition name="el-fade-in">
-                <div v-show="show" class="transition-box">.el-fade-in</div>
-            </transition>
-            </div>
-
         </div>
+         <div v-show="showForm" class="form_evalute">
+            <transition name="el-fade-in-linear">
+                <div class="transition-box">
+                    <div class="form_evalute_title">
+                        <h5>Gửi nhận xét của bạn</h5>
+                    </div>
+                    <div class="form_evalute_main">
+                        <h6>Bạn chấm sản phẩm này bao nhiêu sao?</h6>
+                        <el-rate
+                            v-model="value3"
+                            :texts="['Không thích', 'Tạm được', 'Bình thường', 'Hài Lòng', 'Tuyệt vời']"
+                            show-text>
+                        </el-rate>
+                        <textarea name="" id="" rows="8" placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"></textarea>
+                        <small>Một đánh giá có ích thường dài từ 100 ký tự trở lên</small>
+                        <div class="button_form text-right">
+                            <button class="btn btn-muted" @click="showForm = false">Hủy</button>
+                            <button class="btn btn-danger">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+         </div>
     </div>
 </template>
 <script>
 export default {
 	data() {
 		return {
-			show: true,
+			showForm: false,
 			product: {
 				name: "Macbook Air 13 128GB MQD32SA/A (2017)",
 				rate: { value: 3.4, countComment: "12" },
@@ -91,14 +105,16 @@ export default {
 .bag {
 	margin-top: 10px;
 	background: #fff;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .evalute_title {
 	border-bottom: 1px solid #d8d8d8;
-	padding: 15px 15px;
+	padding-top: 15px;
 }
 .evalute_main {
 	border: 1px solid #d8d8d8;
-	margin: 15px 15px 0px 15px;
+	margin-top: 15px;
 }
 .rate {
 	display: flex;
@@ -148,5 +164,21 @@ p,
 span {
 	font-size: 13px;
 	color: #4a4a4a;
+}
+textarea {
+	background: #fff;
+	border: 1px solid #d8d8d8;
+	font-size: 13px;
+	height: 60px;
+}
+
+.form_evalute_title {
+	border-bottom: 1px solid #d8d8d8;
+}
+.form_evalute_main {
+	background-color: #f3f3f3;
+	margin-top: 10px;
+	border: 1px solid #d8d8d8;
+	padding: 15px 15px;
 }
 </style>

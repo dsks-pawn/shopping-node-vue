@@ -13,19 +13,25 @@
                 <small><i class="fa fa-circle"></i> Giảm thêm 500,000đ khi thanh toán Online bằng thẻ Mastercard</small>
             </div>
         </div>
-        <div class="buy_now text-center">
+        <nuxt-link to="">
+			<div class="buy_now text-center">
             <h5>mua ngay</h5>
             <p>Giao hàng trong 1 giờ hoặc nhận tại shop</p>
         </div>
+		</nuxt-link>
         <div class="installment text-center">
-            <div class="installment_item">
-                <h5>trả góp 0%</h5>
-                <p>Xét duyệt nhanh qua điện thoại</p> 
-            </div>
-            <div class="installment_item">
-                <h5>trả góp qua thẻ</h5>
-                <p>Visa, Mastercard, JCB</p> 
-            </div>
+            <nuxt-link to="">
+				<div class="installment_item">
+                	<h5>trả góp 0%</h5>
+                	<p>Xét duyệt nhanh qua điện thoại</p> 
+           		 </div>
+			</nuxt-link>
+            <nuxt-link to="">
+				<div class="installment_item">
+                	<h5>trả góp qua thẻ</h5>
+               	 	<p>Visa, Mastercard, JCB</p> 
+           		 </div>
+			</nuxt-link>
         </div>
         <div class="sdt text-center">
             <small>Gọi <span >1800-6601</span> để được tư vấn (miễn phí cuộc gọi)</small>
@@ -144,7 +150,6 @@ small {
 	font-size: 7px;
 	color: #34a105;
 }
-
 </style>
 
 <script>
