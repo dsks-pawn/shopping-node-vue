@@ -17,9 +17,9 @@
     "axios": "^0.18.0",
     "element-ui": "^2.4.5",
     "nuxt": "^1.4.1",
+    "v-viewer": "^1.2.0",
     "vee-validate": "^2.0.9",
     "vue-carousel": "^0.10.0",
-    "vue-h-zoom": "^0.0.15",
     "vue-notifications": "^0.9.0",
     "vue-scrollto": "^2.11.0"
   },

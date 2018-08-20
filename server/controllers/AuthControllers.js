@@ -1,6 +1,6 @@
 
-import Auth from "../models/Auth"
-import { hashPassword, comparePassword } from "../helper/encrypt-password"
+import Auth from "../models/schemas/Auth"
+import { hashPassword, comparePassword } from "../helpers/encrypt_password"
 
 const addNewUser = async data => {
 	if (data) {
@@ -17,6 +17,7 @@ const addNewUser = async data => {
 const getUserByEmail = async data => {
 	if (data) {
 		try {
+
 			let getUser = await Auth.findOne({ 'email': data.email })
 			let user = comparePassword(data.password, getUser.password)
 			return user

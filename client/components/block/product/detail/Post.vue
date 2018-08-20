@@ -1,11 +1,11 @@
 <template>
      <div class="bag">
-        <div class="menu">
-            <el-menu :default-active="1"  text-color="black" active-text-color="#d0021b"  class="el-menu-demo" mode="horizontal" >
+        <div class="menu" id="navbar_hidden">
+            <el-menu default-active="1"  text-color="black" active-text-color="#d0021b"  class="el-menu-demo" mode="horizontal" >
                 <el-menu-item index="1" v-scroll-to="{ element: '#characteristics',  easing: 'linear', }">Đặc điểm nổi bật</el-menu-item>
                 <el-menu-item index="2" v-scroll-to="{ element: '#evaluate',  easing: 'linear', }">Đánh giá & Nhận xét</el-menu-item>
-                <el-menu-item index="3">Hỏi & Đáp</el-menu-item>
-                <el-menu-item index="4">Hình Ảnh</el-menu-item>
+                <el-menu-item index="3"  v-scroll-to="{ element: '#ask',  easing: 'linear', }">Hỏi & Đáp</el-menu-item>
+                <el-menu-item index="4" v-scroll-to="{ element: '#gallery',  easing: 'linear', }">Hình Ảnh</el-menu-item>
             </el-menu>
         </div>
         <div id="characteristics">

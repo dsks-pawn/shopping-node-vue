@@ -6,7 +6,7 @@ import morgan from 'morgan';
 
 
 import mongoose from 'mongoose'
-// // import cors from 'cors'
+import cors from 'cors'
 import bodyParser from 'body-parser'
 import config from 'config'
 

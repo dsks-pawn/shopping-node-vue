@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style>
+.el-input-group__append {
+	padding: 0 18px;
+}
 .page-enter-active,
 .page-leave-active {
 	transition: opacity 0.5s;
@@ -49,11 +52,24 @@ html {
 	box-sizing: border-box;
 	margin: 0;
 }
-
+a {
+	text-decoration: none;
+}
 a:focus {
 	outline: 0px solid;
 }
-
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+}
+textarea {
+	width: 100%;
+}
 img {
 	max-width: 100%;
 	height: auto;

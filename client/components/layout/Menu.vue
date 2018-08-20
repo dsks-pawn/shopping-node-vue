@@ -530,7 +530,7 @@ h6 {
 	border-radius: 0;
 }
 .navbar .dropdown-menu.mega-menu.v-2 a {
-	padding: 15px 10px 10px 35px;
+	font-weight: 400;
 }
 .navbar .dropdown-menu.mega-menu.v-2 a.news-title-2 {
 	font-weight: 500;

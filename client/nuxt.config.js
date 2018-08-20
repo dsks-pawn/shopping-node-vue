@@ -18,16 +18,12 @@ module.exports = {
       },
       {
         rel: "stylesheet",
-        href: "https://namboss.blob.core.windows.net/huong/bootstrap.min.css"
+        href: "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
       },
       {
         rel: "stylesheet",
-        href: "https://namboss.blob.core.windows.net/huong/mdb.min.css"
-      },
-      {
-        rel: "stylesheet",
-        href: "https://mdbootstrap.com/live/_MDB/css/customizer.min.css"
-      }
+        href: "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/css/mdb.min.css"
+      }     
     ],
     script: [
       {
@@ -35,19 +31,15 @@ module.exports = {
         body: true
       },
       {
-        src: "https://namboss.blob.core.windows.net/huong/popper.min.js",
+        src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js",
         body: true
       },
       {
-        src: "https://namboss.blob.core.windows.net/huong/bootstrap.min.js",
+        src: "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js",
         body: true
       },
       {
-        src: "https://namboss.blob.core.windows.net/huong/mdb.js",
-        body: true
-      },
-      {
-        src: "https://mdbootstrap.com/live/_MDB/js/customizer.min.js",
+        src: "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/js/mdb.min.js",
         body: true
       }
     ]
@@ -77,11 +69,11 @@ module.exports = {
   },
   plugins: [
     { src: "~/plugins/vue-notifications" },
-    { src: "~/plugins/element-ui", ssr: true },
+    { src: "~/plugins/element-ui.js", ssr: true },
     { src: "~/plugins/vee-validate.js", ssr: true },
     { src: "~/plugins/vue-carousel.js", ssr: false },
+    {src: "~/plugins/v-viewer.js"},
     { src: "~plugins/vue-scrollto.js" }
-
   ],
 
   build: {
@@ -90,7 +82,9 @@ module.exports = {
       "vue-notifications",
       "element-ui",
       "vee-validate",
-      "vue-carousel"
+      "vue-carousel",
+      "vue-scrollto",
+      "v-viewer"
     ],
     /*
     ** Run ESLint on save

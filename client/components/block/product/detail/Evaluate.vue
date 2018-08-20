@@ -1,9 +1,9 @@
 <template>
-    <div class="bag">
+    <div class="bag" id="evaluate">
         <div class="evalute_title">
             <h5>Đánh giá & Nhận xét {{product.name}}</h5>
         </div>
-        <div id="evaluate" class="evalute_main">
+        <div  class="evalute_main">
             <el-row :gutter="10">
                 <el-col class="rate" :xs="24" :sm="12" :md="7">
                     <div class="rate_main">
@@ -63,9 +63,9 @@
                         </el-rate>
                         <textarea v-model="newEvaluate.text" id="" rows="8" placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"></textarea>
                         <small>Một đánh giá có ích thường dài từ 100 ký tự trở lên</small>
-                        <div class="button_form text-right">
+                        <div class="text-right">
                             <button class="btn btn-info" @click="showForm = false">Hủy</button>
-                            <button class="btn btn-danger">Gửi</button>
+                            <button class="btn-danger btn">Gửi</button>
                             
                         </div>
                     </div>
@@ -74,7 +74,7 @@
          </div>
          <div>
              <div class="form_evalute_title" >
-                <h5>Khách hàng nhận xét ({{evaluated.lengh}})</h5>
+                <h5>Khách hàng nhận xét ({{evaluated.length}})</h5>
              </div>
             <div>
                  <el-tabs lazy="true" tab-position="right" v-model="activeTabsComment">
@@ -85,8 +85,17 @@
                             <p>{{evaluate.comment}}</p>
                             <el-button ><i class="fa fa-thumbs-up">{{evaluate.like}}</i></el-button>
                         </div>
-                        <div class="text-center">
+                        <div  v-show="evaluated.length > 0" class="text-center">
                              <el-button class="viewall">Xem tất cả <b>{{evaluated.length}}</b> nhận xét</el-button>
+                        </div>
+                        <div v-show="evaluated.length == 0" class="block_evalute text-center">
+                           <div>
+                                <span>Chưa có nhận xét nào</span><br>
+                                <span>Hãy là người nhận xét đầu tiên</span>
+                                <div class="button_evalute">
+                                    <a @click="showForm = true">Viết nhận xét</a>
+                                </div>
+                            </div>
                         </div>
                     </el-tab-pane>
                     <el-tab-pane label="Hữu ích nhất" name="useful">
@@ -96,8 +105,17 @@
                             <p>{{evaluate.comment}}</p>
                             <el-button plain><i class="fa fa-thumbs-up">{{evaluate.like}}</i></el-button>
                         </div>
-                        <div class="text-center">
+                        <div  v-show="evaluated.length > 0" class="text-center">
                              <el-button class="viewall">Xem tất cả <b>{{evaluated.length}}</b> nhận xét</el-button>
+                        </div>
+                        <div v-show="evaluated.length == 0" class="block_evalute text-center">
+                           <div>
+                                <span>Chưa có nhận xét nào</span><br>
+                                <span>Hãy là người nhận xét đầu tiên</span>
+                                <div class="button_evalute">
+                                    <a @click="showForm = true">Viết nhận xét</a>
+                                </div>
+                            </div>
                         </div>
                     </el-tab-pane>
              </el-tabs>
@@ -115,11 +133,11 @@ export default {
 				name: "Macbook Air 13 128GB MQD32SA/A (2017)",
 				rate: { value: 3.4, countComment: "12" },
 				countStar: {
-					one: "6",
-					two: "2",
-					three: "3",
-					four: "12",
-					five: "23"
+					one: 6,
+					two: 2,
+					three: 3,
+					four: 12,
+					five: 23
 				}
 			},
 			newEvaluate: {
@@ -127,22 +145,22 @@ export default {
 				text: ""
 			},
 			evaluated: [
-				{
-					name: "Quốc khánh",
-					time: "1 giờ trước",
-					rate: 5,
-					like: 13,
-					comment:
-						"Bạn Quốc Minh nói vậy ko đúng vì S625 bây giờ mình vẫn chiến tất cả các game nặng"
-				},
-				{
-					name: "Sáu lượng",
-					time: "1 giờ trước",
-					rate: 3.5,
-					like: 12,
-					comment:
-						"Tuyêt vơi quá a sơn tùng mtv ơi e mua cái mạng của a đó nhớ gơi qua cho e nha sáu lượng gởi"
-				}
+                    {
+                    	name: "Quốc khánh",
+                    	time: "1 giờ trước",
+                    	rate: 5,
+                    	like: 13,
+                    	comment:
+                    		"Bạn Quốc Minh nói vậy ko đúng vì S625 bây giờ mình vẫn chiến tất cả các game nặng"
+                    },
+                    {
+                    	name: "Sáu lượng",
+                    	time: "1 giờ trước",
+                    	rate: 3.5,
+                    	like: 12,
+                    	comment:
+                    		"Tuyêt vơi quá a sơn tùng mtv ơi e mua cái mạng của a đó nhớ gơi qua cho e nha sáu lượng gởi"
+                    }
 			]
 		}
 	}
@@ -153,12 +171,10 @@ export default {
 .bag {
 	margin-top: 10px;
 	background: #fff;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 15px;
 }
 .evalute_title {
 	border-bottom: 1px solid #d8d8d8;
-	padding-top: 15px;
 }
 .evalute_main {
 	border: 1px solid #d8d8d8;
@@ -246,5 +262,11 @@ textarea {
 .viewall {
 	margin-top: 10px;
 	padding: 7px 10px;
+}
+.btn {
+	padding: 0.6rem 2.13rem;
+}
+.btn-danger {
+	background: #d0021b;
 }
 </style>

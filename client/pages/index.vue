@@ -25,8 +25,6 @@
 </template>
 
 <script>
-/* Navbar menu top*/
-
 /* Carousel ads*/
 import AdsCarousel from "~/components/block/home/AdsCarousel.vue"
 import AdsShort from "~/components/block/home/AdsShort.vue"
