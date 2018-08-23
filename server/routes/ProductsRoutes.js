@@ -1,94 +1,192 @@
 import express from "express"
 const router = express.Router()
 import request from "request"
+import rp from 'request-promise'
 import cheerio from "cheerio"
 import { SUCCESS, FAILED } from "../constans.js"
 
-import ProductControllers from '../controllers/ProductControllers'
+import ProductControllers from "../controllers/ProductControllers"
+import ProductServices from "../models/services/ProductServices"
 
-router.get("/phones", async (req, res) => {
-	
-	let baseUrl =
-		`https://fptshop.com.vn/dien-thoai?sort=gia-cao-den-thap&trang=1`
-	request.get(baseUrl, async (error, response, body) => {
-		if (!error && response.statusCode == 200) {
-			const $ = cheerio.load(body)
-			let numberPage = await $('.f-cmtpaging .f-cmtpg-l:last-child').attr('data-page')
-			
-			for (let i = 1; i <= numberPage; i++) {
-				let url = `https://fptshop.com.vn/dien-thoai?sort=gia-cao-den-thap&trang=${i}`
+router.get("/phones", (req,res)=>{
+	let baseOtions = {
+		uri: 'https://fptshop.com.vn/dien-thoai?sort=gia-cao-den-thap&trang=1',
+		transform: function (body) {
+			return cheerio.load(body);
+		}
+	};
+	rp(baseOtions)
+	.then(function ($) {
+		let numberPage = $(".f-cmtpaging .f-cmtpg-l:last-child").attr("data-page")
 
-					request.get(url, async (error, response, body) => {
-						let products = []
-						$('.fs-carow .fs-lpil').each(function(){
-						   if (!error && response.statusCode == 200) {
-   
+		for (let i = 1; i <= numberPage; i++) {
 
-							   product.name = $(this).find('.fs-lpil-name').text().trim()
-							   product.link = `https://fptshop.com.vn` + $(this).find('.fs-lpil-img').attr('href')
-							   product.avatar = $(this).find('.fs-lpil-img').find('img').attr("data-original")
-							   product.sale = $(this).find('.fs-lpil-lb').text().trim()
-							   product.currPrice = $(this).find('.fs-lpil-price').find('p').text().trim()
-							   product.oldPrice = $(this).find('.fs-lpil-price').find('del').text().trim()
-							   product.evaluates = $(this).find('.fs-dttrate').find('p').text().trim()
-	  
-							  let valueRate = 0
-							  $(this).find('.fs-dttrate').find('span').each(function(){
-									  let liSpan = $(this).attr('class')
-									  let valueStar = 0;
-									  if(liSpan == 'fs-dttr10'){
-										  valueStar = 1;
-									  }else if(liSpan == 'fs-dttr05'){
-										  valueStar = 0.5;
-									  }else {
-										  valueStar = 0
-									  }
-									  valueRate += valueStar
-								  return valueRate
-							  })
-							  product.rate = valueRate
-						
-							  products.push(product)
-							 
-						   }
-					   })
+			let options = {
+				uri: `https://fptshop.com.vn/dien-thoai?sort=gia-cao-den-thap&trang=${i}`,
+				transform: function (body) {
+					return cheerio.load(body);
+				}
+			};
 
-					    //   đẩy vào database
-					   if(products){
-						try {
-							let data = await ProductControllers.addProductByFpt(products)
-							if (data) {
-								res.json({
-									status: SUCCESS,
-									data: data,
-									message: `Tạo mới sản phẩm thành công`
-								})
-							} else {
-								res.json({
-									status: FAILED,
-									data: {},
-									message: `Lỗi trong quá trình tạo mới sản phẩm`
-								})
-							}
-						} catch (error) {
-							res.json({
+			rp(options)
+			.then(async function($) {
+				// Get data
+				var result = await ProductServices.crawlPhone($)
+				// Insert database
+
+				if(result){
+					try {
+						let data = await ProductControllers.addProductByFpt(result)
+						if (data) {
+							 res.json({
+								status: SUCCESS,
+								data: data,
+								message: `Tạo mới sản phẩm thành công`
+							})
+						} else {
+							 res.json({
 								status: FAILED,
 								data: {},
-								message: `Lỗi xảy ra trong quá trình tạo mới sản phẩm từ cơ sở dữ liệu ${error}`
+								message: `Lỗi trong quá trình tạo mới sản phẩm`
 							})
 						}
-					  }
-				   })
-			}
+					} catch (error) {
+						 res.json({
+							status: FAILED,
+							data: {},
+							message: `Lỗi xảy ra trong quá trình tạo mới sản phẩm từ cơ sở dữ liệu ${error}`
+						})
+					}
+				}
+			})
+			.catch( err => {
+				throw err
+			});
 		}
-	}).on('error', function(err) {
-		console.log(err)
 	})
+	.catch( err => {
+		throw err
+	});
+})
+
+router.get("/tablets", (req,res)=>{
+	let baseOtions = {
+		uri: 'https://fptshop.com.vn/may-tinh-bang?sort=ban-chay-nhat&trang=1',
+		transform: function (body) {
+			return cheerio.load(body);
+		}
+	};
+	rp(baseOtions)
+	.then(function ($) {
+		let numberPage = $(".f-cmtpaging .f-cmtpg-l:last-child").attr("data-page")
+
+		for (let i = 1; i <= numberPage; i++) {
+
+			let options = {
+				uri: `https://fptshop.com.vn/may-tinh-bang?sort=ban-chay-nhat&trang=${i}`,
+				transform: function (body) {
+					return cheerio.load(body);
+				}
+			};
+
+			rp(options)
+			.then(async function($) {
+				// Get data
+				var result = await ProductServices.crawlTablet($)
+				// Insert database
+				if(result){
+					try {
+						let data = await ProductControllers.addProductByFpt(result)
+						if (data) {
+							return res.json({
+								status: SUCCESS,
+								data: data,
+								message: `Tạo mới sản phẩm thành công`
+							})
+						} else {
+							return res.json({
+								status: FAILED,
+								data: {},
+								message: `Lỗi trong quá trình tạo mới sản phẩm`
+							})
+						}
+					} catch (error) {
+						return res.json({
+							status: FAILED,
+							data: {},
+							message: `Lỗi xảy ra trong quá trình tạo mới sản phẩm từ cơ sở dữ liệu ${error}`
+						})
+					}
+				}
+			})
+			.catch( err => {
+				throw err
+			});
+		}
+	})
+	.catch( err => {
+		throw err
+	});
+})
+
+router.get("/laptops", (req,res)=>{
+	let baseOtions = {
+		uri: 'https://fptshop.com.vn/may-tinh-xach-tay?sort=ban-chay-nhat&trang=1',
+		transform: function (body) {
+			return cheerio.load(body);
+		}
+	};
+	rp(baseOtions)
+	.then(function ($) {
+		let numberPage = $(".f-cmtpaging .f-cmtpg-l:last-child").attr("data-page")
+
+		for (let i = 1; i <= numberPage; i++) {
+
+			let options = {
+				uri: `https://fptshop.com.vn/may-tinh-xach-tay?sort=ban-chay-nhat&trang=${i}`,
+				transform: function (body) {
+					return cheerio.load(body);
+				}
+			};
+
+			rp(options)
+			.then(async function($) {
+				// Get data
+				var result = await ProductServices.crawlLaptop($)
+				// Insert database
+				if(result){
+					try {
+						let data = await ProductControllers.addProductByFpt(result)
+						if (data) {
+							return res.json({
+								status: SUCCESS,
+								data: data,
+								message: `Tạo mới sản phẩm thành công`
+							})
+						} else {
+							return res.json({
+								status: FAILED,
+								data: {},
+								message: `Lỗi trong quá trình tạo mới sản phẩm`
+							})
+						}
+					} catch (error) {
+						return res.json({
+							status: FAILED,
+							data: {},
+							message: `Lỗi xảy ra trong quá trình tạo mới sản phẩm từ cơ sở dữ liệu ${error}`
+						})
+					}
+				}
+			})
+			.catch( err => {
+				throw err
+			});
+		}
+	})
+	.catch( err => {
+		throw err
+	});
 })
 
 module.exports = router
-
-
-
-let product = {}
-						

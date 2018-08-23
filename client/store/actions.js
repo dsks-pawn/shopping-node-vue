@@ -4,5 +4,8 @@ export default {
   },
   getBrandsWithLimit({ commit }, data) {
     commit("getBrandsWithLimit", data)
+  },
+  getDataByHome({ commit }, data){
+    commit("getDataByHome", data)
   }
 }

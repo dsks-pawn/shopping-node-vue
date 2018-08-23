@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
-
+import ejs from "ejs"
 
 import mongoose from 'mongoose'
 import cors from 'cors'
@@ -35,7 +35,7 @@ mongoose.connect(`mongodb://localhost:27017/${config.get("mongodb.database")}`, 
 // mkdir /c/Users/Administrator/Desktop/Project/database
 // mongod --port 27017 --dbpath /c/Users/Administrator/Desktop/Project/database
 // mongo --port 27017
-// use project_node_vue
+// use shopping_node_vue
 // db.createUser({user:"admin", pwd:"admin", roles: ["readWrite", "dbAdmin", "dbOwner"]})
 // mongod --auth --port 27017 --dbpath /c/Users/Administrator/Desktop/Project/database
 // mongo --port 27017 -u "admin" -p "admin" --authenticationDatabase "project_node_vue"
@@ -74,7 +74,12 @@ app.use(routes)
   MIDDELEWARE VIEW DEFAULT
   var indexRouter = require('./routes/index');
   app.use('/', indexRouter);
-  */
+*/
+
+
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 // catch 404 and forward to error handler

@@ -18,9 +18,11 @@
 				<ProductHot :productsHot="tabletHot"/> 
 				<AccessoriesHot/>
 			</div>
-			<div class="container">
-
- 		 </div>
+			<div>
+				<h3>
+					{{$store.state.HOME_DATA}}
+				</h3>
+			</div>
   </section>
 </template>
 
@@ -34,6 +36,7 @@ import AdsLong from "~/components/block/home/AdsLong.vue"
 import ProductHot from "~/components/block/home/ProductHot.vue"
 import AccessoriesHot from "~/components/block/home/AccessoriesHot.vue"
 
+import Home from "~/api/Home.js"
 export default {
 	components: {
 		AdsCarousel,
@@ -43,20 +46,18 @@ export default {
 		ProductHot,
 		AccessoriesHot
 	},
-	// async fetch({ store }) {
-	// 	try {
-	// 		let dataItems = await Items.getItemsWithLimit()
-	// 		let dataBrands = await Brands.getBrandsWithLimit()
+	async fetch({ store }) {
+		try {
+			let data = await Home.getDataByDb()
+			if (data.data.status != 200) data = await Home.getDataByFpt()
+			let result = data.data.data[0]
 
-	// 		if (dataItems)
-	// 			await store.dispatch("getItemsWithLimit", dataItems.data)
+			if (result) await store.dispatch("getDataByHome", result)
 
-	// 		if (dataBrands)
-	// 			await store.dispatch("getBrandsWithLimit", dataBrands.data)
-	// 	} catch (error) {
-	// 		throw error
-	// 	}
-	// }
+		} catch (error) {
+			throw error
+		}
+	},
 	data() {
 		return {
 			phoneHot: {

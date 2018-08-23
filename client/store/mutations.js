@@ -4,5 +4,8 @@ export default {
   },
   getBrandsWithLimit(state, data) {
     state.BRANDS = data
+  },
+  getDataByHome(state , data){
+    state.HOME_DATA = data
   }
 }

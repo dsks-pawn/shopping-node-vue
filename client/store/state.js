@@ -1,4 +1,5 @@
 export default {
   ITEMS_HOT: {},
-  BRANDS: {}
+  BRANDS: {},
+  HOME_DATA: {}
 }
