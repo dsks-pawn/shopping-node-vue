@@ -14,7 +14,7 @@ const crawlAccessories = ($, category) => {
          product.name = $(this).find('.pk-infosp-right .pk-tt-insp').text().trim()
          product.slug = convertString(product.name)
          product.category = category
-         product.link = `https://fptshop.com.vn` + $(this).find('.pk-infosp-left a').attr('href')
+         product.linkFpt = `https://fptshop.com.vn` + $(this).find('.pk-infosp-left a').attr('href')
          product.avatar = $(this).find('.pk-infosp-left img').attr('src')
          product.currPrice = $(this).find('.pk-infosp-right h3').first().text().trim()
          if(!product.currPrice) product.currPrice = ' '

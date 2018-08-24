@@ -6,13 +6,12 @@
             <slide v-for="brand of brands.brandBig" :key="brand.id">
                <el-row>
 				   <el-card style="border: none">
-					   <nuxt-link :to="brand.link"><div class="block_images"><img class="image" :src="brand.img" :alt="brand.name" :title="brand.name"></div></nuxt-link>
+					   <nuxt-link to=""><div class="block_images"><img class="image" :src="brand.img" :alt="brand.title" :title="brand.title"></div></nuxt-link>
 				   </el-card>
                 </el-row>
             </slide>
             
         </carousel>
-         <!-- <div>{{$store.state.BRANDS}}</div> -->
     </div>
      </no-ssr>
 </template>
@@ -44,21 +43,7 @@
 </style>
 
 <script>
-// import Brands from "@/api/Brands"
-
 export default {
 	props: ["brands"]
-	// async mounted() {
-	// 	try {
-	// 		let dataBrands = await Brands.getBrandsWithLimit()
-	// 		if (dataBrands)
-	// 			await this.$store.dispatch(
-	// 				"getBrandsWithLimit",
-	// 				dataBrands.data
-	// 			)
-	// 	} catch (error) {
-	// 		throw error
-	// 	}
-	// }
 }
 </script>

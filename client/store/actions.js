@@ -1,11 +1,14 @@
 export default {
-  getItemsWithLimit({ commit }, data) {
-    commit("getItemsWithLimit", data)
-  },
-  getBrandsWithLimit({ commit }, data) {
-    commit("getBrandsWithLimit", data)
-  },
   getDataByHome({ commit }, data){
     commit("getDataByHome", data)
+  },
+  getDataAdditionalPhone({ commit }, data){
+    commit("getDataAdditionalPhone", data)
+  },
+  getDataAdditionalLaptop({ commit }, data){
+    commit("getDataAdditionalLaptop", data)
+  },
+  getProductLimit({ commit }, data){
+    commit("getProductLimit", data)
   }
 }

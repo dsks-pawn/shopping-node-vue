@@ -1,20 +1,20 @@
 <template>
     <div class="product">
          <div class="product_title">
-             <nuxt-link to=""><h5>{{productsHot.typeProduct}}</h5></nuxt-link>
+             <nuxt-link :to="productsHot.viewAll"><h5>{{productsHot.typeProduct}}</h5></nuxt-link>
             <nuxt-link :to="productsHot.viewAll"><small>Xem tất cả</small></nuxt-link>
         </div>
         <div>
             <el-row :gutter="10">
-                <el-col  :xs="24" :sm="12" :md="8" v-for="item of productsHot.itemProduct" :key="item.id">
-                    <nuxt-link :to="item.link" :title="item.name">
+                <el-col  :xs="24" :sm="12" :md="8" v-for="item of productsHot.products" :key="item.id">
+                    <nuxt-link to="" :title="item.name">
                         <div class="product_item">
                             <div class="item">
                                 <h6 class="item_title">{{item.name}}</h6>
-                                <!-- <small class="item_answer">Trả góp {{item.answer}}%</small> -->
+                                <small v-if="item.sale" class="item_answer">{{item.sale}}</small>
                             </div>
                             <p class="item_price">
-                                {{item.price}}₫
+                                {{item.currPrice}}
                             </p>
                             <img :src="item.img" :alt="item.name" :title="item.name">
                         </div>
@@ -57,6 +57,9 @@ export default {
 .item_title {
 	color: #1f1f1f;
 	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .item_price {
 	padding-left: 12px;

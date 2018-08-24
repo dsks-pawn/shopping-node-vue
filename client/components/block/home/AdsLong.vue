@@ -1,7 +1,7 @@
 <template>
     <div class="ads">
-        <nuxt-link :to="adsLong.link">
-            <img :src="adsLong.img" alt="Giá cực sốc" >
+        <nuxt-link to="">
+            <img :src="getAdsLong.img" alt="Giá cực sốc" >
         </nuxt-link>
     </div>
 </template>
@@ -13,13 +13,9 @@
 </style>
 <script>
 export default {
-	data() {
-		return {
-			adsLong: {
-				img:
-					"https://fptshop.com.vn/Uploads/images/samsung-hang-dinh-giam-cuc-da.png?v=2",
-				link: ""
-			}
+	computed: {
+		getAdsLong() {
+			return this.$store.state.HOME_DATA.ads.long
 		}
 	}
 }

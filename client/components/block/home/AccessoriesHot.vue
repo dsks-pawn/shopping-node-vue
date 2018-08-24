@@ -6,20 +6,22 @@
         </div>
         <div class="product_topic" >
             <div >
-                <nuxt-link class="topic_access" v-for="topic of accessoriesHot" :key="topic.id" :to="topic.link"><small class="topic_title">{{topic.title}}</small></nuxt-link>
+                <nuxt-link class="topic_access" v-for="topic of accessoriesHot.tags" :key="topic.id" to=""><small class="topic_title">{{topic.title}}</small></nuxt-link>
             </div>
         </div>
-        <div >
+        <div class="product_access">
             <el-row >
-                <el-col  :xs="6" :sm="4" :md="3" v-for="item of accessoriesItem" :key="item.id">
-                    <nuxt-link :to="item.link" class="product_items">
-                         <img class="product_img" :src="item.img" :alt="item.name" :title="item.name">
+                <el-col  :xs="6" :sm="4" :md="3" v-for="item of accessoriesHot.items" :key="item.id">
+                    <nuxt-link to="" class="product_items">
+                        <div class="text-center product_img">
+							<img  :src="item.img" :alt="item.name" :title="item.name">
+						</div>
                         <div class="product_item">
                             <div class="item">
                                 <h6 class="item_title">{{item.name}}</h6>
                             </div>
                             <p class="item_price">
-                                {{item.price}}₫
+                                {{item.currPrice}}
                             </p>
                         </div>
                     </nuxt-link>
@@ -45,7 +47,9 @@
 	background: #e5e5e5;
 	word-spacing: 0px;
 }
-
+.product_access {
+	background-color: #fff;
+}
 .topic_title {
 	background-color: #fff;
 	border-radius: 20px;
@@ -79,7 +83,13 @@
 	color: #1f1f1f;
 	font-size: 14px;
 }
-
+.product_img {
+	height: 130px;
+	margin-top: 10px;
+}
+.product_img img {
+	max-height: 115px;
+}
 .item_price {
 	padding-left: 12px;
 	color: #1f1f1f;
@@ -89,83 +99,7 @@
 </style>
 <script>
 export default {
-	data() {
-		return {
-			accessoriesHot: [
-				{ title: "Miếng dán màn hình", link: "" },
-				{ title: "Bao da ốp lưng", link: "" },
-				{ title: "Sạc dự phòng", link: "" },
-				{ title: "Thẻ nhớ", link: "" },
-				{ title: "Phụ kiện Apple", link: "" },
-				{ title: "Tai nghe", link: "" },
-				{ title: "Loa", link: "" },
-				{ title: "USB - Ổ cứng", link: "" },
-				{ title: "Sạc cáp", link: "" },
-				{ title: "Chuột", link: "" },
-				{ title: "Balo - Túi xách", link: "" },
-				{ title: "TV BOX", link: "" },
-				{ title: "Phụ kiện khác", link: "" }
-			],
-			accessoriesItem: [
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				},
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				},
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				},
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				},
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				},
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				},
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				},
-				{
-					name: "MDMH iPhone X Kính cường lực",
-					price: "250.000",
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-					link: ""
-				}
-			]
-		}
-	}
+	props: ["accessoriesHot"]
 }
 </script>
 

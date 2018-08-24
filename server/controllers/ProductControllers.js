@@ -9,16 +9,14 @@ const addProductByFpt = async products => {
 	}
 	return false
 }
-// const addProductByFpt = products => {
-// 	let promise = new Promise((resolve, reject) => {
-// 		let data = Product.insertMany(products, (err, product) => {
-// 			if (err) {
-// 				reject(err)
-// 			} else {
-// 				resolve(product)
-// 			}
-// 		})
-// 	})
-// 	return promise
-// }
-module.exports = { addProductByFpt }
+
+const getProductByCategoryLimit = async category => {
+	try {
+		let data = await Product.find({ category: category}).limit(20).sort([['updatedAt', 'descending']])
+		return data
+	} catch (error) {
+		throw error
+	}
+	return false
+}
+module.exports = { addProductByFpt, getProductByCategoryLimit }	

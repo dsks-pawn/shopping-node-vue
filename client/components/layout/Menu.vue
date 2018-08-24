@@ -13,12 +13,12 @@
                             <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
                                 <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
                                     <div class="product_list">
-                                        <nuxt-link v-for="proCom of phoneProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                        <nuxt-link v-for="brand of getMenuBrand[0]" :key="brand.id" to="" :title="brand">{{brand}}</nuxt-link>
                                     </div>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
                                 <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
-                                    <div class="price_list" v-for="stanPri of phoneProduct.standardPrice" :key="stanPri.id">
+                                    <div class="price_list" v-for="stanPri of standardPrice.phone" :title="stanPri.title" :key="stanPri.id">
                                     <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
                                     </div>
                             </el-col>
@@ -26,13 +26,13 @@
                                 <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
                                  <el-row >
                                     <el-col :span="24">
-                                         <div class="product_menu" v-for="proHot of phoneProduct.productHot" :key="proHot.id">
+                                         <div class="product_menu" v-for="proHot of getProductHot.slice(0, 2)" :key="proHot.id">
                                                 <div class="product_images">
-                                                    <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
+                                                    <nuxt-link to=""><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
                                                 </div>
                                                 <div>
-                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
-                                                    <p class="price">{{proHot.price}}₫</p>
+                                                    <nuxt-link :title="proHot.name" class="title_product" to="">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}</p>
                                                 </div>
                                          </div>
                                          <div><nuxt-link style="color: #337ab7 !important;" to=""><b>Xem bảng xếp hạng điện thoại</b></nuxt-link></div>
@@ -40,7 +40,7 @@
                                 </el-row>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="5">
-                                <nuxt-link :to="phoneProduct.ads.link"><img :src="phoneProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                                <nuxt-link to="" :title="getAds[0].name"><img :src="getAds[0].img" :alt="getAds[0].name"></nuxt-link>
                             </el-col>
                         </el-row>
 
@@ -55,28 +55,28 @@
                             <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
                                 <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
                                     <div class="product_list">
-                                        <nuxt-link v-for="proCom of laptopProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                        <nuxt-link v-for="brand of getMenuBrand[1]" :key="brand.id" to="" :title="brand">{{brand}}</nuxt-link>
                                     </div>
                                 <h6 class="text-uppercase font-weight-bold pd">phần mềm</h6>
                                 <div class="product_list">
-                                     <nuxt-link v-for="soft of laptopProduct.software" :key="soft.id" :to="soft.link">{{soft.name}}</nuxt-link>
+                                     <nuxt-link v-for="software of getMenuSoftWare[0]" :key="software.id" :title="software" to="">{{software.slice(9)}}</nuxt-link>
                                 </div>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
                                 <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
-                                    <div class="price_list" v-for="stanPri of laptopProduct.standardPrice" :key="stanPri.id">
+                                    <div class="price_list" v-for="stanPri of standardPrice.laptop" :title="stanPri.title" :key="stanPri.id">
                                         <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
                                     </div>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="7" class="padding_left">
                                 <h6 class="text-uppercase font-weight-bold pd">mục đích sử dụng</h6>
-                                    <div class="price_list" v-for="usage of laptopProduct.usageTarget" :key="usage.id">
-                                        <nuxt-link  :to="usage.link">{{usage.title}}</nuxt-link><br>
+                                    <div class="price_list" v-for="usage of getUsageTarget" :key="usage.id">
+                                        <nuxt-link to="">{{usage}}</nuxt-link><br>
                                     </div>
 
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="5">
-                                <nuxt-link :to="laptopProduct.ads.link"><img :src="laptopProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                               <nuxt-link to="" :title="getAds[1].name"><img :src="getAds[1].img" :alt="getAds[1].name"></nuxt-link>
                             </el-col>
                         </el-row>
 
@@ -92,12 +92,12 @@
                             <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
                                 <h6 class="text-uppercase font-weight-bold pd">các sản phẩm của apple</h6>
                                     <div class="product_list">
-                                        <nuxt-link v-for="proCom of appleProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                        <nuxt-link v-for="brand of getMenuBrand[2]" :key="brand.id" :title="brand" to="">{{brand}}</nuxt-link>
                                     </div>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
                                 <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
-                                    <div class="price_list" v-for="stanPri of appleProduct.standardPrice" :key="stanPri.id">
+                                    <div class="price_list" v-for="stanPri of standardPrice.apple" :title="stanPri.title" :key="stanPri.id">
                                         <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
                                     </div>
                             </el-col>
@@ -105,20 +105,20 @@
                                <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
                                  <el-row >
                                     <el-col :span="24">
-                                         <div class="product_menu" v-for="proHot of appleProduct.productHot" :key="proHot.id">
+                                          <div class="product_menu" v-for="proHot of getProductHot.slice(2, 4)" :key="proHot.id">
                                                 <div class="product_images">
-													 <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
+                                                    <nuxt-link to=""><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
                                                 </div>
                                                 <div>
-                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
-                                                    <p class="price">{{proHot.price}}₫</p>
+                                                    <nuxt-link :title="proHot.name" class="title_product" to="">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}</p>
                                                 </div>
                                          </div>
                                     </el-col>
                                 </el-row>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="5">
-                                <nuxt-link :to="appleProduct.ads.link"><img :src="appleProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                                <nuxt-link to="" :title="getAds[2].name"><img :src="getAds[2].img" :alt="getAds[2].name"></nuxt-link>
                             </el-col>
                         </el-row>
 
@@ -127,7 +127,7 @@
             </li>
 
             <li class="nav-item dropdown mega-dropdown button-hover4">
-                <nuxt-link to="/productsall/tablets" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink4" ><i class="fa fa-tablet fa-2x"></i> TABLET</nuxt-link>
+                <nuxt-link to="/products/tablet" class="nav-link text-uppercase no-caret" id="navbarDropdownMenuLink4" ><i class="fa fa-tablet fa-2x"></i> TABLET</nuxt-link>
                  <div class="dropdown-menu mega-menu v-2 row z-depth-1 block4" aria-labelledby="navbarDropdownMenuLink4">
 
 
@@ -135,12 +135,12 @@
                             <el-col :xs="24" :sm="12" :md="8"  class=" padding_left" >
                                 <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
                                     <div class="product_list">
-                                        <nuxt-link v-for="proCom of tabletProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                       <nuxt-link v-for="brand of getMenuBrand[3]" :key="brand.id" :title="brand" to="">{{brand}}</nuxt-link>
                                     </div>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="4" class="vertical padding_left">
                                 <h6 class="text-uppercase font-weight-bold pd">Mức giá</h6>
-                                    <div class="price_list" v-for="stanPri of tabletProduct.standardPrice" :key="stanPri.id">
+                                    <div class="price_list" v-for="stanPri of standardPrice.tablet" :title="stanPri.title" :key="stanPri.id">
                                     <nuxt-link  :to="stanPri.link">{{stanPri.title}}</nuxt-link><br>
                                     </div>
                             </el-col>
@@ -148,13 +148,13 @@
                                 <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
                                  <el-row >
                                     <el-col :span="24">
-                                         <div class="product_menu" v-for="proHot of tabletProduct.productHot" :key="proHot.id">
+                                          <div class="product_menu" v-for="proHot of getProductHot.slice(4, 6)" :key="proHot.id">
                                                 <div class="product_images">
-													 <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
+                                                    <nuxt-link to=""><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
                                                 </div>
                                                 <div>
-                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
-                                                    <p class="price">{{proHot.price}}₫</p>
+                                                    <nuxt-link :title="proHot.name" class="title_product" to="">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}</p>
                                                 </div>
                                          </div>
                                          <div><nuxt-link style="color: #337ab7 !important;" to=""><b>Xem bảng xếp hạng máy tính bảng</b></nuxt-link></div>
@@ -162,7 +162,7 @@
                                 </el-row>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="5">
-                                <nuxt-link :to="tabletProduct.ads.link"><img :src="tabletProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                                <nuxt-link to="" :title="getAds[3].name"><img :src="getAds[3].img" :alt="getAds[3].name"></nuxt-link>
                             </el-col>
                         </el-row>
 
@@ -178,20 +178,20 @@
                             <el-col :xs="24" :sm="12" :md="9"  class=" padding_left" >
                                 <h6 class="text-uppercase font-weight-bold pd">Hãng sản xuất</h6>
                                     <div class="product_list">
-                                        <nuxt-link v-for="proCom of accessoriesProduct.productionCompany" :key="proCom.id" :to="proCom.link">{{proCom.name}}</nuxt-link>
+                                        <nuxt-link v-for="brand of getMenuBrand[4]" :key="brand.id" :title="brand" to="">{{brand}}</nuxt-link>
                                     </div>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="9" class="padding_left vertical">
                                 <h6 class="text-uppercase font-weight-bold pd">Bán chạy nhất</h6>
                                  <el-row >
                                     <el-col :span="24">
-                                         <div class="product_menu" v-for="proHot of accessoriesProduct.productHot" :key="proHot.id">
+                                          <div class="product_menu" v-for="proHot of getProductHot.slice(6, 8)" :key="proHot.id">
                                                 <div class="product_images">
-                                                    <nuxt-link :to="proHot.link"><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
+                                                    <nuxt-link to=""><img :src="proHot.img" :alt="proHot.name" :title="proHot.name"></nuxt-link>
                                                 </div>
                                                 <div>
-                                                    <nuxt-link class="title_product" :to="proHot.link">{{proHot.name}}</nuxt-link>
-                                                    <p class="price">{{proHot.price}}₫</p>
+                                                    <nuxt-link :title="proHot.name" class="title_product" to="">{{proHot.name}}</nuxt-link>
+                                                    <p class="price">{{proHot.price}}</p>
                                                 </div>
                                          </div>
                                          <div><nuxt-link style="color: #337ab7 !important;" to=""><b>Xem bảng xếp hạng máy tính bảng</b></nuxt-link></div>
@@ -199,10 +199,10 @@
                                 </el-row>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="6">
-                                <nuxt-link :to="accessoriesProduct.ads.link"><img :src="accessoriesProduct.ads.img" alt="Quảng cáo"></nuxt-link>
+                                <nuxt-link to="" :title="getAds[4].name"><img :src="getAds[4].img" :alt="getAds[4].name"></nuxt-link>
                             </el-col>
                         </el-row>
-
+				
 
                 </div>
             </li>
@@ -236,30 +236,29 @@
 </div>
 </template>
 <script>
+import Home from "~/api/Home.js"
 export default {
+	computed: {
+		getMenuBrand() {
+			return this.$store.state.HOME_DATA.menu.brand
+		},
+		getMenuSoftWare() {
+			return this.$store.state.HOME_DATA.menu.software
+		},
+		getUsageTarget() {
+			return this.$store.state.HOME_DATA.menu.purpose
+		},
+		getProductHot() {
+			return this.$store.state.HOME_DATA.menu.productHot
+		},
+		getAds() {
+			return this.$store.state.HOME_DATA.menu.ads
+		}
+	},
 	data() {
 		return {
-			phoneProduct: {
-				productionCompany: [
-					{ name: "Apple(Iphone)", link: "" },
-					{ name: "Huawei", link: "" },
-					{ name: "Intel", link: "" },
-					{ name: "Asus", link: "" },
-					{ name: "Wiko", link: "" },
-					{ name: "MEIZU", link: "" },
-					{ name: "Xiaomi", link: "" },
-					{ name: "Samsung", link: "" },
-					{ name: "Nokia", link: "" },
-					{ name: "Sony", link: "" },
-					{ name: "Mobiistart", link: "" },
-					{ name: "HONOR", link: "" },
-					{ name: "OPPO", link: "" },
-					{ name: "Vivo", link: "" },
-					{ name: "Masstel", link: "" },
-					{ name: "Philips", link: "" },
-					{ name: "Tecnos", link: "" }
-				],
-				standardPrice: [
+			standardPrice: {
+				phone: [
 					{ title: "Dưới 1 triệu", link: "" },
 					{ title: "Từ 1 đến 3 triệu", link: "" },
 					{ title: "Từ 3 đến 6 triệu", link: "" },
@@ -267,46 +266,7 @@ export default {
 					{ title: "Từ 10 đến 15 triệu", link: "" },
 					{ title: "Trên 15 triệu", link: "" }
 				],
-				productHot: [
-					{
-						name: "Xiaomi Redmi Note 5 32GB",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/7/636612801354913649_636574162702861277_1o.png.jpeg",
-						price: "4.799.000"
-					},
-					{
-						name: "OPPO F7",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/4/12/636591268193868757_1o.png",
-						price: "7.999.000"
-					}
-				],
-				ads: {
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/8/1/636687067369243072_636660033217957991_Samsung-H4.jpg",
-					link: ""
-				}
-			},
-			laptopProduct: {
-				productionCompany: [
-					{ name: "Apple(Macbook)", link: "" },
-					{ name: "Asus", link: "" },
-					{ name: "Ancer", link: "" },
-					{ name: "Dell", link: "" },
-					{ name: "HP", link: "" },
-					{ name: "Lenovo", link: "" },
-					{ name: "MSI", link: "" },
-					{ name: "Masstel", link: "" }
-				],
-				software: [
-					{ name: "Diệt virus", link: "" },
-					{ name: "Microsoft Office", link: "" },
-					{ name: "Windows", link: "" },
-					{ name: "Phần mềm khác", link: "" }
-				],
-				standardPrice: [
+				laptop: [
 					{ title: "Dưới 5 triệu", link: "" },
 					{ title: "Từ 5 đến 10 triệu", link: "" },
 					{ title: "Từ 10 đến 15 triệu", link: "" },
@@ -315,37 +275,7 @@ export default {
 					{ title: "Từ 25 đến 30 triệu", link: "" },
 					{ title: "Trên 30 triệu", link: "" }
 				],
-				usageTarget: [
-					{ title: "Sản phẩm 2 trong 1", link: "" },
-					{ title: "Gaming - Đồ họa", link: "" },
-					{ title: "Doanh nhân", link: "" },
-					{ title: "Ram khủng", link: "" },
-					{ title: "Chọn bởi FPT shop", link: "" },
-					{ title: "Sinh viên - Văn phòng", link: "" },
-					{ title: "Windows", link: "" },
-					{ title: "Giá rẻ", link: "" },
-					{ title: "Hiện đại", link: "" }
-				],
-				ads: {
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/6/30/636659578548694071_H4-Section 1.png",
-					link: ""
-				}
-			},
-			appleProduct: {
-				productionCompany: [
-					{ name: "iPhone", link: "" },
-					{ name: "iPad", link: "" },
-					{ name: "Mac", link: "" },
-					{ name: "iMac", link: "" },
-					{ name: "Macmini", link: "" },
-					{ name: "Macpro", link: "" },
-					{ name: "Watch", link: "" },
-					{ name: "TV", link: "" },
-					{ name: "Phụ kiện", link: "" },
-					{ name: "Beats", link: "" }
-				],
-				standardPrice: [
+				apple: [
 					{ title: "Dưới 10 triệu", link: "" },
 					{ title: "Từ 10 đến 15 triệu", link: "" },
 					{ title: "Từ 15 đến 20 triệu", link: "" },
@@ -353,104 +283,12 @@ export default {
 					{ title: "Từ 25 đến 30 triệu", link: "" },
 					{ title: "Trên 30 triệu", link: "" }
 				],
-				productHot: [
-					{
-						name: "iPhone 6 32GB (2017)",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/18/636622605489276625_6-32.png",
-						price: "7.499.000"
-					},
-					{
-						name: "iPad 2018 WiFi 32GB",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/5/8/636613881392399068_ipad-wifi.png",
-						price: "9.999.000"
-					}
-				],
-				ads: {
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/1/1/636504001230136182_636482946260323426_636459941853997270_Banner-Apple-T12.png",
-					link: ""
-				}
-			},
-			tabletProduct: {
-				productionCompany: [
-					{ name: "Apple(iPad)", link: "" },
-					{ name: "Samsung", link: "" },
-					{ name: "Lenovo", link: "" },
-					{ name: "Masstel", link: "" },
-					{ name: "Huawei", link: "" },
-					{ name: "Itel", link: "" }
-				],
-				standardPrice: [
+				tablet: [
 					{ title: "Dưới 2 triệu", link: "" },
 					{ title: "Từ 2 đến 5 triệu", link: "" },
 					{ title: "Từ 5 đến 8 triệu", link: "" },
 					{ title: "Trên 8 triệu", link: "" }
-				],
-				productHot: [
-					{
-						name: "Samsung Galaxy Tab A 2017",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/11/1/636451312432993323_1o.png",
-						price: "5.490.000"
-					},
-					{
-						name: "Huawei MediaPad T3 7.0 Prestige",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/10/24/636444518526948294_Huawei-MediaPad-T3-7.0-Prestige.png",
-						price: "2.090.000"
-					}
-				],
-				ads: {
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/7/12/636669934945963395_H4.png",
-					link: ""
-				}
-			},
-			accessoriesProduct: {
-				productionCompany: [
-					{ name: "Bao da ốp lưng", link: "" },
-					{ name: "Ốp lưng tự thiết kế", link: "" },
-					{ name: "Sạc dự phòng", link: "" },
-					{ name: "Thẻ nhớ", link: "" },
-					{ name: "Phụ kiện Apple", link: "" },
-					{ name: "Miếng dáng màn hình", link: "" },
-					{ name: "Tai nghe", link: "" },
-					{ name: "Loa", link: "" },
-					{ name: "USB - Ổ cứng", link: "" },
-					{ name: "Sạc cáp", link: "" },
-					{ name: "Chuột", link: "" },
-					{ name: "Balo - Túi xách", link: "" },
-					{ name: "TV BOX", link: "" },
-					{ name: "Phụ kiện khác", link: "" },
-					{ name: "Máy chơi game", link: "" }
-				],
-				productHot: [
-					{
-						name: "MDMH iPhone X Kính cường lực Clear",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/1/25/636524432304682928_636482583480745126_P1510979240_mieng-dan-kinh-cuong-luc-iphone-x-nillkin-amazing-h-pro-1-(1).jpg",
-						price: "250.000"
-					},
-					{
-						name: "Mic Karaoke kèm loa Bluetooth và SDP iCore M9",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2017/3/1/636239586738677906_HAPK-MICRO-KARAOKE-KEM-LOA-BLUETOOTH-VA-SDP-ARIRANG-ICORE-M9-00328363.png",
-						price: "675.000"
-					}
-				],
-				ads: {
-					img:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/6/6/636638812628409464_phukiengiam-248x248.jpg",
-					link: ""
-				}
+				]
 			}
 		}
 	}
@@ -579,6 +417,9 @@ h6 {
 }
 i {
 	font-size: 1.4em;
+}
+.product_list {
+	text-transform: capitalize;
 }
 .nav-link {
 	font-weight: bold;

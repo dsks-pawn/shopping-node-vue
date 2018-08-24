@@ -8,7 +8,7 @@ import { SUCCESS, FAILED } from "../constans.js"
 import ProductControllers from "../controllers/ProductControllers"
 import ProductServices from "../models/services/ProductServices"
 
-router.get("/phones", (req,res)=>{
+router.get("/phones-fpt", (req,res)=>{
 	let baseOtions = {
 		uri: 'https://fptshop.com.vn/dien-thoai?sort=gia-cao-den-thap&trang=1',
 		transform: function (body) {
@@ -69,7 +69,7 @@ router.get("/phones", (req,res)=>{
 	});
 })
 
-router.get("/tablets", (req,res)=>{
+router.get("/tablets-fpt", (req,res)=>{
 	let baseOtions = {
 		uri: 'https://fptshop.com.vn/may-tinh-bang?sort=ban-chay-nhat&trang=1',
 		transform: function (body) {
@@ -129,7 +129,7 @@ router.get("/tablets", (req,res)=>{
 	});
 })
 
-router.get("/laptops", (req,res)=>{
+router.get("/laptops-fpt", (req,res)=>{
 	let baseOtions = {
 		uri: 'https://fptshop.com.vn/may-tinh-xach-tay?sort=ban-chay-nhat&trang=1',
 		transform: function (body) {
@@ -189,4 +189,31 @@ router.get("/laptops", (req,res)=>{
 	});
 })
 
+router.post("/product-limit", async (req,res)=>{
+		let category = req.body.category
+		if(category){
+			try {
+				let data = await ProductControllers.getProductByCategoryLimit(category)
+				if (data.length > 0) {
+					return res.json({
+						status: SUCCESS,
+						data: data,
+						message: `Lấy dữ liệu sản phẩm thành công`
+					})
+				} else {
+					return res.json({
+						status: FAILED,
+						data: {},
+						message: `Lỗi trong quá trình lấy dữ liệu sản phẩm`
+					})
+				}
+			} catch (error) {
+				return res.json({
+					status: FAILED,
+					data: {},
+					message: `Lỗi xảy ra trong quá trình lấy dữ liệu sản phẩm từ cơ sở dữ liệu ${error}`
+				})
+			}
+		}
+})
 module.exports = router

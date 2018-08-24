@@ -1,11 +1,14 @@
 export default {
-  getItemsWithLimit(state, data) {
-    state.ITEMS_HOT = data
-  },
-  getBrandsWithLimit(state, data) {
-    state.BRANDS = data
-  },
   getDataByHome(state , data){
     state.HOME_DATA = data
+  },
+  getDataAdditionalPhone(state , data){
+    state.ADDITIONAL_PHONE = data
+  },
+  getDataAdditionalLaptop(state , data){
+    state.ADDITIONAL_LAPTOP = data
+  },
+  getProductLimit(state , data){
+    state.PRODUCTS_LIMIT = data
   }
 }

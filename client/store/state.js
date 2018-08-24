@@ -1,5 +1,6 @@
 export default {
-  ITEMS_HOT: {},
-  BRANDS: {},
-  HOME_DATA: {}
+  HOME_DATA: {},
+  ADDITIONAL_PHONE: {},
+  ADDITIONAL_LAPTOP: {},
+  PRODUCTS_LIMIT: []
 }

@@ -1,8 +1,8 @@
 <template>
      <div>
 		<el-carousel :interval="4000" trigger="click" height="300px">
-			<el-carousel-item v-for="product of productSale" :key="product.id">
-				<nuxt-link :to="product.link"><img :src="product.img" :alt="product.name" :title="product.name"></nuxt-link>
+			<el-carousel-item v-for="product of getCarousel" :key="product.id">
+				<nuxt-link to=""><img :src="product.img" :alt="product.title" :title="product.title"></nuxt-link>
 			</el-carousel-item>
 		</el-carousel>
     </div>
@@ -10,15 +10,9 @@
 
 <script>
 export default {
-	data() {
-		return {
-			productSale: [
-				{ name: "", img: "/img/slider-main.jpg", link: "1" },
-				{ name: "", img: "/img/slider-main2.png", link: "2" },
-				{ name: "", img: "/img/slider-main3.jpg", link: "3" },
-				{ name: "", img: "/img/slider-main4.jpg", link: "4" },
-				{ name: "", img: "/img/slider-main5.png", link: "5" }
-			]
+	computed: {
+		getCarousel() {
+			return this.$store.state.HOME_DATA.carousel
 		}
 	}
 }

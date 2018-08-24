@@ -23,7 +23,11 @@ const ProductSchema = Schema({
 		type: String,
 		required: true
 	},
-	link: {
+	link : {
+		type: String,
+		default: ""
+	},
+	linkFpt: {
 		type: String,
 		required: true
 	},

@@ -2,7 +2,7 @@
     <div>
         <el-carousel indicator-position="none" :interval="4000" trigger="click" height="300px">
             <el-carousel-item v-for="product of productSale" :key="product.id">
-                <nuxt-link :to="product.link"><img :src="product.img" :alt="product.name" :title="product.name"></nuxt-link>
+                <nuxt-link to="" :title="product.title"><img :src="product.img" :alt="product.title" :title="product.title"></nuxt-link>
             </el-carousel-item>
         </el-carousel>
     </div>

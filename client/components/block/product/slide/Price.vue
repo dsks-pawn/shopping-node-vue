@@ -3,18 +3,18 @@
         <div class="breadcrumb">
             <el-breadcrumb separator-class="el-icon-arrow-right">
                 <el-breadcrumb-item ><nuxt-link class="breadcrumb_title" to="/">Trang chủ</nuxt-link></el-breadcrumb-item>
-                <el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">{{priceInRange.title}}</nuxt-link></el-breadcrumb-item>
+                <el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">{{priceInRange.typeProduct}}</nuxt-link></el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div>
-            <h6 class="product_title">{{priceInRange.title}}</h6>
+            <h6 class="product_title">{{priceInRange.typeProduct}}</h6>
              <el-row>
                 <el-col :xs="8" :sm="8" :md="4" v-for="pupri of priceInRange.purchasePrice" :key="pupri.id">
                     <div class="product_item">
-                        <nuxt-link :to="pupri.link"><span><img :src="pupri.img" :alt="pupri.price"></span></nuxt-link>
+                        <nuxt-link to=""><span><img :src="pupri.img" :alt="pupri.price"></span></nuxt-link>
                     </div>
                     <div class="product_price">
-                        <nuxt-link :to="pupri.link"><small>{{pupri.price}}</small></nuxt-link>
+                        <nuxt-link to=""><small>{{pupri.price}}</small></nuxt-link>
                     </div>
                 </el-col>
 

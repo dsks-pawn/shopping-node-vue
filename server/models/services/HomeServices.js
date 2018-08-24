@@ -4,6 +4,7 @@ const crawlMenu = ($) => {
     menu.brand = []
     menu.software = []
     menu.productHot = []
+    menu.purpose = []
     menu.ads = []
 
     $('.fs-mnul li').each(function(){
@@ -26,9 +27,15 @@ const crawlMenu = ($) => {
         return menu.productHot.push(productHot)
     })
     
+    $(".fs-mntd.fs-mntd3 > ul li").each(function(){
+        let pur = $(this).find('a').attr('title')
+        if(pur)  menu.purpose.push(pur)
+        
+    })
+
     $('.fs-mntd4 a').each(function(){
         let ads = {}
-        ads.link = $(this).attr('href')
+        ads.linkFpt = $(this).attr('href')
         ads.name = $(this).attr('title')
         ads.img = $(this).find('img').attr('src')
         return menu.ads.push(ads)
@@ -45,7 +52,7 @@ const crawlNewsWithAds = ($) => {
     $('#fowl1 .item').each(function(){
         let slide = {}
         slide.title = $(this).find('img').attr('title')
-        slide.link = $(this).find('a').attr('href')
+        slide.linkFpt = $(this).find('a').attr('href')
         slide.img =  $(this).find('img').attr('src')
         if(!slide.img) slide.img = $(this).find('img').attr('data-src')
         general.carousel.push(slide)
@@ -55,19 +62,19 @@ const crawlNewsWithAds = ($) => {
     $('.fs-asright .fs-asads li').each(function(){
         let ads = {}
         ads.title = $(this).find('img').attr('alt')
-        ads.link = $(this).find('a').attr('href')
+        ads.linkFpt = $(this).find('a').attr('href')
         ads.img = $(this).find('img').attr('src')
         general.ads.short.push(ads)
     })
     general.ads.long = {}
-    general.ads.long.link = `https://fptshop.com.vn/` + $('body > section > div > div:nth-child(2) a').attr("href")
+    general.ads.long.linkFpt = `https://fptshop.com.vn/` + $('body > section > div > div:nth-child(2) a').attr("href")
     general.ads.long.img = `https://fptshop.com.vn/` + $('body > section > div > div:nth-child(2) a img').attr("src")
 
     
     $('.fs-asnews ul li').each(function(){
         let news = {}
         news.title = $(this).find('h3').text().trim()
-        news.link = $(this).find('a').attr('href')
+        news.linkFpt = $(this).find('a').attr('href')
         news.img = $(this).find('img').attr('src')
         general.news.push(news)
     })
@@ -79,7 +86,7 @@ const crawlProductsHot = ($) => {
     $('.fs-horow .fs-hocol').each(function(){
        let product = {}
         product.name =  $(this).find('h3').text().trim()
-        product.link = `https://fptshop.com.vn/` + $(this).find('a').attr('href')
+        product.linkFpt = `https://fptshop.com.vn/` + $(this).find('a').attr('href')
         product.slug = convertString(product.name)
         product.sale = $(this).find('.fs-iclbnews').text().trim()
         product.currPrice = $(this).find('.fs-hopri').text().trim()
@@ -104,7 +111,7 @@ const crawlAccessoriesHot = ($) => {
 
     $('.fs-hopkb .fs-hopkrow .fs-hopkcol').each(function(){
         let item = {}
-        item.link = $(this).find('a').attr('href')
+        item.linkFpt = $(this).find('a').attr('href')
         item.name = $(this).find('.fs-hopkname').text().trim()
         item.slug = convertString(item.name)
         item.currPrice = $(this).find('.fs-hopkpri').text().trim()

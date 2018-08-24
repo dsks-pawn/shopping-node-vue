@@ -20,7 +20,7 @@ const crawlPhone = ($) => {
             product.slug = convertString(product.name)
             product.brand = product.name.slice(0, product.name.indexOf(" ")).toLowerCase()
             if(product.brand == 'iphone') product.brand = 'apple(iphone)'
-            product.link = `https://fptshop.com.vn` + $(this).find('.fs-lpil-img').attr('href')
+            product.linkFpt = `https://fptshop.com.vn` + $(this).find('.fs-lpil-img').attr('href')
             product.avatar = $(this).find('.fs-lpil-img img').attr("data-original")
             product.currPrice = $(this).find('.fs-lpil-price p').text().trim()
             if(!product.currPrice) product.currPrice = ' '
@@ -66,12 +66,12 @@ const crawlTablet = ($) => {
             product.rate = {}
     
     
-            product.category = 'tablets'
+            product.category = 'tablet'
             product.name = $(this).find('.fs-lpil-name').text().trim()
             product.slug = convertString(product.name)
             product.brand = product.name.slice(0, product.name.indexOf(" ")).toLowerCase()
             if(product.brand == 'ipad') product.brand = 'apple(ipad)'
-            product.link = `https://fptshop.com.vn` + $(this).find('.fs-lpil-img').attr('href')
+            product.linkFpt = `https://fptshop.com.vn` + $(this).find('.fs-lpil-img').attr('href')
             product.avatar = $(this).find('.fs-lpil-img img').attr("data-original")
             product.currPrice = $(this).find('.fs-lpil-price p').text().trim()
             if(!product.currPrice) product.currPrice = ' '
@@ -119,14 +119,14 @@ const crawlLaptop = ($) => {
          product.currPrice = " "
 
  
-        product.category = 'laptops'
+        product.category = 'laptop'
         product.name = $(this).find('.fs-ilap-name').text().trim()
         product.slug = convertString(product.name)
 
         product.brand = product.name.slice(0, product.name.indexOf(" ")).toLowerCase()
         if(product.brand == 'macbook') product.brand = 'apple(macbook)'
 
-        product.link = `https://fptshop.com.vn` + $(this).find('.fs-ilap-img').attr('href')
+        product.linkFpt = `https://fptshop.com.vn` + $(this).find('.fs-ilap-img').attr('href')
         product.avatar = $(this).find('.fs-ilap-img img').attr("data-original")	
         product.oldPrice = $(this).find('.fs-ilap-price del').text().trim()
         product.sale = $(this).find('.fs-icpromo .fs-icpmbox').html()

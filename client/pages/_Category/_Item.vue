@@ -67,6 +67,9 @@ import Specifications from "~/components/block/product/detail/Specifications.vue
 import AccessoriesAndPosts from "~/components/block/product/detail/AccessoriesAndPosts.vue"
 
 import ProductsWatched from "~/components/common/ProductsWatched.vue"
+
+import Home from "~/api/Home.js"
+import Additional from "~/api/Additional.js"
 export default {
 	components: {
 		MenuHidden,
@@ -82,6 +85,18 @@ export default {
 		Specifications,
 		AccessoriesAndPosts,
 		ProductsWatched
+	},
+	async fetch({ store }) {
+		if (!store.state.HOME_DATA._id) {
+			let data = await Home.getDataByDb()
+			try {
+				if (data.data.status != 200) data = await Home.getDataByFpt()
+				let result = data.data.data[0]
+				if (result) await store.dispatch("getDataByHome", result)
+			} catch (error) {
+				throw error
+			}
+		}
 	},
 	data() {
 		return {
