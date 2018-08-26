@@ -18,58 +18,53 @@
 			</div>
 		</div>
          <el-row class="transition" v-if="showTablet">
-                <el-col class="hover_block" :xs="12" :sm="8" :md="6" v-for="item of productGeneral.blockData" :key="item.id">
-                    <nuxt-link  :to="item.link" class="product_items">
-                        <div class="sale"><small>{{item.sale}}</small></div>
-                        <div><img class="product_img" :src="item.img" :alt="item.name" :title="item.name"></div>
+                <el-col class="hover_block" :xs="12" :sm="8" :md="6" v-for="item of productFilter" :key="item.id">
+                    <nuxt-link  to="" class="product_items">
+                        <div class="sale"><small>{{item.provisional.sale}}</small></div>
+                        <div class="text-center items_img"><img class="product_img" :src="item.avatar" :alt="item.name" :title="item.name"></div>
                         <div class="product_item">
                             <div class="item">
                                 <h6 class="item_title">{{item.name}}</h6>
                             </div>
                             <p class="item_price">
-                                {{item.price}}₫
-								<span class="item_price_old">{{item.priceOld}}</span>
+                                {{item.currPrice}}
+								<span class="item_price_old">{{item.oldPrice}}</span>
                             </p>
-                            <el-rate class="product_rate" v-model="item.rate.value" disabled show-score text-color="grey" :score-template="item.rate.countComment"></el-rate>
+                            <el-rate class="product_rate" v-model="item.provisional.rate" disabled show-score text-color="grey" :score-template="item.provisional.evaluates"></el-rate>
                         </div>
                     </nuxt-link>
                 </el-col>
             </el-row>
 
-			<el-row  v-else class="hover_block transition" v-for="item of productGeneral.blockData" :key="item.id">
+			<el-row  v-else v-show="item.sale" class="hover_block transition tablet_two" v-for="item of productFilter" :key="item.id">
 				<el-col  :xs="6" :sm="6" :md="6" class="block_item">
-					<nuxt-link :to="item.link" class="product_items">
-						<div class="sale"><small>{{item.sale}}</small></div>
-						<div><img class="product_img" :src="item.img" :alt="item.name" :title="item.name"></div>
+					<nuxt-link to="" class="product_items">
+						<div class="sale"><small>{{item.provisional.sale}}</small></div>
+						<div><img class="product_img" :src="item.avatar" :alt="item.name" :title="item.name"></div>
 					</nuxt-link> 
 					
 				</el-col>
 				<el-col :xs="18" :sm="18" :md="18">
 					<div class="product_item">
 						<div class="item">
-							<nuxt-link :to="item.link"><h5 class="item_title2">{{item.name}}</h5></nuxt-link>
+							<nuxt-link to=""><h5 class="item_title2">{{item.name}}</h5></nuxt-link>
 						</div>
 						<p class="item_price2">
-							{{item.price}}₫
-							<span class="item_price_old">{{item.priceOld}}</span>
+							{{item.currPrice}}
+							<span class="item_price_old">{{item.oldPrice}}</span>
 						</p>
-						<el-rate class="product_rate" v-model="item.rate.value" disabled show-score text-color="grey" :score-template="item.rate.countComment"></el-rate>
+                            <el-rate class="product_rate" v-model="item.provisional.rate" disabled show-score text-color="grey" :score-template="item.provisional.evaluates"></el-rate>
 						<div class="specifications">
-							<small><b>Màn hình:</b> {{item.specifications.screen}}</small>
-							<small><b>Camera:</b> {{item.specifications.camera}}</small>
-							<small><b>Pin:</b> {{item.specifications.pin}}</small>
-							<small><b>Ram:</b> {{item.specifications.ram}}</small>
-							<small><b>Kết nối:</b> {{item.specifications.connect}}</small>
-							<small><b>HDH:</b> {{item.specifications.hdh}}</small>
+							<small><b>Màn hình:</b> {{item.provisional.specifications[0]}}</small>
+							<small><b v-if="productFilter.category != `laptop`">Camera: </b>
+									<b v-else>CPU: </b>{{item.provisional.specifications[1]}}
+							</small>
+							<small><b v-if="item.category != `laptop`">Pin: </b><b v-else>Ram: </b> {{item.provisional.specifications[2]}}</small>
+							<small><b v-if="item.category != `laptop`">Ram: </b><b v-else>VGA :</b> {{item.provisional.specifications[3]}}</small>
+							<small><b v-if="item.category == `phone`">CPU: </b><b v-else-if="item.category == `tablet`">Kết Nối: </b><b v-else>HĐH: </b> {{item.provisional.specifications[4]}}</small>
+							<small><b v-if="item.category != `laptop`">HĐH: </b><b v-else>Nặng: </b> {{item.provisional.specifications[5]}}</small>
 						</div>
-						<div class="information_sale">
-							<p class="information_sale_tit">khách hàng được chọn 1 trong 2 khuyến mãi sau</p>
-							<p><i class="fa fa-circle"></i> km1</p>
-							<small>trả góp 0%</small>
-							<p >km2</p>
-							<small><i class="fa fa-circle"></i> Tặng Office 365 Personal</small><br>
-							<small><i class="fa fa-circle"></i> Giảm thêm 500,000đ khi thanh toán Online bằng thẻ Mastercard</small>
-						</div>
+						<div v-show="item.sale" class="information_sale" v-html="item.sale"></div>
 					</div>
 				</el-col>
 			</el-row>
@@ -116,10 +111,18 @@
 	border: 1px solid #e0e0e0;
 }
 .product_item {
-	padding: 10px;
+	height: 90px;
 }
 .product_item p {
 	margin-bottom: 0.3rem;
+}
+.items_img {
+	height: 200px;
+	display: block;
+}
+.tablet_two {
+	padding: 10px 10px;
+	min-height: 310px;
 }
 .product_rate {
 	padding-left: 12px;
@@ -139,10 +142,7 @@
 	color: #1f1f1f;
 	font-size: 15px;
 }
-.specifications {
-	padding-left: 15px;
-	padding-bottom: 15px;
-}
+
 .item_price2 {
 	color: #1f1f1f;
 	font-weight: bold;
@@ -152,7 +152,8 @@
 	top: 5px;
 }
 .specifications {
-	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
 	display: grid;
 	grid-template-columns: auto auto;
 }
@@ -169,7 +170,8 @@
 	position: relative;
 }
 .item_price_old {
-	font-weight: 100;
+	color: grey;
+	font-weight: 400;
 	text-decoration: line-through #6b6b6b;
 	font-size: 12px;
 }
@@ -193,21 +195,15 @@
 }
 .information_sale {
 	padding-left: 15px;
+	padding-top: 10px;
 	border: 1px dashed #888888;
+	line-height: 0.3em;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-.information_sale p {
-	text-transform: uppercase;
-	font-size: 13px;
-	font-weight: bold;
-}
-.information_sale_tit {
-	line-height: 0.9em;
-	padding-top: 5px;
-}
-.information_sale li {
-	line-height: 1.5em;
-	font-size: 13px;
-}
+
 .fa-circle {
 	font-size: 7px;
 	color: #34a105;
@@ -218,6 +214,7 @@
 </style>
 <script>
 export default {
+	props: ["productFilter"],
 	data() {
 		return {
 			showTablet: true,
@@ -242,123 +239,7 @@ export default {
 			valueSortTable: "",
 			productGeneral: {
 				typeProduct: "Máy tính bảng",
-				countProduct: "52+ Sản phẩm",
-				blockData: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen:
-								"Retina display, , 12.9 inch(2732 x 2048 pixels)",
-							pin: "41 W/h Lithium - Polymer",
-							connect: "Wi-Fi (802.11a/b/g/n/ac), , Có, , Có",
-							camera: "12.0 MP, /7.0 MP",
-							ram: "4 GB",
-							hdh: "iOs"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen:
-								"Retina display, , 12.9 inch(2732 x 2048 pixels)",
-							pin: "41 W/h Lithium - Polymer",
-							connect: "Wi-Fi (802.11a/b/g/n/ac), , Có, , Có",
-							camera: "12.0 MP, /7.0 MP",
-							ram: "4 GB",
-							hdh: "iOs"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen:
-								"Retina display, , 12.9 inch(2732 x 2048 pixels)",
-							pin: "41 W/h Lithium - Polymer",
-							connect: "Wi-Fi (802.11a/b/g/n/ac), , Có, , Có",
-							camera: "12.0 MP, /7.0 MP",
-							ram: "4 GB",
-							hdh: "iOs"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen:
-								"Retina display, , 12.9 inch(2732 x 2048 pixels)",
-							pin: "41 W/h Lithium - Polymer",
-							connect: "Wi-Fi (802.11a/b/g/n/ac), , Có, , Có",
-							camera: "12.0 MP, /7.0 MP",
-							ram: "4 GB",
-							hdh: "iOs"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen:
-								"Retina display, , 12.9 inch(2732 x 2048 pixels)",
-							pin: "41 W/h Lithium - Polymer",
-							connect: "Wi-Fi (802.11a/b/g/n/ac), , Có, , Có",
-							camera: "12.0 MP, /7.0 MP",
-							ram: "4 GB",
-							hdh: "iOs"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/6/28/636658027774801003_honor10-1o.png",
-						price: "6.990.000",
-						priceOld: "2.222.222đ",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen:
-								"Retina display, , 12.9 inch(2732 x 2048 pixels)",
-							pin: "41 W/h Lithium - Polymer",
-							connect: "Wi-Fi (802.11a/b/g/n/ac), , Có, , Có",
-							camera: "12.0 MP, /7.0 MP",
-							ram: "4 GB",
-							hdh: "iOs"
-						}
-					}
-				]
+				countProduct: "52+ Sản phẩm"
 			}
 		}
 	},

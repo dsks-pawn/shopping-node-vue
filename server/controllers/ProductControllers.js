@@ -12,7 +12,7 @@ const addProductByFpt = async products => {
 
 const getProductByCategoryLimit = async category => {
 	try {
-		let data = await Product.find({ category: category}).limit(20).sort([['updatedAt', 'descending']])
+		let data = await Product.find({ category: category}).limit(20).sort({currPrice: -1})
 		return data
 	} catch (error) {
 		throw error

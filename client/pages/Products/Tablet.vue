@@ -12,10 +12,9 @@
 				<SideBar/>
 			</el-col>
 			<el-col  :sm="24" :md="19" >
-				<Result/>
+				<Result :productFilter="productLimit"/>
 			</el-col>
 		</el-row>
-		<h3>{{testDataaaaaa}}</h3>
 	<ProductsWatched/>
  	</section>
  </template>
@@ -48,7 +47,7 @@ export default {
 
 		try {
 			let typeProduct = {
-				category: "phone"
+				category: "tablet"
 			}
 			let data = await Product.getProductLimitByDb(typeProduct)
 			if (data.data.status != 200) {
@@ -64,7 +63,7 @@ export default {
 		}
 	},
 	computed: {
-		testDataaaaaa() {
+		productLimit() {
 			return this.$store.state.PRODUCTS_LIMIT
 		}
 	}

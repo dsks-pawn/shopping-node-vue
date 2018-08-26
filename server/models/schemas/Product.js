@@ -25,6 +25,7 @@ const ProductSchema = Schema({
 	},
 	link : {
 		type: String,
+		default: false,
 		default: ""
 	},
 	linkFpt: {
@@ -36,59 +37,74 @@ const ProductSchema = Schema({
 		required: true
 	},
 	currPrice: {
-		type: String,
-		required: true
+		type: Number,
+		required: true,
+		default : 0
 	},
 	oldPrice: {
-		type: String,
-		required: false
+		type: Number,
+		required: false,
+		default : 0
 	},
 	provisional: {
 		type: Object,
 		required: true
 	},
 
-
-
 	code: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
 	post: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
 	color: {
 		type: Array,
-		required: false
+		required: false,
+		default: {}
 	},
 	images: {
 		type: Array,
-		required: true
+		required: true,
+		default: []
 	},
 	imagesCarousel: {
 		type: Array,
-		required: true
+		required: true,
+		default: []
 	},
 	gallery: {
 		type: Array,
-		required: true
+		required: true,
+		default: []
 	},
 	sale: {
 		type: Object,
-		required: false
+		required: false,
+		default: {}
 	},
 	rate: {
 		type: Object,
-		required: true
+		required: true,
+		default: {}
 	},
 	evaluates: {
 		type: Object,
-		required: false
+		required: false,
+		default: {}
 	},
 	comments: {
 		type: Object,
-		required: false
+		required: false,
+		default: {}
+	},
+	specifications: {
+		type: Array,
+		required: false,
+		default: []
 	},
 	created_date: {
 		type: Date,

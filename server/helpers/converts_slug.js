@@ -1,5 +1,5 @@
 
- const convertString = (str) => {
+ const convertSlug = (str) => {
     str = str.toLowerCase().replace(/ /g, "-")
     str = str.replace("(", "")
     str = str.replace(")", "")
@@ -13,4 +13,4 @@
     return str;
 }
 
-export default convertString
+export default convertSlug

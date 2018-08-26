@@ -1,3 +1,5 @@
+import convertPrice from '@/helpers/converts_price'
+
 export default {
   getDataByHome({ commit }, data){
     commit("getDataByHome", data)
@@ -9,6 +11,7 @@ export default {
     commit("getDataAdditionalLaptop", data)
   },
   getProductLimit({ commit }, data){
+    convertPrice(data)
     commit("getProductLimit", data)
   }
 }

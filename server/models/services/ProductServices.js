@@ -1,31 +1,20 @@
-import convertString from '../../helpers/converts_slug'
+import convertSlug from '../../helpers/converts_slug'
+import convertPrice from '../../helpers/converts_price'
 
 const crawlPhone = ($) => {
     let products = []
     $('.fs-carow .fs-lpil').each(function(){
         let product = {}
-            product.code = " "
-            product.post = " "
-            product.color = {}
-            product.images = []
-            product.imagesCarousel = []
-            product.gallery = []
-            product.comments = {}
-            product.evaluates = {}
-            product.rate = {}
-    
-    
             product.category = 'phone'
             product.name = $(this).find('.fs-lpil-name').text().trim()
-            product.slug = convertString(product.name)
+            product.slug = convertSlug(product.name)
             product.brand = product.name.slice(0, product.name.indexOf(" ")).toLowerCase()
             if(product.brand == 'iphone') product.brand = 'apple(iphone)'
             product.linkFpt = `https://fptshop.com.vn` + $(this).find('.fs-lpil-img').attr('href')
             product.avatar = $(this).find('.fs-lpil-img img').attr("data-original")
-            product.currPrice = $(this).find('.fs-lpil-price p').text().trim()
-            if(!product.currPrice) product.currPrice = ' '
+            product.currPrice = convertPrice($(this).find('.fs-lpil-price p').text().trim())
 
-            product.oldPrice = $(this).find('.fs-lpil-price del').text().trim()
+            product.oldPrice = convertPrice($(this).find('.fs-lpil-price del').text().trim())
             product.sale = $(this).find('.fs-icpromo .fs-icpmbox').html()
     
             product.provisional = {} 
@@ -46,6 +35,10 @@ const crawlPhone = ($) => {
             return valueRate
             })
             product.provisional.rate = valueRate
+            product.provisional.specifications = []
+            $(this).find('.fs-lpil-tskt li span').each(function(){
+               return product.provisional.specifications.push($(this).text().trim())
+            })
             return products.push(product)
     })
     return products
@@ -55,28 +48,15 @@ const crawlTablet = ($) => {
     let products = []
     $('.fs-carow .fs-lpil').each(function(){
         let product = {}
-            product.code = " "
-            product.post = " "
-            product.color = {}
-            product.images = []
-            product.imagesCarousel = []
-            product.gallery = []
-            product.comments = {}
-            product.evaluates = {}
-            product.rate = {}
-    
-    
             product.category = 'tablet'
             product.name = $(this).find('.fs-lpil-name').text().trim()
-            product.slug = convertString(product.name)
+            product.slug = convertSlug(product.name)
             product.brand = product.name.slice(0, product.name.indexOf(" ")).toLowerCase()
             if(product.brand == 'ipad') product.brand = 'apple(ipad)'
             product.linkFpt = `https://fptshop.com.vn` + $(this).find('.fs-lpil-img').attr('href')
             product.avatar = $(this).find('.fs-lpil-img img').attr("data-original")
-            product.currPrice = $(this).find('.fs-lpil-price p').text().trim()
-            if(!product.currPrice) product.currPrice = ' '
-
-            product.oldPrice = $(this).find('.fs-lpil-price del').text().trim()
+            product.currPrice  = convertPrice($(this).find('.fs-lpil-price p').text().trim())
+            product.oldPrice = convertPrice($(this).find('.fs-lpil-price del').text().trim())
             product.sale = $(this).find('.fs-icpromo .fs-icpmbox').html()
     
             product.provisional = {} 
@@ -97,6 +77,12 @@ const crawlTablet = ($) => {
             return valueRate
             })
             product.provisional.rate = valueRate
+
+            product.provisional.specifications = []
+            $(this).find('.fs-lpil-tskt li span').each(function(){
+                console.log('$(this.text()) :', $(this).text().trim());
+               return product.provisional.specifications.push($(this).text().trim())
+            })
             return products.push(product)
     })
     return products
@@ -107,28 +93,18 @@ const crawlLaptop = ($) => {
 
     $('.fs-carow .fs-lapitem').each(function(){
         let product = {}
-         product.code = " "
-         product.post = " "
-         product.color = {}
-         product.images = []
-         product.imagesCarousel = []
-         product.gallery = []
-         product.comments = {}
-         product.evaluates = {}
-         product.rate = {}
-         product.currPrice = " "
-
- 
+   
         product.category = 'laptop'
         product.name = $(this).find('.fs-ilap-name').text().trim()
-        product.slug = convertString(product.name)
+        product.slug = convertSlug(product.name)
 
         product.brand = product.name.slice(0, product.name.indexOf(" ")).toLowerCase()
         if(product.brand == 'macbook') product.brand = 'apple(macbook)'
 
         product.linkFpt = `https://fptshop.com.vn` + $(this).find('.fs-ilap-img').attr('href')
-        product.avatar = $(this).find('.fs-ilap-img img').attr("data-original")	
-        product.oldPrice = $(this).find('.fs-ilap-price del').text().trim()
+        product.avatar = $(this).find('.fs-ilap-img img').attr("data-original")
+        product.currPrice = convertPrice($(this).find('.fs-ilap-pri').text().trim())
+        product.oldPrice = convertPrice($(this).find('.fs-ilap-price del').text().trim())
         product.sale = $(this).find('.fs-icpromo .fs-icpmbox').html()
 
         product.provisional = {} 

@@ -1,4 +1,4 @@
-import convertString from '../../helpers/converts_slug'
+import convertSlug from '../../helpers/converts_slug'
 const crawlMenu = ($) => {
     let menu = {}
     menu.brand = []
@@ -87,7 +87,7 @@ const crawlProductsHot = ($) => {
        let product = {}
         product.name =  $(this).find('h3').text().trim()
         product.linkFpt = `https://fptshop.com.vn/` + $(this).find('a').attr('href')
-        product.slug = convertString(product.name)
+        product.slug = convertSlug(product.name)
         product.sale = $(this).find('.fs-iclbnews').text().trim()
         product.currPrice = $(this).find('.fs-hopri').text().trim()
         product.img = $(this).find('img').attr('src')
@@ -113,7 +113,7 @@ const crawlAccessoriesHot = ($) => {
         let item = {}
         item.linkFpt = $(this).find('a').attr('href')
         item.name = $(this).find('.fs-hopkname').text().trim()
-        item.slug = convertString(item.name)
+        item.slug = convertSlug(item.name)
         item.currPrice = $(this).find('.fs-hopkpri').text().trim()
         item.img = $(this).find('img').attr("src")
         if(!item.img) item.img = $(this).find('img').attr("data-original")
