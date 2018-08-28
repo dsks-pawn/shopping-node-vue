@@ -11,6 +11,14 @@
 		"pass": "admin",
 		"database": "project_node_vue"
 	},
+	// "mongodb": {
+	// 	"useNewUrlParser": true,
+	// 	"db": "{ native_parser: true}",
+	// 	"server": "{ poolSize: 5 }",
+	// 	"user": "shopping_fpt",
+	// 	"pass": "admin123",
+	// 	"database": "heroku_xncl9mdz"
+	// },
 	"salt": 10,
 	"key": "key",
 	"secret_key": "secretkey"

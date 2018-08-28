@@ -24,6 +24,7 @@ let options = {
   pass: config.get("mongodb.pass"),
 }
 
+// mongoose.connect("mongodb://shopping_fpt:admin123@ds131932.mlab.com:31932/heroku_xncl9mdz", options, (err) => {
 mongoose.connect(`mongodb://localhost:27017/${config.get("mongodb.database")}`, options, (err) => {
   if (err) {
     console.log(`Connect DB failed. Error ${err}`);
@@ -35,20 +36,10 @@ mongoose.connect(`mongodb://localhost:27017/${config.get("mongodb.database")}`, 
 // mkdir /c/Users/Administrator/Desktop/Project/database
 // mongod --port 27017 --dbpath /c/Users/Administrator/Desktop/Project/database
 // mongo --port 27017
-// use shopping_node_vue
+// use project_node_vue
 // db.createUser({user:"admin", pwd:"admin", roles: ["readWrite", "dbAdmin", "dbOwner"]})
 // mongod --auth --port 27017 --dbpath /c/Users/Administrator/Desktop/Project/database
 // mongo --port 27017 -u "admin" -p "admin" --authenticationDatabase "project_node_vue"
-
-
-// mkdir /Users/thanh/Desktop/database
-// mongod --port 27017 --dbpath /Users/thanh/Desktop/database
-// mongo --port 27017
-// use project_node_vue
-// db.createUser({user:"admin", pwd:"admin", roles: ["readWrite", "dbAdmin", "dbOwner"]})
-//  
-// mongo --port 27017 -u "admin" -p "admin" --authenticationDatabase "project_node_vue"
-
 
 
 app.use(morgan('combined'))
