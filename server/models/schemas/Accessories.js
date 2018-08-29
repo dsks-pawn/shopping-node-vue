@@ -4,39 +4,43 @@ const Schema = mongoose.Schema
 const AccessoriesSchema = Schema({
 	name: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
 	slug: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
 	category: {
 		type: String,
-		required: true
-	},
-	link : {
-		type: String,
-		default: ""
+		required: true,
+		default: " "
 	},
 	linkFpt: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
 	avatar: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
 	currPrice: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
     sale: {
 		type: Array,
-		required: false
+		required: false,
+		default: []
 	},
 	specifications: {
 		type: Object,
-		required: false
+		required: false,
+		default: {}
 	},
 	fullData: {
 		type: Boolean,
@@ -45,23 +49,28 @@ const AccessoriesSchema = Schema({
 	},
 	code: {
 		type: String,
-		required: true
+		required: true,
+		default: " "
 	},
 	images: {
 		type: Array,
-		required: true
+		required: true,
+		default: []
 	},
 	imagesCarousel: {
 		type: Array,
-		required: true
+		required: true,
+		default: []
 	},
 	rate: {
 		type: Object,
-		required: true
+		required: true,
+		default: {}
 	},
 	comments: {
 		type: Object,
-		required: false
+		required: false,
+		default: {}
 	},
 	created_date: {
 		type: Date,

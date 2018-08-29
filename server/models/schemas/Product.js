@@ -23,11 +23,6 @@ const ProductSchema = Schema({
 		type: String,
 		required: true
 	},
-	link : {
-		type: String,
-		default: false,
-		default: ""
-	},
 	linkFpt: {
 		type: String,
 		required: true
@@ -50,7 +45,6 @@ const ProductSchema = Schema({
 		type: Object,
 		required: true
 	},
-
 	code: {
 		type: String,
 		required: true,
@@ -64,7 +58,7 @@ const ProductSchema = Schema({
 	color: {
 		type: Array,
 		required: false,
-		default: {}
+		default: []
 	},
 	images: {
 		type: Array,
@@ -82,9 +76,9 @@ const ProductSchema = Schema({
 		default: []
 	},
 	sale: {
-		type: Object,
+		type: String,
 		required: false,
-		default: {}
+		default: " "
 	},
 	rate: {
 		type: Object,
@@ -92,14 +86,18 @@ const ProductSchema = Schema({
 		default: {}
 	},
 	evaluates: {
-		type: Object,
+		type: Array,
 		required: false,
-		default: {}
+		default: []
 	},
 	comments: {
-		type: Object,
+		type: Array,
 		required: false,
-		default: {}
+		default: []
+	},
+	attached: {
+		type: String,
+		required: false,
 	},
 	specifications: {
 		type: Array,

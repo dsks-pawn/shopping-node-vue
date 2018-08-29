@@ -27,6 +27,7 @@
 		<div>
 			<CarouselProduct/>
 		</div>
+
 		<div class="menu_evalute">
 			
 			 <el-row :gutter="10">
@@ -69,7 +70,8 @@ import AccessoriesAndPosts from "~/components/block/product/detail/AccessoriesAn
 import ProductsWatched from "~/components/common/ProductsWatched.vue"
 
 import Home from "~/api/Home.js"
-import Additional from "~/api/Additional.js"
+import Item from "~/api/Item.js"
+
 export default {
 	components: {
 		MenuHidden,
@@ -86,7 +88,7 @@ export default {
 		AccessoriesAndPosts,
 		ProductsWatched
 	},
-	async fetch({ store }) {
+	async fetch({ store, route }) {
 		if (!store.state.HOME_DATA._id) {
 			let data = await Home.getDataByDb()
 			try {
@@ -96,6 +98,19 @@ export default {
 			} catch (error) {
 				throw error
 			}
+		}
+
+		try {
+			let keyWord = {}
+			keyWord.slug = "oppo-a83"
+
+			let data = await Item.getProductDetail(keyWord)
+			// if (data.data.status != 200)
+			// 	data = await Additional.getDataAdditionalLaptopFpt()
+			// let result = data.data.data[0]
+			// if (result) return await store.dispatch("getDataAdditionalLaptop", result)
+		} catch (error) {
+			throw error
 		}
 	},
 	data() {

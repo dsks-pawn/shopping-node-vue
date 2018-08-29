@@ -5,13 +5,7 @@ const crawlAccessories = ($, category) => {
     let products = []
     $('.p2-lprod-fbox').each(function(){
         let product = {}
-         product.code = " "
-         product.images = []
          product.imagesCarousel = []
-         product.rate = {}
-         product.comments = {}
-         product.specifications = {}
-
          product.name = $(this).find('.pk-infosp-right .pk-tt-insp').text().trim()
          product.slug = convertSlug(product.name)
          product.category = category
