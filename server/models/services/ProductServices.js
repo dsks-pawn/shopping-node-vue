@@ -80,7 +80,6 @@ const crawlTablet = ($) => {
 
             product.provisional.specifications = []
             $(this).find('.fs-lpil-tskt li span').each(function(){
-                console.log('$(this.text()) :', $(this).text().trim());
                return product.provisional.specifications.push($(this).text().trim())
             })
             return products.push(product)

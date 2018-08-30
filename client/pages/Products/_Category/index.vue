@@ -33,7 +33,7 @@ export default {
 		Result,
 		ProductsWatched
 	},
-	async fetch({ store }) {
+	async fetch({ store, route }) {
 		if (!store.state.HOME_DATA._id) {
 			let data = await Home.getDataByDb()
 			try {
@@ -47,7 +47,7 @@ export default {
 
 		try {
 			let typeProduct = {
-				category: "tablet"
+				category: route.params.Category
 			}
 			let data = await Product.getProductLimitByDb(typeProduct)
 			if (data.data.status != 200) {
