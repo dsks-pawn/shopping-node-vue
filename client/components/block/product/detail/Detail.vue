@@ -1,64 +1,66 @@
 <template>
     <div class="detail">
-   
+
 <div class="tab-content" id="myTabContent">
-	<div class="tab-pane fade show active" :id="imgProduct.imgActive.id" role="tabpanel" aria-labelledby="home-tab">
-		<img :src="imgProduct.imgActive.link" :alt="imgProduct.name">
+	<div class="tab-pane fade show active" :id="imgActive.id" role="tabpanel" aria-labelledby="home-tab">
+		<img :src="imgActive.img" :alt="nameProduct">
 	</div>
 
-	<div class="tab-pane fade" role="tabpanel" v-for="item of imgProduct.img" :key="item.id"  :id="item.id" :aria-labelledby="item.id">
-		<img :src="item.link">
+	<div class="tab-pane fade" role="tabpanel" v-for="item of images" :key="item.id"  :id="item.id" :aria-labelledby="item.id">
+		<img :src="item.img">
 	</div>
 </div>
 
+   
+
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link"  data-toggle="tab" :href="'#'+imgProduct.imgActive.id" role="tab" aria-controls="home" aria-selected="true">
-        <img :src="imgProduct.imgActive.link" :alt="imgProduct.name">
+    <a class="nav-link"  data-toggle="tab" :href="'#'+imgActive.id" role="tab" aria-controls="home" aria-selected="true">
+        <img :src="imgActive.img" :alt="nameProduct">
     </a>
   </li>
 
-   <li class="nav-item" v-for="item of imgProduct.img" :key="item.id">
+   <li class="nav-item" v-for="item of images" :key="item.id">
     <a class="nav-link" data-toggle="tab" :href="'#'+item.id" role="tab" aria-controls="item" aria-selected="false">
-        <img :src="item.link" :alt="imgProduct.name">
+        <img :src="item.img" :alt="nameProduct">
     </a>
   </li>
   
-
    <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="" role="tab" aria-controls="item" aria-selected="false">
+    <a class="nav-link" data-toggle="tab" v-scroll-to="{ element: '#gallery',  easing: 'linear'}" role="tab" aria-controls="item" aria-selected="false">
         <i class="el-icon-picture"></i>
     </a>
   </li>
 </ul>
-		
+
 
 </div>
 </template>
 <script>
 export default {
-	data() {
-		return {
-			imgProduct: {
-				name: "Vivo V9 Youth",
-				imgActive: {
-					id: 1,
-					link:
-						"//cdn.fptshop.com.vn/Uploads/Originals/2018/5/11/636616407330132502_636330303416257230_800-2.jpg"
-				},
-				img: [
-					{
-						id: 2,
-						link:
-							"//cdn.fptshop.com.vn/Uploads/Originals/2018/5/11/636616407330288489_636330303577564332_800-3.jpg"
-					},
-					{
-						id: 3,
-						link:
-							"//cdn.fptshop.com.vn/Uploads/Originals/2018/5/24/636627767511467797_ipad-pro-105-wi-fi-4g-256gb-2017-xam-2.jpg"
-					}
-				]
+	computed: {
+		nameProduct() {
+			return this.$store.state.PRODUCT_DETAIL.name
+		},
+		imgActive() {
+			let obj = {
+				id: "one",
+				img: this.$store.state.PRODUCT_DETAIL.images[0]
 			}
+			return obj
+		},
+		images() {
+			let arr = [
+				{
+					id: "two",
+					img: this.$store.state.PRODUCT_DETAIL.images[1]
+				},
+				{
+					id: "three",
+					img: this.$store.state.PRODUCT_DETAIL.images[2]
+				}
+			]
+			return arr
 		}
 	}
 }
@@ -90,5 +92,8 @@ export default {
 	color: #616161;
 	padding: 13px 15px;
 	font-size: 2em;
+}
+.nav-link {
+	border: none;
 }
 </style>

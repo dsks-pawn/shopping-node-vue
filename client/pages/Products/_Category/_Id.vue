@@ -27,6 +27,7 @@
 		<div>
 			<CarouselProduct/>
 		</div>
+
 		<div class="menu_evalute">
 			
 			 <el-row :gutter="10">
@@ -42,10 +43,8 @@
 					<AccessoriesAndPosts v-if="posts" :product="posts"/>
 				</el-col>
 			</el-row>
-			
 		</div>
 		<ProductsWatched/>
-		
  	</div>
 	 </section>
 	</no-ssr>
@@ -69,7 +68,8 @@ import AccessoriesAndPosts from "~/components/block/product/detail/AccessoriesAn
 import ProductsWatched from "~/components/common/ProductsWatched.vue"
 
 import Home from "~/api/Home.js"
-import Additional from "~/api/Additional.js"
+import Product from "~/api/Product.js"
+
 export default {
 	components: {
 		MenuHidden,
@@ -86,7 +86,8 @@ export default {
 		AccessoriesAndPosts,
 		ProductsWatched
 	},
-	async fetch({ store }) {
+	async fetch({ store, route }) {
+		//check data menu
 		if (!store.state.HOME_DATA._id) {
 			let data = await Home.getDataByDb()
 			try {
@@ -97,6 +98,59 @@ export default {
 				throw error
 			}
 		}
+
+		// get data detail product
+		try {
+			let keyWord = {}
+			keyWord.id = route.params.Id
+
+			let { data } = await Product.getProductDetail(keyWord)
+			if (data.status == 200) {
+				return store.dispatch("getProductDetail", data.data)
+			}
+		} catch (error) {
+			throw error
+		}
+
+		//check data product
+
+		// Lúc khác làm lại phần check xem database có data các product chưa
+		//sau đó load ra để vào bất kì 1 trang nào cũng có sp
+
+		// let typeProduct = {
+		// 	category: route.params.Category
+		// }
+		// if (typeProduct.category == "tablet") {
+		// 	if (store.state.TABLETS.length == 0) {
+		// 		let { data } = await Product.getProductByDb(typeProduct)
+		// 		if (data.data.length == 0) {
+		// 			data = await Product.getProductByFpt(typeProduct)
+		// 			return await store.dispatch("getTabletsAll", data.data.data)
+		// 		} else {
+		// 			return await store.dispatch("getTabletsAll", data.data)
+		// 		}
+		// 	}
+		// } else if (typeProduct.category == "phone") {
+		// 	if (store.state.PHONES.length == 0) {
+		// 		let { data } = await Product.getProductByDb(typeProduct)
+		// 		if (data.data.length == 0) {
+		// 			data = await Product.getProductByFpt(typeProduct)
+		// 			return await store.dispatch("getPhonesAll", data.data.data)
+		// 		} else {
+		// 			return await store.dispatch("getPhonesAll", data.data)
+		// 		}
+		// 	}
+		// } else if (typeProduct.category == "laptop") {
+		// 	if (store.state.LAPTOPS.length == 0) {
+		// 		let { data } = await Product.getProductByDb(typeProduct)
+		// 		if (data.data.length == 0) {
+		// 			data = await Product.getProductByFpt(typeProduct)
+		// 			return await store.dispatch("getLaptopsAll", data.data.data)
+		// 		} else {
+		// 			return await store.dispatch("getLaptopsAll", data.data)
+		// 		}
+		// 	}
+		// }
 	},
 	data() {
 		return {

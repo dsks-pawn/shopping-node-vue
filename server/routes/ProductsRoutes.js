@@ -7,6 +7,7 @@ import { SUCCESS, FAILED } from "../constans.js"
 
 import ProductControllers from "../controllers/ProductControllers"
 import ProductServices from "../models/services/ProductServices"
+import UpdateProductServices from "../models/services/UpdateProductServices"
 
 router.get("/phones-fpt", (req,res)=>{
 	let baseOtions = {
@@ -215,5 +216,120 @@ router.post("/product-limit", async (req,res)=>{
 				})
 			}
 		}
+})
+
+router.post("/products-db", async (req,res)=>{
+	let category = req.body.category
+	if(category){
+		try {
+			let data = await ProductControllers.getProductByCategory(category)
+			if (data) {
+				return res.json({
+					status: SUCCESS,
+					data: data,
+					message: `lấy dữ liệu sản phẩm thành công`
+				})
+			} else {
+				return res.json({
+					status: FAILED,
+					data: {},
+					message: `Lỗi trong quá trình lấy dữ liệu sản phẩm`
+				})
+			}
+		} catch (error) {
+			return res.json({
+				status: FAILED,
+				data: {},
+				message: `Lỗi xảy ra trong quá trình lấy dữ liệu sản phẩm từ cơ sở dữ liệu ${error}`
+			})
+		}
+	}
+})
+
+router.post("/update-product", async (req, res) => {
+    let id = req.body.id
+        if(id){
+            
+            let checkFullData = await ProductControllers.checkFullDataProduct(id)
+            if(checkFullData.fullData){
+                try {
+                    let data = await ProductControllers.getProductById(id)
+                    if (data) {
+                         res.json({
+                            status: SUCCESS,
+                            data: data,
+                            message: `Lấy thông tin chi tiết sản phẩm thành công`
+                        })
+                    } else {
+                         res.json({
+                            status: FAILED,
+                            data: {},
+                            message: `Lỗi trong quá trình lấy thông tin chi tiết sản phẩm`
+                        })
+                    }
+                } catch (error) {
+                     res.json({
+                        status: FAILED,
+                        data: {},
+                        message: `Lỗi xảy ra trong quá trình lấy thông tin chi tiết sản phẩm từ cơ sở dữ liệu ${error}`
+                    })
+                }
+            }else{
+                try {
+                    let dataLink = await ProductControllers.getLinkFptById(id)
+                    if (dataLink) {
+                            let options = {
+                                uri: `${dataLink.linkFpt}`,
+                                transform: function (body) {
+                                    return cheerio.load(body);
+                                }
+                            };
+                        rp(options)
+                        .then(async function($) {
+                            var result = await UpdateProductServices.crawlProductDetail($)
+                            if(result){
+                                try {
+                                    let data = await ProductControllers.updateFullProductFpt(id, result)
+                                    if (data) {
+                                         res.json({
+                                            status: SUCCESS,
+                                            data: data,
+                                            message: `Update thêm thông tin chi tiết sản phẩm thành công`
+                                        })
+                                    } else {
+                                         res.json({
+                                            status: FAILED,
+                                            data: {},
+                                            message: `Lỗi trong quá trình update thêm thông tin chi tiết sản phẩm`
+                                        })
+                                    }
+                                } catch (error) {
+                                     res.json({
+                                        status: FAILED,
+                                        data: {},
+                                        message: `Lỗi xảy ra trong quá trình update thêm thông tin chi tiết sản phẩm từ cơ sở dữ liệu ${error}`
+                                    })
+                                }
+                            }
+                        })
+                        .catch( err => {
+                            throw err
+                        });
+                } else {
+                    return res.json({
+                        status: FAILED,
+                        data: {},
+                        message: `Lỗi trong quá trình lấy linkFpt sản phẩm`
+                    })
+                }
+            } catch (error) {
+                return res.json({
+                    status: FAILED,
+                    data: {},
+                    message: `Lỗi xảy ra trong quá trình lấy linkFpt từ cơ sở dữ liệu ${error}`
+                })
+            }
+        }
+    }
 })
 module.exports = router

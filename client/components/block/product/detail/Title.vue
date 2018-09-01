@@ -1,26 +1,37 @@
 <template>
     <div class="bag">
         <h4 class="name_item">
-          {{product.name}}<span class="code_item">{{product.code}}</span>
+          {{nameProduct}}<span class="code_item">{{codeProduct}}</span>
         </h4>
-        <el-rate class="product_rate" v-model="product.rate.value" v-scroll-to="'#element'" disabled show-score text-color="grey" :score-template="product.rate.countComment + product.rate.countReply"></el-rate>
-
+        <el-rate class="product_rate" v-model="ratingStar" v-scroll-to="'#element'" disabled show-score text-color="grey" :score-template="countEvaluates + countComments"></el-rate>
+	<!-- {{ratingStar}} -->
     </div>
     
 </template>
 <script>
+import convertRating from "~/helpers/converts_rating"
+
 export default {
-	data() {
-		return {
-			product: {
-				name: "iPad Pro 12.9 WI-FI 4G 256GB (2017)",
-				code: "(No.00366396)",
-				rate: {
-					value: 3.7,
-					countComment: "83 khách hàng đánh giá",
-					countReply: " | 62 câu hỏi được trả lời"
-				}
-			}
+	computed: {
+		nameProduct() {
+			return this.$store.state.PRODUCT_DETAIL.name
+		},
+		codeProduct() {
+			return this.$store.state.PRODUCT_DETAIL.code
+		},
+		countEvaluates() {
+			return `${
+				this.$store.state.PRODUCT_DETAIL.evaluates.length
+			} khách hàng đánh giá `
+		},
+		countComments() {
+			return `| ${
+				this.$store.state.PRODUCT_DETAIL.comments.length
+			} câu hỏi được trả lời`
+		},
+		ratingStar() {
+			let result = convertRating(this.$store.state.PRODUCT_DETAIL.rate)
+			return result
 		}
 	}
 }

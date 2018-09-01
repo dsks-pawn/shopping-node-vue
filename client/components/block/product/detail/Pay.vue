@@ -1,17 +1,10 @@
 <template>
     <div class="pay">
-        <h4 class="price">27.999.000đ</h4>
+        <h4 class="price">{{currPrice}}</h4>
          <div class="pay_div"><el-button type="text" class="pay_assure" @click="modalPromotion"><img src="https://png2.kisspng.com/20180404/avq/kisspng-wordpress-search-engine-optimization-plug-in-blog-fast-5ac47027815517.5147965715228232075298.png" alt=""> sản phẩm nhận giao hàng trong 1 giờ</el-button></div>
         <div class="pay_sale">
             <div class="sale_title">Khuyến mại đặc biệt (SL có hạn)</div>
-            <div class="sale_main">
-                <p>khách hàng chọn 1 trong 2 hình thức thanh toán sau:</p>
-                <p class="titkms">KM1:</p>
-                <small><i class="fa fa-circle"></i> Trả góp 0%</small>
-                <p class="titkms">KM:2</p>
-                <small><i class="fa fa-circle"></i> Tặng Office 365 Personal</small>
-                <small><i class="fa fa-circle"></i> Giảm thêm 500,000đ khi thanh toán Online bằng thẻ Mastercard</small>
-            </div>
+            <div class="sale_main" v-html="sale"></div>
         </div>
         <nuxt-link to="">
 			<div class="buy_now text-center">
@@ -39,6 +32,44 @@
 		
     </div>
 </template>
+
+<script>
+export default {
+	computed: {
+		sale() {
+			return this.$store.state.PRODUCT_DETAIL.sale
+		},
+		currPrice() {
+			return this.$store.state.PRODUCT_DETAIL.currPrice
+		}
+	},
+	methods: {
+		modalPromotion() {
+			this.$alert(
+				`<div class="modal_promotion">
+			<p><b>Thời gian diễn ra chương trình: từ 08:00 17/05/2018 - 22:00 31/12/2018:</b> từ <b>08:00 17/05/2018 - 22:00 31/12/2018</b></p>
+			<p><b>Sản phẩm áp dụng:</b> Tất cả các sản phẩm Điện thoại, Máy tính bảng mới đang kinh doanh tại hệ thống.</p>
+			<p><b>Phạm vi áp dụng: </b>Toàn quốc</p>
+			<div><b>1.Giao hàng trong 1 giờ</b></div>
+			<div>
+				<p>Giao hàng trong 1 Giờ từ 8h đến 21h hàng ngày.</p>
+				<p>Giao hàng trong vòng 1 giờ cho Khách hàng mua Online giao hàng tận nơi trên toàn quốc đối với các sản phẩm điện thoại, máy tính bảng. </p>
+			</div>
+			<div>
+				<div>2. Xác định việc giao trễ trong 1 giờ:</div>
+				<p>Dựa trên thời gian đến nhà Khách hàng so với thời gian hẹn giao trên hóa đơn. Nếu giao trễ, khách hàng sẽ nhận được Voucher 100.000đ (Áp dụng mua tất cả sản phẩm (trừ sim số, thẻ cào) tại hệ thống cửa hàng FPT Shop. Mã voucher sẽ được tự động gửi tin nhắn đến Số điện thoại mua hàng của Khách hàng trong vòng 24h kể từ khi hoàn tất giao hàng (nếu trễ).</p>
+				</div>
+			</div>`,
+				"Giao hàng 1 giờ",
+				{
+					confirmButtonText: "Đóng",
+					dangerouslyUseHTMLString: true
+				}
+			)
+		}
+	}
+}
+</script>
 <style scoped>
 .pay {
 	padding-top: 20px;
@@ -75,32 +106,7 @@
 	background: #34a105;
 	border: 1px dashed #d7d7d7;
 }
-.sale_main {
-	padding: 15px 5px 5px 5px;
-	border: 1px dashed #d7d7d7;
-}
-.sale_main p {
-	text-transform: uppercase;
-	font-size: 14px;
-	margin-bottom: 0px;
-}
-.sale_main p:first-child {
-	font-style: italic;
-	color: #4a4a4a;
-	margin-bottom: 5px;
-}
-.titkms {
-	margin-bottom: 5px;
-	padding: 2px 5px;
-	font-size: 12px;
-	color: #fff;
-	background: #f5a623;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	display: block;
-	max-width: max-content;
-}
+
 h5 {
 	text-transform: uppercase;
 	font-weight: bold;
@@ -152,33 +158,3 @@ small {
 	color: #34a105;
 }
 </style>
-
-<script>
-export default {
-	methods: {
-		modalPromotion() {
-			this.$alert(
-				`<div class="modal_promotion">
-			<p><b>Thời gian diễn ra chương trình: từ 08:00 17/05/2018 - 22:00 31/12/2018:</b> từ <b>08:00 17/05/2018 - 22:00 31/12/2018</b></p>
-			<p><b>Sản phẩm áp dụng:</b> Tất cả các sản phẩm Điện thoại, Máy tính bảng mới đang kinh doanh tại hệ thống.</p>
-			<p><b>Phạm vi áp dụng: </b>Toàn quốc</p>
-			<div><b>1.Giao hàng trong 1 giờ</b></div>
-			<div>
-				<p>Giao hàng trong 1 Giờ từ 8h đến 21h hàng ngày.</p>
-				<p>Giao hàng trong vòng 1 giờ cho Khách hàng mua Online giao hàng tận nơi trên toàn quốc đối với các sản phẩm điện thoại, máy tính bảng. </p>
-			</div>
-			<div>
-				<div>2. Xác định việc giao trễ trong 1 giờ:</div>
-				<p>Dựa trên thời gian đến nhà Khách hàng so với thời gian hẹn giao trên hóa đơn. Nếu giao trễ, khách hàng sẽ nhận được Voucher 100.000đ (Áp dụng mua tất cả sản phẩm (trừ sim số, thẻ cào) tại hệ thống cửa hàng FPT Shop. Mã voucher sẽ được tự động gửi tin nhắn đến Số điện thoại mua hàng của Khách hàng trong vòng 24h kể từ khi hoàn tất giao hàng (nếu trễ).</p>
-				</div>
-			</div>`,
-				"Giao hàng 1 giờ",
-				{
-					confirmButtonText: "Đóng",
-					dangerouslyUseHTMLString: true
-				}
-			)
-		}
-	}
-}
-</script>

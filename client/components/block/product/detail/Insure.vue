@@ -1,8 +1,8 @@
 <template>
     <div class="bag">
-        <div>
+        <div v-show="attached">
              <h6>Trong hộp có:</h6>
-              <p class="attached"><i class="fa fa-gift"></i> Củ sạc, Cáp sạc, Tai nghe, Ốp lưng, Cây lấy sim, Sách hướng dẫn sử dụng.</p>
+              <p class="attached" ><i class="fa fa-gift"></i>{{attached}}</p>
         </div>
         <div class="assure">
             <h6>FPTShop cam kết</h6>
@@ -90,6 +90,11 @@ export default {
 			statusItem: true
 		}
 	},
+	computed: {
+		attached() {
+			return this.$store.state.PRODUCT_DETAIL.attached
+		}
+	},
 	watch: {
 		selectedState() {
 			let stated = states.states.filter(
@@ -140,7 +145,7 @@ i {
 }
 /* width */
 ::-webkit-scrollbar {
-	width: 2px;
+	width: 3px;
 }
 .location_store {
 	padding-left: 0px;
@@ -155,11 +160,13 @@ i {
 /* Track */
 ::-webkit-scrollbar-track {
 	background: #636363;
+	cursor: pointer;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
 	background: #f3f3f3;
+	cursor: pointer;
 }
 .still_item {
 	color: #34a105;

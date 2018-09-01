@@ -1,43 +1,43 @@
 <template>
     <div class="bag" id="evaluate">
         <div class="evalute_title">
-            <h5>Đánh giá & Nhận xét {{product.name}}</h5>
+            <h5>Đánh giá & Nhận xét {{name}}</h5>
         </div>
         <div  class="evalute_main">
             <el-row :gutter="10">
                 <el-col class="rate" :xs="24" :sm="12" :md="7">
                     <div class="rate_main">
-                        <h6>{{product.rate.value}}/5</h6>
-                        <el-rate v-model="product.rate.value" disabled show-score></el-rate>
-                        <span>{{product.rate.countComment}} đánh giá & nhận xét</span>
+                        <h6>{{ratingStar}}/5</h6>
+                        <el-rate v-model="ratingStar" disabled show-score></el-rate>
+                        <span>{{countEvaluatesAndComment}} đánh giá & nhận xét</span>
                     </div>
                 </el-col>
                 <el-col class="progress_main" :xs="24" :sm="12" :md="7">
                    <div class="progress_pd">
                         <div class="progress_all">
-                        <span>5sao</span>
-                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="product.countStar.one" :show-text="false" color="#2a7709"></el-progress>
-                        <span>{{product.countStar.one}}</span>
+                        <span>5.sao</span>
+                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="rate.one.toString()" :show-text="false" color="#2a7709"></el-progress>
+                        <span>{{rate.one}}</span>
                     </div>
                      <div class="progress_all">
-                        <span>4sao</span>
-                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="product.countStar.two" :show-text="false" color="#2a7709"></el-progress>
-                        <span>{{product.countStar.two}}</span>
+                        <span>4.sao</span>
+                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="rate.two.toString()" :show-text="false" color="#2a7709"></el-progress>
+                        <span>{{rate.two}}</span>
                     </div>
                      <div class="progress_all">
-                        <span>3sao</span>
-                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="product.countStar.three" :show-text="false" color="#2a7709"></el-progress>
-                        <span>{{product.countStar.three}}</span>
+                        <span>3.sao</span>
+                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="rate.three.toString()" :show-text="false" color="#2a7709"></el-progress>
+                        <span>{{rate.three}}</span>
                     </div>
                      <div class="progress_all">
-                        <span>2sao</span>
-                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="product.countStar.four" :show-text="false" color="#f6a623"></el-progress>
-                        <span>{{product.countStar.four}}</span>
+                        <span>2.sao</span>
+                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="rate.four.toString()" :show-text="false" color="#f6a623"></el-progress>
+                        <span>{{rate.four}}</span>
                     </div>
                      <div class="progress_all">
-                        <span>1sao</span>
-                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="product.countStar.five" :show-text="false" color="red"></el-progress>
-                        <span>{{product.countStar.five}}</span>
+                        <span>1.sao</span>
+                            <el-progress style="width: 100%; padding: 7px 15px 0px 10px;" :percentage="rate.five.toString()" :show-text="false" color="red"></el-progress>
+                        <span>{{rate.five}}</span>
                      </div>
                    </div>
                 </el-col>
@@ -74,9 +74,12 @@
          </div>
          <div>
              <div class="form_evalute_title" >
-                <h5>Khách hàng nhận xét ({{evaluated.length}})</h5>
+                <h5>Khách hàng nhận xét ({{evaluates.length}})</h5>
              </div>
-            <div>
+            <div> 
+    
+                        <!-- CHỖ NÀY VẪN LÀ DỮ LIỆU GIẢ -->
+                    
                  <el-tabs lazy="true" tab-position="right" v-model="activeTabsComment">
                     <el-tab-pane label="Mới nhất" name="new">
                         <div class="evaluate_new"  v-for="evaluate of evaluated" :key="evaluate.id">
@@ -119,49 +122,62 @@
                         </div>
                     </el-tab-pane>
              </el-tabs>
+
+
             </div>
          </div>
     </div>
 </template>
 <script>
+import convertRating from "~/helpers/converts_rating"
 export default {
 	data() {
 		return {
 			showForm: false,
 			activeTabsComment: "new",
-			product: {
-				name: "Macbook Air 13 128GB MQD32SA/A (2017)",
-				rate: { value: 3.4, countComment: "12" },
-				countStar: {
-					one: 6,
-					two: 2,
-					three: 3,
-					four: 12,
-					five: 23
-				}
-			},
 			newEvaluate: {
 				rate: 3,
 				text: ""
 			},
 			evaluated: [
-                    {
-                    	name: "Quốc khánh",
-                    	time: "1 giờ trước",
-                    	rate: 5,
-                    	like: 13,
-                    	comment:
-                    		"Bạn Quốc Minh nói vậy ko đúng vì S625 bây giờ mình vẫn chiến tất cả các game nặng"
-                    },
-                    {
-                    	name: "Sáu lượng",
-                    	time: "1 giờ trước",
-                    	rate: 3.5,
-                    	like: 12,
-                    	comment:
-                    		"Tuyêt vơi quá a sơn tùng mtv ơi e mua cái mạng của a đó nhớ gơi qua cho e nha sáu lượng gởi"
-                    }
+				{
+					name: "Quốc khánh",
+					time: "1 giờ trước",
+					rate: 5,
+					like: 13,
+					comment:
+						"Bạn Quốc Minh nói vậy ko đúng vì S625 bây giờ mình vẫn chiến tất cả các game nặng"
+				},
+				{
+					name: "Sáu lượng",
+					time: "1 giờ trước",
+					rate: 3.5,
+					like: 12,
+					comment:
+						"Tuyêt vơi quá a sơn tùng mtv ơi e mua cái mạng của a đó nhớ gơi qua cho e nha sáu lượng gởi"
+				}
 			]
+		}
+	},
+	computed: {
+		name() {
+			return this.$store.state.PRODUCT_DETAIL.name
+		},
+		ratingStar() {
+			let result = convertRating(this.$store.state.PRODUCT_DETAIL.rate)
+			return result
+		},
+		countEvaluatesAndComment() {
+			return (
+				this.$store.state.PRODUCT_DETAIL.evaluates.length +
+				this.$store.state.PRODUCT_DETAIL.comments.length
+			)
+		},
+		evaluates() {
+			return this.$store.state.PRODUCT_DETAIL.evaluates
+		},
+		rate() {
+			return this.$store.state.PRODUCT_DETAIL.rate
 		}
 	}
 }

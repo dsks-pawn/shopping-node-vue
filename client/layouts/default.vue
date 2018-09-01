@@ -164,5 +164,39 @@ body {
 .post_detail h5 {
 	margin-bottom: 0rem;
 }
+.sale_main {
+	padding: 15px 5px 5px 5px;
+	border: 1px dashed #d7d7d7;
+}
+.sale_main p {
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-bottom: 0px;
+}
+.sale_main li {
+	text-transform: uppercase;
+	font-size: 12px;
+	margin-bottom: 0px;
+}
+.sale_main ul {
+	margin-bottom: 0.7em;
+}
+.sale_main p:first-child {
+	font-style: italic;
+	color: #4a4a4a;
+	margin-bottom: 5px;
+}
+.titkms {
+	margin-bottom: 5px;
+	padding: 2px 5px;
+	font-size: 12px;
+	color: #fff;
+	background: #f5a623;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	display: block;
+	max-width: max-content;
+}
 </style>
 
