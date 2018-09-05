@@ -68,7 +68,7 @@ export default {
 					1,
 					6
 				),
-				linkViewAll: ""
+				linkViewAll: "/products/phone"
 			}
 		},
 		getPhoneSaleAds() {
@@ -85,7 +85,7 @@ export default {
 		return {
 			phoneHot: {
 				typePhones: "ĐIỆN THOẠI HOT NHẤT",
-				viewAll: "",
+				viewAll: "/products/phone",
 				itemPhones: [
 					{
 						name: "Huwei Nova 3i",
@@ -139,7 +139,7 @@ export default {
 			},
 			phoneNew: {
 				typePhones: "ĐIỆN THOẠI MỚI RA MẮT",
-				viewAll: "",
+				viewAll: "/products/phone",
 				itemPhones: [
 					{
 						name: "Huwei Nova 3i",
@@ -201,7 +201,7 @@ export default {
 			},
 			phoneBestBattery: {
 				typePhones: "ĐIỆN THOẠI pin khủng",
-				viewAll: "",
+				viewAll: "/products/phone",
 				itemPhones: [
 					{
 						name: "Huwei Nova 3i",
@@ -263,7 +263,7 @@ export default {
 			},
 			phonePhotography: {
 				typePhones: "ĐIỆN THOẠI nhiếp ảnh",
-				viewAll: "",
+				viewAll: "/products/phone",
 				itemPhones: [
 					{
 						name: "Huwei Nova 3i",
@@ -327,7 +327,7 @@ export default {
 			},
 			phoneGame: {
 				typePhones: "ĐIỆN THOẠI chơi game",
-				viewAll: "",
+				viewAll: "/products/phone",
 				itemPhones: [
 					{
 						name: "Huwei Nova 3i",

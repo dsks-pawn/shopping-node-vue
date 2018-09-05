@@ -4,7 +4,7 @@
  		<div class="breadcrumb">
  			<el-breadcrumb separator-class="el-icon-arrow-right">
  				<el-breadcrumb-item ><nuxt-link class="breadcrumb_title" to="/">Trang chủ</nuxt-link></el-breadcrumb-item>
- 				<el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">Máy tính bảng</nuxt-link></el-breadcrumb-item>
+ 				<el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">{{typeProduct}}</nuxt-link></el-breadcrumb-item>
  			</el-breadcrumb>
  		</div>
 		 <el-row :gutter="10">
@@ -12,7 +12,7 @@
 				<SideBar/>
 			</el-col>
 			<el-col  :sm="24" :md="19" >
-				<Result :productFilter="productLimit"/>
+				<Result :productFilter="productLimit" />
 			</el-col>
 		</el-row>
 	<ProductsWatched/>
@@ -65,6 +65,16 @@ export default {
 	computed: {
 		productLimit() {
 			return this.$store.state.PRODUCTS_LIMIT
+		},
+		typeProduct() {
+			let category = this.$route.params.Category
+			if (category == "tablet") {
+				return "Máy tính bảng"
+			} else if (category == "phone") {
+				return "Điện thoại"
+			} else {
+				return "Laptop"
+			}
 		}
 	}
 }

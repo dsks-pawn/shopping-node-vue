@@ -6,8 +6,8 @@
  		<div class="breadcrumb">
  			<el-breadcrumb separator-class="el-icon-arrow-right">
  				<el-breadcrumb-item ><nuxt-link class="breadcrumb_title" to="/">Trang chủ</nuxt-link></el-breadcrumb-item>
- 				<el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">Máy tính bảng</nuxt-link></el-breadcrumb-item>
-				 <el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">Tên sản phẩm</nuxt-link></el-breadcrumb-item>
+ 				<el-breadcrumb-item><nuxt-link class="breadcrumb_title" :to="'/products/'+$route.params.Category">{{typeProduct}}</nuxt-link></el-breadcrumb-item>
+				 <el-breadcrumb-item><nuxt-link class="breadcrumb_title" to="">{{nameProduct}}</nuxt-link></el-breadcrumb-item>
  			</el-breadcrumb>
  		</div>
 		 <div class="item_pay">
@@ -27,7 +27,6 @@
 		<div>
 			<CarouselProduct/>
 		</div>
-
 		<div class="menu_evalute">
 			
 			 <el-row :gutter="10">
@@ -152,6 +151,7 @@ export default {
 		// 	}
 		// }
 	},
+
 	data() {
 		return {
 			accessories: {
@@ -243,6 +243,21 @@ export default {
 					}
 				],
 				viewAll: ""
+			}
+		}
+	},
+	computed: {
+		nameProduct() {
+			return this.$store.state.PRODUCT_DETAIL.name
+		},
+		typeProduct() {
+			let category = this.$store.state.PRODUCT_DETAIL.category
+			if (category == "tablet") {
+				return "Máy tính bảng"
+			} else if (category == "phone") {
+				return "Điện thoại"
+			} else {
+				return "Laptop"
 			}
 		}
 	}

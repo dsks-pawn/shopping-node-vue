@@ -57,7 +57,8 @@ export default {
 			if (data.data.status != 200)
 				data = await Additional.getDataAdditionalLaptopFpt()
 			let result = data.data.data[0]
-			if (result) return await store.dispatch("getDataAdditionalLaptop", result)
+			if (result)
+				return await store.dispatch("getDataAdditionalLaptop", result)
 		} catch (error) {
 			throw error
 		}
@@ -71,7 +72,7 @@ export default {
 					1,
 					6
 				),
-				linkViewAll: ""
+				linkViewAll: "/products/laptop"
 			}
 		},
 		getLaptopSaleAds() {
@@ -88,7 +89,7 @@ export default {
 		return {
 			laptopFptShop: {
 				typeLaptops: "Chọn bởi FPT Shop",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",
@@ -166,7 +167,7 @@ export default {
 			},
 			laptopTwoOfOne: {
 				typeLaptops: "sản phẩm 2 trong 1",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",
@@ -244,7 +245,7 @@ export default {
 			},
 			laptopGaming: {
 				typeLaptops: "laptop gaming - đồ họa",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",
@@ -322,7 +323,7 @@ export default {
 			},
 			laptopWindows: {
 				typeLaptops: "laptop windows",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",
@@ -400,7 +401,7 @@ export default {
 			},
 			laptopStudent: {
 				typeLaptops: "laptop sinh viên - văn phòng",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",
@@ -478,7 +479,7 @@ export default {
 			},
 			laptopLight: {
 				typeLaptops: "laptop mỏng nhẹ",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",
@@ -556,7 +557,7 @@ export default {
 			},
 			laptopBusinessMan: {
 				typeLaptops: "laptop doanh nhân",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",
@@ -634,7 +635,7 @@ export default {
 			},
 			laptopRamTerrible: {
 				typeLaptops: "laptop ram khủng",
-				viewAll: "",
+				viewAll: "/products/laptop",
 				itemLaptops: [
 					{
 						name: "Huwei Nova 3i",

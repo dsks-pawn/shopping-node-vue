@@ -2,7 +2,7 @@
     <div class="general">
 		<div class="general_title">
 			<div class="title_flex">
-				<h4><b>{{productGeneral.typeProduct}}</b></h4>
+				<h4><b>{{typeProduct}}</b></h4>
 				<small class="count_product">{{productGeneral.countProduct}}</small>
 			</div>
 			<div>
@@ -19,7 +19,7 @@
 		</div>
          <el-row class="transition" v-if="showTablet">
                 <el-col class="hover_block" :xs="12" :sm="8" :md="6" v-for="item of productFilter" :key="item._id">
-                    <nuxt-link  :to="'/products/test/'+item._id" class="product_items">
+                    <nuxt-link  :to="$route.fullPath+'/'+item._id" class="product_items">
                         <div class="sale"><small>{{item.provisional.sale}}</small></div>
                         <div class="text-center items_img"><img class="product_img" :src="item.avatar" :alt="item.name" :title="item.name"></div>
                         <div class="product_item">
@@ -38,7 +38,7 @@
 
 			<el-row  v-else v-show="item.sale" class="hover_block transition tablet_two" v-for="item of productFilter" :key="item._id">
 				<el-col  :xs="6" :sm="6" :md="6" class="block_item">
-					<nuxt-link to="" class="product_items">
+					<nuxt-link :to="$route.fullPath+'/'+item._id" class="product_items">
 						<div class="sale"><small>{{item.provisional.sale}}</small></div>
 						<div><img class="product_img" :src="item.avatar" :alt="item.name" :title="item.name"></div>
 					</nuxt-link> 
@@ -47,7 +47,7 @@
 				<el-col :xs="18" :sm="18" :md="18">
 					<div class="product_item">
 						<div class="item">
-							<nuxt-link to=""><h5 class="item_title2">{{item.name}}</h5></nuxt-link>
+							<nuxt-link :to="$route.fullPath+'/'+item._id"><h5 class="item_title2">{{item.name}}</h5></nuxt-link>
 						</div>
 						<p class="item_price2">
 							{{item.currPrice}}
@@ -78,6 +78,57 @@
 
     </div>
 </template>
+
+<script>
+export default {
+	props: ["productFilter"],
+	data() {
+		return {
+			showTablet: true,
+			sortTable: [
+				{
+					value: "Giá cao đến thấp",
+					label: "Giá cao đến thấp"
+				},
+				{
+					value: "Giá thấp đến cao",
+					label: "Giá thấp đến cao"
+				},
+				{
+					value: "Bán chạy nhất",
+					label: "Bán chạy nhất"
+				},
+				{
+					value: "Xem nhiều nhất",
+					label: "Xem nhiều nhất"
+				}
+			],
+			valueSortTable: "",
+			productGeneral: {
+				typeProduct: "Máy tính bảng",
+				countProduct: "52+ Sản phẩm"
+			}
+		}
+	},
+	methods: {
+		changeTablet() {
+			this.showTablet = !this.showTablet
+		}
+	},
+	computed: {
+		typeProduct() {
+			let category = this.$route.params.Category
+			if (category == "tablet") {
+				return "Máy tính bảng"
+			} else if (category == "phone") {
+				return "Điện thoại"
+			} else {
+				return "Laptop"
+			}
+		}
+	}
+}
+</script>
 <style scoped>
 .general {
 	background: #fff;
@@ -212,41 +263,3 @@
 	padding-top: 30px;
 }
 </style>
-<script>
-export default {
-	props: ["productFilter"],
-	data() {
-		return {
-			showTablet: true,
-			sortTable: [
-				{
-					value: "Giá cao đến thấp",
-					label: "Giá cao đến thấp"
-				},
-				{
-					value: "Giá thấp đến cao",
-					label: "Giá thấp đến cao"
-				},
-				{
-					value: "Bán chạy nhất",
-					label: "Bán chạy nhất"
-				},
-				{
-					value: "Xem nhiều nhất",
-					label: "Xem nhiều nhất"
-				}
-			],
-			valueSortTable: "",
-			productGeneral: {
-				typeProduct: "Máy tính bảng",
-				countProduct: "52+ Sản phẩm"
-			}
-		}
-	},
-	methods: {
-		changeTablet() {
-			this.showTablet = !this.showTablet
-		}
-	}
-}
-</script>

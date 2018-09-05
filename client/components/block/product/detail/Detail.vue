@@ -20,9 +20,9 @@
     </a>
   </li>
 
-   <li  class="nav-item" v-for="item of images" :key="item.id">
-    <a class="nav-link" data-toggle="tab" :href="'#'+item.id" role="tab" aria-controls="item" aria-selected="false">
-        <img :src="item.img" :alt="nameProduct">
+   <li  class="nav-item" v-for="item of images" :key="item.id" >
+    <a v-show="item.img" class="nav-link" data-toggle="tab" :href="'#'+item.id" role="tab" aria-controls="item" aria-selected="false">
+        <img  :src="item.img" :alt="nameProduct">
     </a>
   </li>
   

@@ -4,7 +4,7 @@ const crawlProductDetail = ($) => {
     product.images = []
     $(".fs-dtsul a").each(function () {
         let img = $(this).attr("href")
-        return product.images.push(img)
+        if(img.indexOf('youtube.com') < 0) return product.images.push(img)
     })
     product.attached = $(".fancybox-access-box p").text().trim()
 
