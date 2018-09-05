@@ -1,5 +1,5 @@
 <template>
-     <div class="bag">
+     <div class="bag" v-if="articleProduct">
         <div class="menu" id="navbar_hidden">
             <el-menu default-active="1"  text-color="black" active-text-color="#d0021b"  class="el-menu-demo" mode="horizontal" >
                 <el-menu-item index="1" v-scroll-to="{ element: '#characteristics',  easing: 'linear', }">Đặc điểm nổi bật</el-menu-item>

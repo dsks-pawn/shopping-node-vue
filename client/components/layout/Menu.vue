@@ -199,7 +199,7 @@
                                 </el-row>
                             </el-col>
                             <el-col :xs="24" :sm="12" :md="6">
-                                <nuxt-link to="" :title="getAds[4].name"><img :src="getAds[4].img" :alt="getAds[4].name"></nuxt-link>
+                                <!-- <nuxt-link to="" :title="getAds[4].name"><img :src="getAds[4].img" :alt="getAds[4].name"></nuxt-link> -->
                             </el-col>
                         </el-row>
 				
@@ -234,6 +234,7 @@
     </div>
 </nav>
 </div>
+
 </template>
 <script>
 import Home from "~/api/Home.js"

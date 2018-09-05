@@ -1,6 +1,5 @@
 import express from "express"
 const router = express.Router()
-import request from "request"
 import rp from 'request-promise'
 import cheerio from "cheerio"
 import { SUCCESS, FAILED } from "../constans.js"
@@ -194,7 +193,7 @@ router.post("/product-limit", async (req,res)=>{
 		let category = req.body.category
 		if(category){
 			try {
-				let data = await ProductControllers.getProductByCategoryLimit(category)
+				var data = await ProductControllers.getProductByCategoryLimit(category)
 				if (data.length > 0) {
 					return res.json({
 						status: SUCCESS,

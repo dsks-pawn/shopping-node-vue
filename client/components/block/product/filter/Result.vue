@@ -18,8 +18,8 @@
 			</div>
 		</div>
          <el-row class="transition" v-if="showTablet">
-                <el-col class="hover_block" :xs="12" :sm="8" :md="6" v-for="item of productFilter" :key="item.id">
-                    <nuxt-link  to="" class="product_items">
+                <el-col class="hover_block" :xs="12" :sm="8" :md="6" v-for="item of productFilter" :key="item._id">
+                    <nuxt-link  :to="'/products/test/'+item._id" class="product_items">
                         <div class="sale"><small>{{item.provisional.sale}}</small></div>
                         <div class="text-center items_img"><img class="product_img" :src="item.avatar" :alt="item.name" :title="item.name"></div>
                         <div class="product_item">
@@ -36,7 +36,7 @@
                 </el-col>
             </el-row>
 
-			<el-row  v-else v-show="item.sale" class="hover_block transition tablet_two" v-for="item of productFilter" :key="item.id">
+			<el-row  v-else v-show="item.sale" class="hover_block transition tablet_two" v-for="item of productFilter" :key="item._id">
 				<el-col  :xs="6" :sm="6" :md="6" class="block_item">
 					<nuxt-link to="" class="product_items">
 						<div class="sale"><small>{{item.provisional.sale}}</small></div>

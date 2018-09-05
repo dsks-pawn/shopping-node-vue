@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="tab-pane fade" role="tabpanel" v-for="item of images" :key="item.id"  :id="item.id" :aria-labelledby="item.id">
-		<img :src="item.img">
+		<img :src="item.img">	
 	</div>
 </div>
 
@@ -20,7 +20,7 @@
     </a>
   </li>
 
-   <li class="nav-item" v-for="item of images" :key="item.id">
+   <li  class="nav-item" v-for="item of images" :key="item.id">
     <a class="nav-link" data-toggle="tab" :href="'#'+item.id" role="tab" aria-controls="item" aria-selected="false">
         <img :src="item.img" :alt="nameProduct">
     </a>
