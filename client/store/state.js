@@ -6,5 +6,6 @@ export default {
   ADDITIONAL_PHONE: {},
   ADDITIONAL_LAPTOP: {},
   PRODUCTS_LIMIT: [],
-  PRODUCT_DETAIL: {}
+  PRODUCT_DETAIL: {},
+  LAPTOP_FILTER: {}
 }

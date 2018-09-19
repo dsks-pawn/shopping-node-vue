@@ -8,14 +8,14 @@
 
               <Brand :brands="getBrandLaptop"/>
 
-              <Laptop :laptops="laptopFptShop"/>
-			  <Laptop :laptops="laptopTwoOfOne"/>
+              <Laptop :laptops="fptShopSelected"/>
+			  <!-- <Laptop :laptops="laptopTwoOfOne"/>
 			  <Laptop :laptops="laptopGaming"/>
 			  <Laptop :laptops="laptopWindows"/>
 			  <Laptop :laptops="laptopStudent"/>
 			  <Laptop :laptops="laptopLight"/>
 			  <Laptop :laptops="laptopBusinessMan"/>
-			  <Laptop :laptops="laptopRamTerrible"/>
+			  <Laptop :laptops="laptopRamTerrible"/> -->
 
 			<ProductsWatched/>
            </div>
@@ -32,6 +32,7 @@ import ProductsWatched from "~/components/common/ProductsWatched.vue"
 
 import Home from "~/api/Home.js"
 import Additional from "~/api/Additional.js"
+import FilterLaptop from "~/api/FilterLaptop.js"
 export default {
 	components: {
 		Price,
@@ -57,8 +58,17 @@ export default {
 			if (data.data.status != 200)
 				data = await Additional.getDataAdditionalLaptopFpt()
 			let result = data.data.data[0]
-			if (result)
-				return await store.dispatch("getDataAdditionalLaptop", result)
+			if (result) await store.dispatch("getDataAdditionalLaptop", result)
+		} catch (error) {
+			throw error
+		}
+	},
+	async mounted() {
+		try {
+			let result = {}
+			let fptShopSelected = await FilterLaptop.laptopFptShopSelected()
+			result.fptShopSelected = fptShopSelected.data.data
+			return await this.$store.dispatch("laptopSlideFilter", result)
 		} catch (error) {
 			throw error
 		}
@@ -83,636 +93,643 @@ export default {
 				typeBrands: "thương hiệu laptop",
 				brandBig: this.$store.state.ADDITIONAL_LAPTOP.brand
 			}
-		}
-	},
-	data() {
-		return {
-			laptopFptShop: {
+		},
+		fptShopSelected() {
+			return {
 				typeLaptops: "Chọn bởi FPT Shop",
 				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
-			},
-			laptopTwoOfOne: {
-				typeLaptops: "sản phẩm 2 trong 1",
-				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
-			},
-			laptopGaming: {
-				typeLaptops: "laptop gaming - đồ họa",
-				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
-			},
-			laptopWindows: {
-				typeLaptops: "laptop windows",
-				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
-			},
-			laptopStudent: {
-				typeLaptops: "laptop sinh viên - văn phòng",
-				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
-			},
-			laptopLight: {
-				typeLaptops: "laptop mỏng nhẹ",
-				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
-			},
-			laptopBusinessMan: {
-				typeLaptops: "laptop doanh nhân",
-				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
-			},
-			laptopRamTerrible: {
-				typeLaptops: "laptop ram khủng",
-				viewAll: "/products/laptop",
-				itemLaptops: [
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					},
-					{
-						name: "Huwei Nova 3i",
-						link: "",
-						img:
-							"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
-						price: "6.990.000",
-						priceOld: "7.000.000",
-						rate: { value: 5, countComment: "30 đánh giá" },
-						sale: "Trả góp 0%",
-						specifications: {
-							screen: "11.6 inchHD TN AG TOUCH",
-							cpu: "Itel, Pentium, 1.10 GHz",
-							ram: "4 GB, ĐR#L, 1600 MHz",
-							vga: "Itel@ HD Graphics 505...",
-							hdh: "Windows 10",
-							weight: "1.50Kg"
-						}
-					}
-				]
+				itemLaptops: this.$store.state.LAPTOP_FILTER.fptShopSelected
 			}
 		}
-	}
+	},
+	// data() {
+	// 	return {
+	// 		laptopFptShop: {
+	// 			typeLaptops: "Chọn bởi FPT Shop",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		},
+	// 		laptopTwoOfOne: {
+	// 			typeLaptops: "sản phẩm 2 trong 1",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		},
+	// 		laptopGaming: {
+	// 			typeLaptops: "laptop gaming - đồ họa",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		},
+	// 		laptopWindows: {
+	// 			typeLaptops: "laptop windows",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		},
+	// 		laptopStudent: {
+	// 			typeLaptops: "laptop sinh viên - văn phòng",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		},
+	// 		laptopLight: {
+	// 			typeLaptops: "laptop mỏng nhẹ",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		},
+	// 		laptopBusinessMan: {
+	// 			typeLaptops: "laptop doanh nhân",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		},
+	// 		laptopRamTerrible: {
+	// 			typeLaptops: "laptop ram khủng",
+	// 			viewAll: "/products/laptop",
+	// 			itemLaptops: [
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				},
+	// 				{
+	// 					name: "Huwei Nova 3i",
+	// 					link: "",
+	// 					img:
+	// 						"//cdn.fptshop.com.vn/Uploads/Thumbs/2018/7/9/636667588264506999_E5-475.png",
+	// 					price: "6.990.000",
+	// 					priceOld: "7.000.000",
+	// 					rate: { value: 5, countComment: "30 đánh giá" },
+	// 					sale: "Trả góp 0%",
+	// 					specifications: {
+	// 						screen: "11.6 inchHD TN AG TOUCH",
+	// 						cpu: "Itel, Pentium, 1.10 GHz",
+	// 						ram: "4 GB, ĐR#L, 1600 MHz",
+	// 						vga: "Itel@ HD Graphics 505...",
+	// 						hdh: "Windows 10",
+	// 						weight: "1.50Kg"
+	// 					}
+	// 				}
+	// 			]
+	// 		}
+	// 	}
+	// }
 }
 </script>
 

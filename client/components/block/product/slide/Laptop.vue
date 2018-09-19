@@ -5,28 +5,61 @@
                 <nuxt-link to=""><h5>{{laptops.typeLaptops}}</h5></nuxt-link>
                 <nuxt-link :to="laptops.viewAll"><small>Xem tất cả</small></nuxt-link>
             </div>
-            <carousel  class="laptops_carousel icon_block " :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="<i class='fa fa-chevron-circle-right'></i>" navigationPrevLabel="<i class='fa fa-chevron-circle-left'></i>" :perPageCustom="[[411, 2], [768, 2], [1024, 4]]" :autoplay="true" :minSwipeDistance="10">
-                <slide class="hover_block" v-for="laptop of laptops.itemLaptops" :key="laptop.id">
-                    <div class="sale"><small>{{laptop.sale}}</small></div>
-					<nuxt-link  :to="laptop.link" class="product_items">
-						<div class="text-center"><img class="product_img" :src="laptop.img" :alt="laptop.name" :title="laptop.name"></div>
+            <carousel  class="laptops_carousel icon_block " :paginationEnabled="false" :navigationEnabled="true" navigationNextLabel="<i class='fa fa-chevron-circle-right'></i>" navigationPrevLabel="<i class='fa fa-chevron-circle-left'></i>" :perPageCustom="[[411, 1], [768, 2], [1024, 4]]" :autoplay="true" :minSwipeDistance="10">
+                <slide class="hover_block" v-for="laptop of laptops.itemLaptops" :key="laptop._id">
+                    <div class="sale"><small>{{laptop.provisional.sale}}</small></div>
+					<nuxt-link  :to="$route.fullPath+'/'+laptop._id" class="product_items">
+						<div class="text-center"><img class="product_img" :src="laptop.avatar" :alt="laptop.name" :title="laptop.name"></div>
                         <div class="product_item">
                             <div class="item">
                                 <h6 class="item_title">{{laptop.name}}</h6>
                             </div>
                             <p class="item_price">
-                                {{laptop.price}}₫
-								<span class="item_price_old">{{laptop.priceOld}}</span>
+                                {{laptop.currPrice}}
+								<span v-show="laptop.oldPrice > 0" class="item_price_old">{{laptop.oldPrice}}</span>
                             </p>
-                            <el-rate  class="product_rate" v-model="laptop.rate.value" disabled show-score text-color="grey" :score-template="laptop.rate.countComment"></el-rate>
+                            <el-rate  class="product_rate" v-model="laptop.provisional.rate" disabled show-score text-color="grey" :score-template="laptop.provisional.evaluates"></el-rate>
 							<div class="horizontal"></div>
 							<div class="specifications">
-								<small class="specifications_item"><span class="specifications_item_title">Màn hình: </span><span> {{laptop.specifications.screen}}</span></small><br>
-								<small class="specifications_item"><span class="specifications_item_title">CPU: </span> <span> {{laptop.specifications.cpu}}</span></small><br>
-								<small class="specifications_item"><span class="specifications_item_title">Ram: </span> <span> {{laptop.specifications.ram}}</span></small><br>
-								<small class="specifications_item"><span class="specifications_item_title">VGA: </span> <span> {{laptop.specifications.vga}}</span></small><br>
-								<small class="specifications_item"><span class="specifications_item_title">GB: </span> <span> {{laptop.specifications.hdh}}</span></small><br>
-								<small class="specifications_item"><span class="specifications_item_title">HĐH: </span> <span> {{laptop.specifications.weight}}</span></small><br>
+								<small class="specifications_item">
+									<span class="specifications_item_title">Màn hình: </span>
+									{{laptop.provisional.specifications[0]}}
+									<span v-show="!laptop.provisional.specifications[0]">Đang cập nhật <i class="el-icon-loading"></i></span>
+								</small>
+								<br>
+								
+								<small class="specifications_item">
+									<span  class="specifications_item_title">CPU: </span>
+									{{laptop.provisional.specifications[1]}}
+									 <span v-show="!laptop.provisional.specifications[1]">Đang cập nhật <i class="el-icon-loading"></i></span>
+								</small>
+
+								<small class="specifications_item">
+									 <span class="specifications_item_title" >Ram: </span>
+									 {{laptop.provisional.specifications[2]}}
+									 <span v-show="!laptop.provisional.specifications[2]">Đang cập nhật <i class="el-icon-loading"></i></span>
+								</small>
+								
+								<br>
+								<small class="specifications_item">
+									<span class="specifications_item_title" >VGA: </span>
+									 {{laptop.provisional.specifications[3]}}
+									 <span v-show="!laptop.provisional.specifications[3]">Đang cập nhật <i class="el-icon-loading"></i></span>
+								</small
+								><br>
+
+								<small class="specifications_item">
+									<span class="specifications_item_title">HĐH: </span>
+									{{laptop.provisional.specifications[4]}}
+									<span v-show="!laptop.provisional.specifications[4]">Đang cập nhật <i class="el-icon-loading"></i></span>
+								</small>
+								<br>
+
+								<small class="specifications_item">
+									<span class="specifications_item_title">Nặng: </span>
+									 {{laptop.provisional.specifications[5]}}
+									<span v-show="!laptop.provisional.specifications[5]">Đang cập nhật <i class="el-icon-loading"></i></span>
+								</small>
 							</div>
                         </div>
                     </nuxt-link>
@@ -82,6 +115,9 @@ export default {
 .item_title {
 	color: #1f1f1f;
 	font-size: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .item_price {

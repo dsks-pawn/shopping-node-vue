@@ -22,5 +22,8 @@ export default {
   },
   getProductDetail(state, data){
     state.PRODUCT_DETAIL = data
+  },
+  laptopSlideFilter(state, data){
+    state.LAPTOP_FILTER = data
   }
 }

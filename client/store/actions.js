@@ -19,12 +19,16 @@ export default {
   getDataAdditionalLaptop({ commit }, data){
     commit("getDataAdditionalLaptop", data)
   },
-  getProductLimit({ commit }, data){
-    convertPrice(data)
+  async getProductLimit({ commit }, data){
+    await convertPrice(data)
     commit("getProductLimit", data)
   },
-  getProductDetail({ commit }, data){
-    convertPrice(data)
+  async getProductDetail({ commit }, data){
+    await convertPrice(data)
     commit("getProductDetail", data)
+  },
+  async laptopSlideFilter({ commit }, data){
+    await convertPrice(data.fptShopSelected)
+    commit("laptopSlideFilter", data)
   },
 }
